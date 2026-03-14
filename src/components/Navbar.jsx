@@ -5,9 +5,10 @@ import "./navbar.css";
 const NAV_LINKS = [
   { label: "Company", href: "/company" },
   { label: "About Us", href: "/aboutus" },
+  { label: "Teams", href: "/teams" },
+
   { label: "Solutions", href: "/solutions" },
   { label: "Clients", href: "/clients" },
-  { label: "People", href: "/people" },
   { label: "Career", href: "/career" },
   { label: "Contact", href: "/contact" },
 ];
