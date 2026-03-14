@@ -133,7 +133,7 @@ function Headline({ color, subColor }) {
       >
         meet the
         <br />
-        <span style={{ fontStyle: "italic", fontWeight: 300 }}>Builders</span>
+        <span style={{ fontStyle: "italic", fontWeight: 300 }}>Excellents</span>
       </h1>
     </div>
   );
