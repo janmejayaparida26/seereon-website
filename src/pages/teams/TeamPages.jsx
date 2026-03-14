@@ -387,7 +387,7 @@ function MemberCard({ member, index }) {
         background: "#fff",
         border: "1px solid #e8e5e0",
         borderRadius: 16,
-        padding: "35px",
+        padding: "55px",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
@@ -398,8 +398,8 @@ function MemberCard({ member, index }) {
     >
       <div
         style={{
-          width: 200,
-          height: 200,
+          width: 60,
+          height: 60,
           borderRadius: "50%",
           background: "#f0eeeb",
           border: "1.5px solid #e0ddd8",
