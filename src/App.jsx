@@ -6,9 +6,8 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import Contact from "./pages/contact/Contact";
-
+import AboutUs from "./pages/aboutus/AboutUs";
 function App() {
-
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -28,9 +27,10 @@ function App() {
     <>
       <Navbar />
       <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/Contact" element={<Contact />} />
-  </Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+      </Routes>
     </>
   );
 }
