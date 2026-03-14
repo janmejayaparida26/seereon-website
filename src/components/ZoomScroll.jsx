@@ -1,0 +1,34 @@
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
+export default function LogoZoomSection() {
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 1], [0.3, 1.7]);
+
+  return (
+    <section
+      ref={ref}
+      className="h-[80vh] w-full bg-[#f0f0f0] flex items-center justify-center overflow-hidden"
+    >
+      <motion.div
+        style={{ scale }}
+        className="w-full h-full flex items-center justify-center"
+      >
+        <video
+          src="/src/assets/file (1).mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+    </section>
+  );
+}

@@ -1,0 +1,19 @@
+/* Navbar Responsive CSS */
+
+/* Hide menu button on desktop */
+.menu-btn {
+  display: none !important;
+}
+
+/* Show menu button on mobile */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: flex !important;
+  }
+  .desktop-nav {
+    display: none !important;
+  }
+  .desktop-cta {
+    display: none !important;
+  }
+}
