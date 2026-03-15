@@ -11,36 +11,35 @@ export default function AboutSection() {
   return (
     <>
       <style>{`
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        .about-wrap {
+        .about-section {
           background-color: #f0f0f0;
-          font-family: 'Arimo', sans-serif;
-          font-weight: 600;
           width: 100%;
-          min-height: 80vh;
-          display: flex;
-          align-items: center;
-          padding: 40px 56px;
         }
-        .about-grid {
-          width: 100%;
+
+        .about-container {
+          max-width: 1400px;
+          margin: auto;
+          padding: 80px 24px;
           display: grid;
           grid-template-columns: 400px 1fr;
           column-gap: 100px;
           align-items: start;
+          font-family: 'Arimo', sans-serif;
         }
+
         .left-col {
           font-size: 20px;
           font-weight: 400;
           line-height: 1.5;
           color: #111;
-          padding-top: 6px;
         }
+
         .right-col {
           display: flex;
           flex-direction: column;
           gap: 40px;
         }
+
         .big-headline {
           font-size: 86px;
           font-weight: 400;
@@ -48,17 +47,18 @@ export default function AboutSection() {
           letter-spacing: -0.03em;
           color: #0A0A0A;
         }
+
         .cta-row {
           display: flex;
           align-items: center;
           gap: 24px;
         }
+
         .btn-pill {
           display: inline-flex;
           align-items: center;
           gap: 6px;
           background: #fff;
-          border: none;
           border-radius: 999px;
           padding: 12px 24px;
           font-family: 'DM Sans', sans-serif;
@@ -67,9 +67,9 @@ export default function AboutSection() {
           color: #0A0A0A;
           cursor: pointer;
           box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-          transition: box-shadow 0.2s, transform 0.2s;
+          border: none;
         }
-        .btn-pill:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.13); transform: translateY(-1px); }
+
         .btn-plain {
           display: inline-flex;
           align-items: center;
@@ -81,15 +81,11 @@ export default function AboutSection() {
           font-weight: 500;
           color: #0A0A0A;
           cursor: pointer;
-          transition: opacity 0.2s;
         }
-        .btn-plain:hover { opacity: 0.45; }
       `}</style>
 
-      <div className="about-wrap">
-        <div className="about-grid">
-
-          {/* LEFT — description */}
+      <section className="about-section">
+        <div className="about-container">
           <div
             className="left-col"
             style={{
@@ -98,10 +94,11 @@ export default function AboutSection() {
               transition: "opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s",
             }}
           >
-            Whether you’re a startup ready to launch or an established business aiming to scale, our team works with you to turn your vision into reality — faster, smarter, and better.
+            Whether you’re a startup ready to launch or an established business
+            aiming to scale, our team works with you to turn your vision into
+            reality — faster, smarter, and better.
           </div>
 
-          {/* RIGHT — headline + buttons */}
           <div className="right-col">
             <h2
               className="big-headline"
@@ -121,23 +118,13 @@ export default function AboutSection() {
                 transition: "opacity 0.7s ease 1s",
               }}
             >
-              <button className="btn-pill">
-                Our Clients
-                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                  <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="#0A0A0A" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-              <button className="btn-plain">
-                Our Story
-                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                  <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="#0A0A0A" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
+              <button className="btn-pill">Our Clients</button>
+
+              <button className="btn-plain">Our Story</button>
             </div>
           </div>
-
         </div>
-      </div>
+      </section>
     </>
   );
 }
