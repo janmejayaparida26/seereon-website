@@ -2,20 +2,51 @@ const cohorts = [
   {
     id: 1,
     image: "/cohort-feb.png",
-    title: "Cohort - February Batch",
-    badge: "Available Online",
+    title: "Business Development Executive",
+    badge: "Open-Position",
     program: "Founder Mentorship Programme",
-    startDate: "Started Feb 3",
-    price: "₹999",
   },
   {
-    id: 2,
-    image: "/cohort-mar.png",
-    title: "Cohort - March Batch",
-    badge: "Available Online",
+    id: 1,
+    image: "/cohort-feb.png",
+    title: "Business Development Executive",
+    badge: "Open-Position",
     program: "Founder Mentorship Programme",
-    startDate: "Started Mar 4",
-    price: "₹999",
+  },
+  {
+    id: 1,
+    image: "/cohort-feb.png",
+    title: "Business Development Executive",
+    badge: "Open-Position",
+    program: "Founder Mentorship Programme",
+  },
+  {
+    id: 1,
+    image: "/cohort-feb.png",
+    title: "Business Development Executive",
+    badge: "Open-Position",
+    program: "Founder Mentorship Programme",
+  },
+  {
+    id: 1,
+    image: "/cohort-feb.png",
+    title: "Business Development Executive",
+    badge: "Open-Position",
+    program: "Founder Mentorship Programme",
+  },
+  {
+    id: 1,
+    image: "/cohort-feb.png",
+    title: "Business Development Executive",
+    badge: "Open-Position",
+    program: "Founder Mentorship Programme",
+  },
+  {
+    id: 1,
+    image: "/cohort-feb.png",
+    title: "Business Development Executive",
+    badge: "Open-Position",
+    program: "Founder Mentorship Programme",
   },
 ];
 
@@ -24,10 +55,10 @@ const CareerFourthSection = () => {
     <section className="bg-white py-20 px-6 md:px-12 lg:px-24">
       {/* Header */}
       <div className="text-center mb-12">
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 tracking-tight mb-4">
-          Apply to the next cohort
+        <h2 className="text-5xl md:text-6xl lg:text-7xl font-['Arimo',sans-serif] font-bold text-gray-900 tracking-tight mb-4">
+          We are looking for
         </h2>
-        <p className="text-sm text-gray-400">
+        <p className="text-sm font-['Arimo',sans-serif] text-gray-400">
           Seats are limited. We review applications on a rolling basis.
         </p>
       </div>
@@ -84,7 +115,7 @@ const CareerFourthSection = () => {
             {/* CTA */}
             <div className="flex-shrink-0">
               <button className="px-6 py-2.5 bg-gray-900 text-white text-sm font-semibold rounded-lg hover:bg-gray-700 transition-colors">
-                View Course
+                Apply Now
               </button>
             </div>
           </div>

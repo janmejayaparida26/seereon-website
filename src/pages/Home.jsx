@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from "../components/Navbar";
 import HeroBanner from "../components/heroBanner";
 import AboutSection from '../components/AboutSection';
 import MarqueeSection from '../components/MarqueeSection';
@@ -15,6 +16,7 @@ import Footer from '../components/Footer';
 function Home() {
   return (
     <div>
+    <Navbar />
     <HeroBanner />
     <AboutSection />
     <MarqueeSection />

@@ -18,13 +18,13 @@ const steps = [
 
 const CareerFirstSection = () => {
   return (
-    <section className="bg-white py-20 px-6 md:px-12 lg:px-24">
+    <section className="bg-white p my-20 px-6 md:px-12 lg:px-24">
       {/* Header */}
       <div className="text-center mb-14">
-        <h2 className="text-5xl md:text-6xl font-semibold text-gray-900 tracking-tight mb-4">
+        <h2 className="text-5xl md:text-6xl font-['Arimo',sans-serif] font-semibold text-gray-900 tracking-tight mb-4">
           How it works?
         </h2>
-        <p className="text-base text-gray-500">
+        <p className="text-base font-['Arimo',sans-serif] text-gray-500">
           A simple, three-step journey that turns theory into outcomes.
         </p>
       </div>
@@ -36,10 +36,10 @@ const CareerFirstSection = () => {
             key={step.title}
             className="border border-gray-200 rounded-2xl p-8"
           >
-            <h3 className="text-base font-bold text-gray-900 mb-3">
+            <h3 className="text-base font-['Arimo',sans-serif] font-bold text-gray-900 mb-3">
               {step.title}
             </h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
+            <p className="text-sm font-['Arimo',sans-serif] text-gray-600 leading-relaxed">
               {step.description}
             </p>
           </div>
