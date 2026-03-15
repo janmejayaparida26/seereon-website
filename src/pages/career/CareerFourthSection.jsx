@@ -44,7 +44,7 @@ const cohorts = [
   {
     id: 7,
     image: "/cohort-feb.png",
-    title: "Business Development Executive",
+    title: "Front Desk Associate",
     badge: "Open-Position",
     program: "Founder Mentorship Programme",
   },
@@ -64,7 +64,7 @@ const CareerFourthSection = () => {
       </div>
 
       {/* Cohort List Card */}
-      <div className="max-w-5xl mx-auto border border-gray-200 rounded-2xl overflow-hidden">
+      <div className="max-w-7xl mx-auto border border-gray-200 rounded-2xl overflow-hidden">
         {cohorts.map((cohort, index) => (
           <div
             key={cohort.id}
@@ -93,7 +93,7 @@ const CareerFourthSection = () => {
             {/* Info */}
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-3 mb-2">
-                <h3 className="text-lg font-semibold text-gray-900">
+                <h3 className="text-2xl font-semibold text-gray-900">
                   {cohort.title}
                 </h3>
                 <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full border border-gray-300 text-xs text-gray-600">

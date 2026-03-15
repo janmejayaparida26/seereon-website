@@ -36,7 +36,7 @@ const CareerFifthSection = () => {
     <section className="bg-white py-20 px-6 md:px-12 lg:px-24">
       {/* Header */}
       <div className="text-center mb-14">
-        <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 tracking-tight leading-[1.05]">
+        <h2 className="text-5xl md:text-7xl lg:text-8xl font-['Arimo',sans-serif] font-bold text-gray-900 tracking-tight leading-[1.05]">
           Frequently
           <br />
           asked questions
@@ -50,10 +50,10 @@ const CareerFifthSection = () => {
             key={faq.question}
             className="border border-gray-200 rounded-2xl px-7 py-6 bg-white"
           >
-            <h3 className="text-sm font-bold text-gray-900 mb-2">
+            <h3 className="text- font-['Arimo',sans-serif] font-bold text-gray-900 mb-2">
               {faq.question}
             </h3>
-            <p className="text-sm text-gray-500 leading-relaxed">{faq.answer}</p>
+            <p className="text-sm font-['Arimo',sans-serif] text-gray-500 leading-relaxed">{faq.answer}</p>
           </div>
         ))}
       </div>
