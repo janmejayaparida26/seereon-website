@@ -111,6 +111,6 @@ export const services = [
       "SEO & performance audits",
     ],
     image:
-      "https://images.unsplash.com/photo-1547658719-da2b51169166?w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1678690832311-bb6e361989ca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V2Vic2l0ZSUyMGRldmVsb3BtZW50fGVufDB8fDB8fHww",
   },
 ];

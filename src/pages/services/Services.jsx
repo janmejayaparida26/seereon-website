@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 // import { ServiceIcon } from "../components/services/ServicesIcons";
 import { ServiceIcon } from "./ServicesIcons";
 import { services } from "../../data/services";
+import { Weight } from "lucide-react";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -35,7 +36,7 @@ function Ticker() {
     >
       <motion.div
         animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
         style={{
           display: "flex",
           gap: 48,
@@ -47,12 +48,12 @@ function Ticker() {
           <span
             key={i}
             style={{
-              fontSize: 13,
-              fontWeight: 600,
+              fontSize: 100,
+              fontWeight: 900,
               letterSpacing: "0.1em",
               textTransform: "uppercase",
-              color: "#aaa",
-              fontFamily: "'DM Sans',sans-serif",
+              color: "#cecfce",
+              fontFamily: "'Arimo',sans-serif",
             }}
           >
             {t} <span style={{ color: "#ddd", marginLeft: 48 }}>·</span>
@@ -76,7 +77,7 @@ function ServiceCard({ service, index }) {
         display: "grid",
         gridTemplateColumns: isEven ? "1fr 1fr" : "1fr 1fr",
         gap: 0,
-        borderTop: "1px solid #ddd9d3",
+        border: "1px solid #ddd9d3",
         cursor: "pointer",
         overflow: "hidden",
       }}
@@ -101,7 +102,7 @@ function ServiceCard({ service, index }) {
         {/* Hover fill */}
         <motion.div
           variants={{ rest: { scaleX: 0 }, hovered: { scaleX: 1 } }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           style={{
             position: "absolute",
             inset: 0,
@@ -160,7 +161,7 @@ function ServiceCard({ service, index }) {
                 fontSize: 11,
                 fontWeight: 700,
                 letterSpacing: "0.14em",
-                fontFamily: "'DM Sans',sans-serif",
+                fontFamily: "'Arimo',sans-serif",
               }}
             >
               {service.num}
@@ -170,7 +171,7 @@ function ServiceCard({ service, index }) {
           <motion.h2
             variants={{ rest: { color: "#111" }, hovered: { color: "#fff" } }}
             style={{
-              fontFamily: "'Bebas Neue',sans-serif",
+              fontFamily: "'Arimo',sans-serif",
               fontSize: "clamp(36px,3.5vw,52px)",
               lineHeight: 0.95,
               letterSpacing: "0.01em",
@@ -189,7 +190,7 @@ function ServiceCard({ service, index }) {
               fontSize: 13,
               fontStyle: "italic",
               marginBottom: 20,
-              fontFamily: "'DM Sans',sans-serif",
+              fontFamily: "'Arimo',sans-serif",
             }}
           >
             {service.tagline}
@@ -204,7 +205,7 @@ function ServiceCard({ service, index }) {
               fontSize: 14,
               lineHeight: 1.8,
               maxWidth: 360,
-              fontFamily: "'DM Sans',sans-serif",
+              fontFamily: "'Arimo',sans-serif",
             }}
           >
             {service.description}
@@ -232,7 +233,7 @@ function ServiceCard({ service, index }) {
               fontWeight: 600,
               letterSpacing: "0.1em",
               textTransform: "uppercase",
-              fontFamily: "'DM Sans',sans-serif",
+              fontFamily: "'Arimo',sans-serif",
               paddingBottom: 2,
               borderBottom: "1px solid",
             }}
@@ -250,7 +251,7 @@ function ServiceCard({ service, index }) {
 
       {/* Image side */}
       <motion.div
-        style={{ overflow: "hidden", height: 360, order: isEven ? 1 : 0 }}
+        style={{ overflow: "hidden", order: isEven ? 1 : 0 }}
       >
         <motion.img
           src={service.image}
@@ -272,10 +273,10 @@ function ServiceCard({ service, index }) {
 // ── Page ──────────────────────────────────────────────────────
 export default function ServicesPage() {
   return (
-    <div style={{ background: "#f0eeeb", fontFamily: "'DM Sans',sans-serif" }}>
+    <div style={{ background: "#f0eeeb", fontFamily: "'Arimo',sans-serif" }}>
       {/* Hero */}
       <section
-        style={{ padding: "120px 96px 0" }}
+        style={{ padding: "80px 96px 0" }}
         className="px-6 md:px-16 lg:px-24"
       >
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -304,8 +305,9 @@ export default function ServicesPage() {
             <motion.h1
               {...fadeUp(0.1)}
               style={{
-                fontFamily: "'Bebas Neue',sans-serif",
-                fontSize: "clamp(80px,10vw,140px)",
+                fontFamily: "'Arimo',sans-serif",
+                fontSize: "120px",
+                fontWeight: "600",
                 lineHeight: 0.9,
                 letterSpacing: "0.01em",
                 color: "#111",
@@ -338,7 +340,7 @@ export default function ServicesPage() {
 
       {/* Service cards — alternating layout */}
       <div
-        style={{ maxWidth: 1200, margin: "0 auto 0", padding: "0 96px" }}
+        style={{ maxWidth: 1400, margin: "0 auto 0", padding: "0 96px" }}
         className="px-6 md:px-16 lg:px-24"
       >
         {services.map((s, i) => (
@@ -382,7 +384,7 @@ export default function ServicesPage() {
             </p>
             <h2
               style={{
-                fontFamily: "'Bebas Neue',sans-serif",
+                fontFamily: "'Arimo',sans-serif",
                 fontSize: "clamp(40px,5vw,64px)",
                 color: "#fff",
                 lineHeight: 0.95,
@@ -406,7 +408,7 @@ export default function ServicesPage() {
               fontWeight: 600,
               letterSpacing: "0.05em",
               cursor: "pointer",
-              fontFamily: "'DM Sans',sans-serif",
+              fontFamily: "'Arimo',sans-serif",
               whiteSpace: "nowrap",
             }}
           >
