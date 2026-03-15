@@ -8,8 +8,11 @@ import { Routes, Route } from "react-router-dom";
 import Contact from "./pages/contact/Contact";
 import Career from "./pages/career/Career";
 
+import AboutUs from "./pages/aboutus/AboutUs";
+import TeamPage from "./pages/teams/TeamPage";
+import Services from "./pages/services/ServicesPage";
+import ServiceInner from "./pages/services/ServiceInner";
 function App() {
-
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -33,6 +36,13 @@ function App() {
     <Route path="/Contact" element={<Contact />} />
        <Route path="/career" element={<Career />} />
   </Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/teams" element={<TeamPage />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/services/:id" element={<ServiceInner />} />
+      </Routes>
     </>
   );
 }
