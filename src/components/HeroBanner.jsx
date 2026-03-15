@@ -136,7 +136,7 @@ export default function HeroBanner() {
         }
       `}</style>
 
-      <section className="hero-section">
+      <section className="hero-section !pt-40">
 
         {/* Headline + Description stacked */}
         <div className="headline-wrapper">
@@ -146,7 +146,7 @@ export default function HeroBanner() {
             our experts
           </h1>
 
-          <div className="description-block">
+          <div className="description-block !pb-20">
             <p>
               <strong style={{ color: '#0A0A0A', fontWeight: 600 }}>SEEREON</strong> are more than just a tech company — we're your digital growth partner.
               From visually stunning websites to powerful CRM systems and high-impact marketing campaigns,
@@ -159,7 +159,7 @@ export default function HeroBanner() {
         <div className="bottom-row">
           <div className="cta-group">
             <button className="btn-pill">
-              View Clients
+              Learn More
               <svg className="arrow-icon" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="#0A0A0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>

@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import Contact from "./pages/contact/Contact";
+import Career from "./pages/career/Career";
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
       <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/Contact" element={<Contact />} />
+       <Route path="/career" element={<Career />} />
   </Routes>
     </>
   );
