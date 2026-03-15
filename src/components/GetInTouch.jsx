@@ -21,7 +21,7 @@ const LocationCard = ({ city, address, image, lang }) => (
 // Main section rendering the 3 cards in a single row
 const LocationSection = () => {
   const locations = [
-    { city: "Phone", address: "ONEDESIGN, 3rd Floor, 55, Lane 2, Westend Marg, Saidullajab, Saket, New Delhi 110030, INDIA", image: "https://i.pravatar.cc/150?u=delhi", lang: "Hindi / English" },
+    { city: "Phone", address: "ONEDESIGN, 3rd Floor, 55, Lane 2, Westend Marg, Saidullajab, Saket, New Delhi 110030, INDIA", image: "https://i.pravatar.cc/150?u=delhihttps://unsplash.com/photos/a-yellow-telephone-sitting-on-top-of-a-table-erAS7JovSt0", lang: "Hindi / English" },
     { city: "Email", address: "ONEDESIGN, Tower 2, BKC, Bandra East, Mumbai, Maharashtra 400051", image: "https://i.pravatar.cc/150?u=mumbai", lang: "Marathi / English" },
     { city: "Location", address: "ONEDESIGN, Indiranagar, 12th Main Rd, Bangalore, Karnataka 560038", image: "https://i.pravatar.cc/150?u=bangalore", lang: "Kannada / English" },
   ];

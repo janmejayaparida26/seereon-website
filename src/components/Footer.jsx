@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white py-24 px-8 md:px-16 lg:px-24 border-t border-gray-100">
+    <footer className="bg-white py-0 px-0 border-t border-gray-100">
       {/* Container with max-width to match professional web standards */}
-      <div className="max-h-fit mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 !px-20 !py-15">
+      <div className="max-h-fit mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 !px-15 !py-10">
         
         {/* Column 1: Logo & About */}
         <div className="space-y-6">
