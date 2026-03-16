@@ -24,7 +24,7 @@ export default function CultureSection() {
         {/* Background Image */}
         <motion.img
           style={{ y: imageY }}
-          src="src/assets/Image by Brooke Cagle.jpg"
+          src="src/assets/128103.jpg"
           alt="Contact"
           className="absolute inset-0 w-full h-[120%] object-cover"
         />

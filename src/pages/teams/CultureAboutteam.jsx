@@ -22,7 +22,7 @@ const CultureAboutteam = () => {
         {/* Background Image */}
         <motion.img
           style={{ y: imageY }}
-          src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="src/assets/20967.jpg"
           alt="About Us"
           className="absolute inset-0 w-full h-[120%] object-cover"
         />
