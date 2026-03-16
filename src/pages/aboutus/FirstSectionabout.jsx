@@ -9,7 +9,7 @@ const fadeUp = (delay = 0) => ({
 
 const FirstSectionabout = () => {
   return (
-    <section className="bg-[#f0eeeb] py-28 px-6 md:px-12 lg:px-20 font-['DM_Sans']">
+    <section className="bg-[#f0eeeb] py-28 px-6 md:px-12 lg:px-20 font-['Arimo',sans-serif]">
       <div className="max-w-[1100px] mx-auto text-center">
         {/* Tag */}
         <motion.p
@@ -24,17 +24,17 @@ const FirstSectionabout = () => {
           {...fadeUp(0.1)}
           className="font-['Bebas_Neue'] leading-[0.9] text-[#111] mb-10"
         >
-          <span className="block text-[clamp(70px,12vw,150px)] text-left md:text-center">
-            future- ready!
+          <span className="block text-[clamp(70px,12vw,150px)] font-['Arimo',sans-serif] text-left md:text-center">
+            Future-Ready!
           </span>
 
-          <span className="block text-[clamp(80px,14vw,170px)] text-right md:text-center"></span>
+          <span className="block text-[clamp(80px,14vw,170px)] font-['Arimo',sans-serif] text-right md:text-center"></span>
         </motion.h1>
 
         {/* Body */}
         <motion.p
           {...fadeUp(0.25)}
-          className="text-[clamp(15px,1.3vw,18px)] leading-[1.8] text-[#444] max-w-[820px] mx-auto"
+          className="text-[clamp(15px,1.3vw,18px)] leading-[1.8] text-[#444] max-w-[1400px] mx-auto"
         >
           Seereon is a forward-thinking technology company specializing in
           building powerful software products that drive businesses into the
@@ -42,13 +42,11 @@ const FirstSectionabout = () => {
           applications, ERP systems, CRM platforms, and e-commerce portals,
           tailored to solve real-world business challenges.
           <br />
-          <br />
           The name <span className="italic">Seereon</span> is derived from{" "}
           <strong>Seer</strong> and <strong>Eon</strong>—reflecting our core
           philosophy. A Seer represents foresight, clarity, and the ability to
           anticipate what lies ahead, while Eon signifies longevity and enduring
           impact.
-          <br />
           <br />
           At Seereon, we don't just build software—we envision what your
           business needs next and engineer solutions that evolve with you.
@@ -56,7 +54,7 @@ const FirstSectionabout = () => {
 
         {/* CTA */}
         <motion.div {...fadeUp(0.4)} className="mt-12">
-          <button className="inline-flex items-center gap-2 border border-[#111] rounded-full px-7 py-3 text-sm text-[#111] hover:bg-[#111] hover:text-white transition-all duration-300">
+          <button className="inline-flex items-center font-['Arimo',sans-serif] gap-2 border border-[#111] rounded-full px-7 py-3 text-sm text-[#111] hover:bg-[#111] hover:text-white transition-all duration-300">
             Learn More ↗
           </button>
         </motion.div>

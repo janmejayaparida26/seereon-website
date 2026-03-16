@@ -46,11 +46,11 @@ function RightItem({ item }) {
       style={{ opacity, y }}
       className="border-t border-[#c8c5bf] pt-7 pb-10"
     >
-      <p className="text-xs font-bold tracking-[0.12em] text-[#111] mb-2">
+      <p className="text-xs font-['Arimo',sans-serif] font-bold tracking-[0.12em] text-[#111] mb-2">
         {item.num}
       </p>
 
-      <h3 className="text-xl font-bold tracking-tight text-[#111] uppercase mb-3">
+      <h3 className="text-xl font-bold font-['Arimo',sans-serif] tracking-tight text-[#111] uppercase mb-3">
         {item.title}
       </h3>
 
@@ -68,17 +68,17 @@ const ThirdSectionabout = () => {
     <section
       ref={sectionRef}
       className="bg-[#f0eeeb] px-8 md:px-16 lg:px-24 py-24"
-      style={{ fontFamily: "'DM Sans', sans-serif" }}
+      style={{ fontFamily: "'Arimo', sans-serif" }}
     >
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-start">
         {/* LEFT — sticky */}
-        <div className="md:sticky md:top-[15vh]">
+        <div className="md:sticky md:top-[25vh]">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="text-[clamp(36px,4.5vw,58px)] font-bold leading-[1.08] tracking-[-0.025em] text-[#111] mb-6"
+            className="text-[clamp(36px,4.5vw,58px)] font-['Arimo',sans-serif] font-bold leading-[1.08] tracking-[-0.025em] text-[#111] mb-6"
           >
             We build software that gives your business a reason to be chosen.
           </motion.h2>
@@ -88,7 +88,7 @@ const ThirdSectionabout = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="text-[15px] leading-[1.8] text-[#555] max-w-[340px]"
+            className="text-[15px] font-['Arimo',sans-serif] leading-[1.8] text-[#555] max-w-[440px]"
           >
             From scalable ERPs to sleek mobile apps — every product we ship is
             engineered with foresight, precision, and your long-term growth in

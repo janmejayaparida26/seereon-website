@@ -36,13 +36,13 @@ const SecondSectionabout = () => {
 
           {/* Right: Content */}
           <div className="sp-content">
-            <p className="sp-eyebrow">Our Approach</p>
+            <p className="sp-eyebrow font-['Arimo',sans-serif]">Our Approach</p>
 
-            <h2 className="sp-heading">
+            <h2 className="sp-heading font-['Arimo',sans-serif] font-semibold">
               More Than Vendors — We Think Like Your Tech Team
             </h2>
 
-            <p className="sp-body">
+            <p className="sp-body font-['Arimo',sans-serif]">
               At Seereon, we don't just deliver code — we deliver ownership. We
               embed ourselves in your business, understand your roadmap, and
               build software that moves with your ambitions. Whether it's an ERP
@@ -58,7 +58,7 @@ const SecondSectionabout = () => {
         .sp-wrap {
           background: #f0eeeb;
           padding: 80px 10px;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'Arimo', sans-serif;
         }
 
         .sp-container {
@@ -96,7 +96,7 @@ const SecondSectionabout = () => {
 
         .sp-img-text {
           position: relative;
-          font-family: 'Bebas Neue', sans-serif;
+          font-family: 'Arimo', sans-serif;
           font-size: clamp(52px, 6vw, 90px);
           color: rgba(255,255,255,0.12);
           line-height: 0.9;

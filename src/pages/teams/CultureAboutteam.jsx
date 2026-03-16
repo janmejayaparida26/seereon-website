@@ -35,7 +35,7 @@ const CultureAboutteam = () => {
           style={{}}
           className="absolute inset-0 flex items-center justify-center text-white text-[90px] font-medium"
         >
-          About Us
+          Teams
         </motion.h1>
       </div>
     </section>

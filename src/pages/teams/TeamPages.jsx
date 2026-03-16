@@ -115,14 +115,14 @@ function Headline({ color, subColor }) {
           textTransform: "uppercase",
           color: subColor,
           marginBottom: 20,
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: "'Arimo', sans-serif",
         }}
       >
         Seereon · Our People
       </p>
       <h1
         style={{
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: "'Arimo', sans-serif",
           fontSize: "clamp(64px, 11vw, 144px)",
           fontWeight: 700,
           lineHeight: 0.92,
@@ -264,7 +264,7 @@ function HeroSection() {
               letterSpacing: "0.12em",
               textTransform: "uppercase",
               color: "#999",
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Arimo', sans-serif",
             }}
           >
             Scroll to meet everyone
@@ -298,7 +298,7 @@ function HeroSection() {
               letterSpacing: "0.14em",
               textTransform: "uppercase",
               color: "rgba(255,255,255,0.45)",
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Arimo', sans-serif",
             }}
           >
             Scroll to meet everyone
@@ -347,7 +347,7 @@ function HeroSection() {
               border: "none",
               fontSize: 14,
               fontWeight: 500,
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Arimo', sans-serif",
               cursor: "pointer",
             }}
           >
@@ -365,7 +365,7 @@ function HeroSection() {
               border: "1.5px solid #111",
               fontSize: 14,
               fontWeight: 500,
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Arimo', sans-serif",
               cursor: "pointer",
             }}
           >
@@ -393,7 +393,7 @@ function MemberCard({ member, index }) {
         alignItems: "flex-start",
         gap: 12,
         cursor: "default",
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: "'Arimo', sans-serif",
       }}
     >
       <div
@@ -426,7 +426,7 @@ function MemberCard({ member, index }) {
       <div>
         <p
           style={{
-            fontSize: 16,
+            fontSize: 20,
             fontWeight: 600,
             color: "#111",
             margin: "0 0 4px",
@@ -443,7 +443,7 @@ function MemberCard({ member, index }) {
 // ─── PAGE ROOT ───────────────────────────────────────────────
 export default function TeamPage() {
   return (
-    <div style={{ background: "#f0eeeb", fontFamily: "'DM Sans', sans-serif" }}>
+    <div style={{ background: "#f0eeeb", fontFamily: "'Arimo', sans-serif" }}>
       {/* 1 · PINNED CINEMATIC SCROLL HERO */}
       <HeroSection />
 
@@ -465,7 +465,7 @@ export default function TeamPage() {
           <motion.h2
             {...fadeUp(0)}
             style={{
-              fontSize: "clamp(36px,4.5vw,56px)",
+              fontSize: "70px",
               fontWeight: 700,
               lineHeight: 1.07,
               letterSpacing: "-0.025em",
