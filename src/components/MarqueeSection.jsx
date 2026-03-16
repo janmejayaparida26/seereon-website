@@ -1,11 +1,36 @@
 import React from 'react';
 const logos = [
-  { name: "Fortune", url: "https://techicons.dev/icons/amazonwebservices" },
-  { name: "Appinventiv", url: "https://appinventiv.com/wp-content/themes/twentynineteen-child/images/appinventiv-logo.svg" },
-  { name: "Indus Roots", url: "https://via.placeholder.com/200x60?text=INDUS+ROOTS" },
-  { name: "Harley Davidson", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Harley-Davidson_logo.svg/1200px-Harley-Davidson_logo.svg.png%22" },
-  { name: "Eume", url: "https://via.placeholder.com/150x50?text=DO+THE+UNDONE" },
-  { name: "Govt Odisha", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Seal_of_Odisha.svg/1200px-Seal_of_Odisha.svg.png%22" },
+  { name: "AWS", url: "https://icon.icepanel.io/Technology/png-shadow-512/AWS.png" },
+  { name: "Angular", url: "https://icon.icepanel.io/Technology/svg/AngularJS.svg" },
+  { name: "Apache", url: "https://icon.icepanel.io/Technology/svg/Apache.svg" },
+  { name: "Bootstrap", url: "https://icon.icepanel.io/Technology/svg/Bootstrap.svg" },
+  { name: "Canva", url: "https://icon.icepanel.io/Technology/svg/Canva.svg" },
+  { name: "Django", url: "https://icon.icepanel.io/Technology/png-shadow-512/Django.png" },
+  { name: "Express", url: "https://icon.icepanel.io/Technology/png-shadow-512/Express.png" },
+  { name: "Figma", url: "https://icon.icepanel.io/Technology/svg/Figma.svg" },
+  { name: "Adobe Illustrator", url: "https://icon.icepanel.io/Technology/svg/Adobe-Illustrator.svg" },
+  { name: "JS", url: "https://icon.icepanel.io/Technology/svg/JavaScript.svg" },
+  { name: "Jira", url: "https://icon.icepanel.io/Technology/svg/Jira.svg" },
+  { name: "Jquerry", url: "https://icon.icepanel.io/Technology/svg/jQuery.svg" },
+  { name: "Mongo", url: "https://icon.icepanel.io/Technology/svg/MongoDB.svg" },
+  { name: "SQL", url: "https://icon.icepanel.io/Technology/svg/MySQL.svg" },
+  { name: "Node", url: "https://icon.icepanel.io/Technology/svg/Node.js.svg" },
+  { name: "Photoshop", url: "https://icon.icepanel.io/Technology/svg/Adobe-Photoshop.svg" },
+  { name: "PHP", url: "https://icon.icepanel.io/Technology/svg/PHP.svg" },
+  { name: "Postgres", url: "https://icon.icepanel.io/Technology/svg/PostgresSQL.svg" },
+  { name: "Python", url: "https://icon.icepanel.io/Technology/svg/Python.svg" },
+  { name: "React", url: "https://icon.icepanel.io/Technology/svg/React.svg" },
+  { name: "Slack", url: "https://icon.icepanel.io/Technology/svg/Slack.svg" },
+  { name: "Tailwind", url: "https://icon.icepanel.io/Technology/svg/Tailwind-CSS.svg" },
+  { name: "Wordpress", url: "https://icon.icepanel.io/Technology/png-shadow-512/WordPress.png" },
+  { name: "Framer", url: "https://img.icons8.com/?size=160&id=js8pNS2UtYKY&format=png" },
+  { name: "Shopify", url: "https://img.icons8.com/?size=160&id=BRIdulMG66MK&format=png" },
+  { name: "SAP", url: "https://img.icons8.com/?size=96&id=38192&format=png" },
+  { name: "Chatgpt", url: "https://img.icons8.com/?size=100&id=FBO05Dys9QCg&format=png" },
+  { name: "Gemini", url: "https://img.icons8.com/?size=96&id=rnK88i9FvAFO&format=png" },
+  { name: "Claude", url: "https://img.icons8.com/?size=96&id=zQjzFjPpT2Ek&format=png" },
+  { name: "Perplexity", url: "https://img.icons8.com/?size=96&id=kzJWN5jCDzpq&format=png" },
+  { name: "Wix", url: "https://img.icons8.com/?size=160&id=w9gsKSM38X2h&format=png" },
 ];
  
 const GlobalLeadersScroll = () => {
@@ -25,7 +50,7 @@ const GlobalLeadersScroll = () => {
             100% { transform: translateX(-50%); }
           }
           .animate-infinite-scroll {
-            animation: scroll 20s linear infinite;
+            animation: scroll 100s linear infinite;
           }
         `}
       </style>
@@ -35,8 +60,8 @@ const GlobalLeadersScroll = () => {
          
           {/* Left Side: Heading */}
           <div className="w-full md:w-1/4 flex-shrink-0 text-center md:text-left">
-            <h2 className="text-2xl md:text-2xl font-['Arimo',sans-serif] font-semibold text-gray-900 leading-[1.1] tracking-tight">
-              Recommended by<br />Global Leaders
+            <h2 className="!text-2.5xl md:text-2xl font-['Arimo',sans-serif] font-bold text-gray-900 leading-[1.1] tracking-tight">
+            Advanced tech-stacks<br />used in our projects
             </h2>
           </div>
  
@@ -54,7 +79,7 @@ const GlobalLeadersScroll = () => {
                     <img
                       src={logo.url}
                       alt={logo.name}
-                      className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                      className="h-10 md:h-14 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
                     />
                   </div>
                 ))}
