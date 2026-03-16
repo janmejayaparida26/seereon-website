@@ -1,55 +1,82 @@
-export default function StatsSection() {
-  const stats = [
-    {
-      number: "50+",
-      title: "Awesome clients",
-      desc: "in India and around the world",
-    },
-    {
-      number: "100+",
-      title: "Created projects",
-      desc: "working with us across all timezones",
-    },
-    {
-      number: "15M+",
-      title: "Lives Impacted",
-      desc: "through strategic establishments globally",
-    },
-    {
-      number: "10+",
-      title: "Years of Experience",
-      desc: "helping founders realise their dreams",
-    },
-  ];
+import { useEffect, useRef } from "react";
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+
+const stats = [
+  { baseNum: 50, suffix: "+", label: "Awesome Clients" },
+  { baseNum: 2, suffix: "Cr+", label: "Earnings a Year" },
+  { baseNum: 100, suffix: "+", label: "Created Projects" },
+];
+
+function StatItem({ stat, index }) {
+  // Separate refs: one for the motion visibility, one for the text content
+  const inViewRef = useRef(null);
+  const countRef = useRef(null);
+  const inView = useInView(inViewRef, { once: true, margin: "-80px" });
+
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, {
+    damping: 30,
+    stiffness: 100,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      motionValue.set(stat.baseNum);
+    }
+  }, [inView, motionValue, stat.baseNum]);
+
+  useEffect(() => {
+    return springValue.on("change", (latest) => {
+      if (countRef.current) {
+        countRef.current.textContent = Math.floor(latest);
+      }
+    });
+  }, [springValue]);
 
   return (
-    <section className="w-full bg-[#f0f0f0] py-28 px-6 !pb-50 flex justify-center">
-      <div className="max-w-6xl w-full grid grid-cols-2 gap-y-28 gap-x-20">
+    <motion.div
+      ref={inViewRef}
+      initial={{ opacity: 0, y: 24 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
+      className="flex flex-col items-center justify-center px-6 py-5 relative"
+      style={{
+        borderRight: index < stats.length - 1 ? "1px solid #ccc" : "none",
+      }}
+    >
+      <span
+        className="text-[#111] leading-none mb-3"
+        style={{
+          fontSize: "120px",
+          fontWeight: 300,
+          letterSpacing: "-0.03em",
+          fontFamily: "'Arimo', sans-serif",
+        }}
+      >
+        <span ref={countRef}>0</span>
+        {stat.suffix}
+      </span>
+      <span
+        className="text-[#666] text-center font-['Arimo',sans-serif]"
+        style={{ fontSize: "18px", letterSpacing: "0.01em" }}
+      >
+        {stat.label}
+      </span>
+    </motion.div>
+  );
+}
 
-        {stats.map((item, index) => (
-          <div key={index} className="text-center">
-            
-            {/* Number */}
-            <h2 className="text-[90px] font-['Arimo',sans-serif] font-semibold leading-none text-black">
-              {item.number}
-            </h2>
-
-            {/* Title */}
-            <p className="mt-3 font-['Arimo',sans-serif] !text-[18px] !pt-5 font-bold text-black">
-              {item.title}
-            </p>
-
-            {/* Description */}
-            <p className="text-[16px] font-['Arimo',sans-serif] text-black/70 mt-1">
-              {item.desc}
-            </p>
-
-            {/* Divider */}
-            <div className="!mt-7 h-[.7px] bg-black/20 w-full"></div>
-
-          </div>
+export default function SeereonStats() {
+  return (
+    <section
+      className="bg-[#f0f0f0] px-12 pb-40 pt-20"
+      style={{ fontFamily: "'Arimo', sans-serif" }}
+    >
+      {/* Stats grid - preserved exactly */}
+      <div className="max-w-[1400px] mx-auto grid grid-cols-3">
+        {stats.map((s, i) => (
+          <StatItem key={i} stat={s} index={i} />
         ))}
-
       </div>
     </section>
   );
