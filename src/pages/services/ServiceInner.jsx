@@ -51,7 +51,7 @@ export default function ServiceInner() {
 
   if (!service)
     return (
-      <div style={{ padding: 80, fontFamily: "'DM Sans',sans-serif" }}>
+      <div style={{ padding: 80, fontFamily: "'Arimo',sans-serif" }}>
         Service not found.
       </div>
     );
@@ -60,13 +60,13 @@ export default function ServiceInner() {
   const others = services.filter((s) => s.id !== id).slice(0, 3);
 
   return (
-    <div style={{ background: "#f0eeeb", fontFamily: "'DM Sans',sans-serif" }}>
+    <div style={{ background: "#f0eeeb", fontFamily: "'Arimo',sans-serif" }}>
       {/* ── HERO ── */}
       <section
         ref={heroRef}
         style={{
           position: "relative",
-          height: "90vh",
+          height: "70vh",
           overflow: "hidden",
           display: "flex",
           alignItems: "flex-end",
@@ -104,7 +104,7 @@ export default function ServiceInner() {
             position: "relative",
             zIndex: 2,
             padding: "0 96px 72px",
-            maxWidth: 1200,
+            maxWidth: 1400,
             width: "100%",
           }}
         >
@@ -128,7 +128,7 @@ export default function ServiceInner() {
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                fontFamily: "'DM Sans',sans-serif",
+                fontFamily: "'Arimo',sans-serif",
                 letterSpacing: "0.08em",
               }}
             >
@@ -141,7 +141,7 @@ export default function ServiceInner() {
               style={{
                 fontSize: 12,
                 color: "rgba(255,255,255,0.7)",
-                fontFamily: "'DM Sans',sans-serif",
+                fontFamily: "'Arimo',sans-serif",
                 letterSpacing: "0.08em",
               }}
             >
@@ -169,24 +169,6 @@ export default function ServiceInner() {
                   marginBottom: 20,
                 }}
               >
-                <div
-                  style={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: 10,
-                    background: "rgba(255,255,255,0.1)",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <ServiceIcon
-                    type={service.icon}
-                    size={18}
-                    color="rgba(255,255,255,0.7)"
-                  />
-                </div>
                 <span
                   style={{
                     fontSize: 11,
@@ -194,10 +176,10 @@ export default function ServiceInner() {
                     letterSpacing: "0.16em",
                     textTransform: "uppercase",
                     color: "rgba(255,255,255,0.45)",
-                    fontFamily: "'DM Sans',sans-serif",
+                    fontFamily: "'Arimo',sans-serif",
                   }}
                 >
-                  {service.num} · Seereon
+                  {/* {service.num} · Seereon */}
                 </span>
               </motion.div>
 
@@ -206,7 +188,7 @@ export default function ServiceInner() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 style={{
-                  fontFamily: "'Bebas Neue',sans-serif",
+                  fontFamily: "'Arimo',sans-serif",
                   fontSize: "clamp(56px,8vw,110px)",
                   lineHeight: 0.9,
                   color: "#fff",
@@ -223,12 +205,12 @@ export default function ServiceInner() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35 }}
               style={{
-                fontSize: 15,
+                fontSize: 18,
                 lineHeight: 1.8,
                 color: "rgba(255,255,255,0.55)",
                 maxWidth: 380,
                 paddingBottom: 8,
-                fontFamily: "'DM Sans',sans-serif",
+                fontFamily: "'Arimo',sans-serif",
               }}
             >
               {service.description}
@@ -244,11 +226,11 @@ export default function ServiceInner() {
       >
         <div
           style={{
-            maxWidth: 1200,
+            maxWidth: 1400,
             margin: "0 auto",
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
-            gap: 80,
+            gap: 90,
             alignItems: "start",
           }}
         >
@@ -267,8 +249,9 @@ export default function ServiceInner() {
             </p>
             <h2
               style={{
-                fontFamily: "'Bebas Neue',sans-serif",
-                fontSize: "clamp(40px,5vw,64px)",
+                fontFamily: "'Arimo',sans-serif",
+                fontSize: "70px",
+                fontWeight: 600,
                 lineHeight: 1,
                 color: "#111",
                 letterSpacing: "0.01em",
@@ -310,9 +293,9 @@ export default function ServiceInner() {
                 />
                 <span
                   style={{
-                    fontSize: 15,
+                    fontSize: 18,
                     color: "#333",
-                    fontFamily: "'DM Sans',sans-serif",
+                    fontFamily: "'Arimo',sans-serif",
                     lineHeight: 1.5,
                   }}
                 >
@@ -344,7 +327,7 @@ export default function ServiceInner() {
       >
         <div
           style={{
-            maxWidth: 1200,
+            maxWidth: 1400,
             margin: "0 auto",
             padding: "0 96px",
             display: "grid",
@@ -356,27 +339,28 @@ export default function ServiceInner() {
               key={i}
               {...fadeUp(i * 0.1)}
               style={{
-                padding: "48px 32px",
+                padding: "75px 32px",
                 borderRight: i < 3 ? "1px solid #ddd9d3" : "none",
               }}
             >
               <span
                 style={{
-                  fontSize: 11,
+                  fontSize: 12,
                   fontWeight: 700,
                   letterSpacing: "0.14em",
                   color: "#bbb",
                   display: "block",
                   marginBottom: 16,
-                  fontFamily: "'DM Sans',sans-serif",
+                  fontFamily: "'Arimo',sans-serif",
                 }}
               >
                 {step.num}
               </span>
               <h3
                 style={{
-                  fontFamily: "'Bebas Neue',sans-serif",
-                  fontSize: 28,
+                  fontFamily: "'Arimo',sans-serif",
+                  fontSize: 36,
+                  fontWeight: 500,
                   color: "#111",
                   letterSpacing: "0.02em",
                   marginBottom: 12,
@@ -386,10 +370,10 @@ export default function ServiceInner() {
               </h3>
               <p
                 style={{
-                  fontSize: 13,
+                  fontSize: 14,
                   lineHeight: 1.75,
                   color: "#777",
-                  fontFamily: "'DM Sans',sans-serif",
+                  fontFamily: "'Arimo',sans-serif",
                 }}
               >
                 {step.desc}
@@ -407,7 +391,7 @@ export default function ServiceInner() {
         <motion.div
           {...fadeUp(0)}
           style={{
-            maxWidth: 1200,
+            maxWidth: 1400,
             margin: "0 auto",
             background: "#111",
             borderRadius: 24,
@@ -433,7 +417,7 @@ export default function ServiceInner() {
             </p>
             <h2
               style={{
-                fontFamily: "'Bebas Neue',sans-serif",
+                fontFamily: "'Arimo',sans-serif",
                 fontSize: "clamp(36px,4.5vw,56px)",
                 color: "#fff",
                 lineHeight: 0.95,
@@ -463,7 +447,7 @@ export default function ServiceInner() {
                 fontSize: 14,
                 fontWeight: 600,
                 cursor: "pointer",
-                fontFamily: "'DM Sans',sans-serif",
+                fontFamily: "'Arimo',sans-serif",
                 whiteSpace: "nowrap",
               }}
             >
@@ -479,7 +463,7 @@ export default function ServiceInner() {
                 fontSize: 14,
                 fontWeight: 500,
                 cursor: "pointer",
-                fontFamily: "'DM Sans',sans-serif",
+                fontFamily: "'Arimo',sans-serif",
                 whiteSpace: "nowrap",
               }}
             >
@@ -494,7 +478,7 @@ export default function ServiceInner() {
         style={{ padding: "0 96px 120px" }}
         className="px-6 md:px-16 lg:px-24"
       >
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <div style={{ maxWidth: 1400, margin: "0 auto" }}>
           <motion.p
             {...fadeUp(0)}
             style={{
@@ -540,15 +524,15 @@ export default function ServiceInner() {
                     letterSpacing: "0.14em",
                     color: "#bbb",
                     marginBottom: 16,
-                    fontFamily: "'DM Sans',sans-serif",
+                    fontFamily: "'Arimo',sans-serif",
                   }}
                 >
                   {s.num}
                 </motion.p>
                 <p
                   style={{
-                    fontFamily: "'Bebas Neue',sans-serif",
-                    fontSize: 28,
+                    fontFamily: "'Arimo',sans-serif",
+                    fontSize: 32,
                     color: "#111",
                     letterSpacing: "0.01em",
                     marginBottom: 8,
@@ -560,7 +544,7 @@ export default function ServiceInner() {
                   style={{
                     fontSize: 12,
                     color: "#888",
-                    fontFamily: "'DM Sans',sans-serif",
+                    fontFamily: "'Arimo',sans-serif",
                     lineHeight: 1.6,
                   }}
                 >
