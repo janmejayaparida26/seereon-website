@@ -1,6 +1,6 @@
 import React from 'react';
 const logos = [
-  { name: "Fortune", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Fortune_logo.svg/2560px-Fortune_logo.svg.png%22" },
+  { name: "Fortune", url: "https://techicons.dev/icons/amazonwebservices" },
   { name: "Appinventiv", url: "https://appinventiv.com/wp-content/themes/twentynineteen-child/images/appinventiv-logo.svg" },
   { name: "Indus Roots", url: "https://via.placeholder.com/200x60?text=INDUS+ROOTS" },
   { name: "Harley Davidson", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Harley-Davidson_logo.svg/1200px-Harley-Davidson_logo.svg.png%22" },
@@ -25,7 +25,7 @@ const GlobalLeadersScroll = () => {
             100% { transform: translateX(-50%); }
           }
           .animate-infinite-scroll {
-            animation: scroll 10s linear infinite;
+            animation: scroll 20s linear infinite;
           }
         `}
       </style>
