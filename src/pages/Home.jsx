@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from "../components/Navbar";
-import HeroBanner from "../components/HeroBanner"
+import HeroBanner from "./components/HeroBanner"
 import AboutSection from '../components/AboutSection';
 import MarqueeSection from '../components/MarqueeSection';
 import PortfolioSection from '../components/PortfolioSection';
