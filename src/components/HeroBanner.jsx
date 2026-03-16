@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function HeroBanner() {
+const HeroBannner = () => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -180,3 +180,5 @@ export default function HeroBanner() {
     </>
   );
 }
+
+export default HeroBannner;
