@@ -1,88 +1,93 @@
 import React from 'react';
- 
+
 const sections = [
   {
     id: "01",
-    title: "Discovery & Consultation",
-    desc: "We start by understanding your business, goals, challenges, and target audience. This helps us craft solutions that are truly aligned with your needs.",
-    // tags: ["Branding", "Design", "Art Direction"],
-    color: "bg-green-500",
-    icon: "😊",
+    title: "Custom Software",
+    desc: "Tailor-made systems engineered around how your business actually works — not how an off-the-shelf product thinks it should.",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&auto=format&fit=crop", 
   },
   {
     id: "02",
-    title: "Strategic Planning",
-    desc: "Our team develops a step-by-step plan that outlines design concepts, technical requirements, timelines, and deliverables — ensuring clarity from day one.",
-    // tags: ["Packaging", "Websites", "Mobile Apps"],
-    color: "bg-purple-400",
-    icon: "📦",
+    title: "Mobile App Development",
+    desc: "From concept to App Store — we design and build performant, beautiful mobile experiences that your users keep coming back to.",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&auto=format&fit=crop",
   },
   {
     id: "03",
-    title: "Creative Design & Prototyping",
-    desc: "We create visually engaging and user-friendly designs, followed by interactive prototypes so you can see exactly how your project will look and function before development begins.",
-    // tags: ["Campaigns", "Strategy", "Digital"],
-    color: "bg-orange-400",
-    icon: "🏪",
+    title: "MVP Builder",
+    desc: "We take your idea from whiteboard to working product in weeks — investor-ready, user-tested, and built to scale when you need it.",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&auto=format&fit=crop",
   },
   {
     id: "04",
-    title: "Development & Testing",
-    desc: "Our developers bring the design to life with clean code, responsive layouts, and performance-focused builds. Rigorous testing ensures everything works seamlessly across devices and browsers.",
-    // tags: ["Campaigns", "Strategy", "Digital"],
-    color: "bg-orange-400",
-    icon: "🏪",
+    title: "E-Commerce",
+    desc: "High-converting, scalable e-commerce platforms — from custom builds to Shopify, we make buying feel effortless for your customers.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&auto=format&fit=crop",
   },
   {
     id: "05",
-    title: "Launch & Improvement",
-    desc: "We handle a smooth project launch and continue to monitor, optimize, and upgrade your solution to keep it competitive in the ever-changing digital landscape.",
-    // tags: ["Campaigns", "Strategy", "Digital"],
-    color: "bg-orange-400",
-    icon: "🏪",
+    title: "AI Development",
+    desc: "We embed AI where it matters — LLM integrations, custom models, intelligent automation — turning data into decisions.",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&auto=format&fit=crop",
   },
+  {
+    id: "06",
+    title: "Website Development",
+    desc: "Marketing sites, product landing pages, and corporate portals — engineered for speed, SEO, and the impression you want to make.",
+    image: "https://images.unsplash.com/photo-1678690832311-bb6e361989ca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V2Vic2l0ZSUyMGRldmVsb3BtZW50fGVufDB8fDB8fHww",
+  },
+  
 ];
- 
+
 const StackedScroll = () => {
   return (
     <div className="bg-[#eeeeee] min-h-screen">
       {sections.map((section, index) => (
         <section
           key={section.id}
-          // Incremental top offset: 0, then 48px (top-12), then 96px (top-24)
-          style={{ top: `${index * 55}px` }}
-          className="sticky max-h-fit w-full flex items-center justify-between !px-20 !py-20 bg-[#eeeeee] border-t border-gray-300"
+          style={{ 
+            top: `${index * 55}px`,
+            backgroundColor: "#eeeeee" 
+          }}
+          className="sticky max-h-fit w-full flex items-center justify-between !px-15 !py-15 border-t border-gray-300"
         >
-          {/* Left: Heading */}
+          {/* Left Side */}
           <div className="w-2/3">
-            <h2 className="text-4xl font-['Arimo',sans-serif] font-semibold !pb-5 text-[#000] flex items-center">
+            <h2 className="text-5xl font-['Arimo',sans-serif] font-semibold !pb-5 text-[#000] flex items-center">
               {section.title}
-              <span className="!ml-10 !mt-3 flex items-center justify-center w-14 h-14 border border-gray-400 rounded-full text-3xl">
+              <span className="!ml-10 !mt-2 flex items-center justify-center w-14 h-14 border border-gray-400 rounded-full text-3xl">
                 →
               </span>
             </h2>
-                      {/* Center: Description & Tags */}
-          <div className="w-1/2 flex flex-col gap-6">
-            <p className="text-[24px] font-['Arimo',sans-serif] font-medium text-[#6e6e6e] leading-snug">
-              {section.desc}
-            </p>
-            <div className="flex flex-col items-start gap-2">
-              <button className="text-sm underline mt-2">View More</button>
+            
+            <div className="w-1/2 flex flex-col gap-6">
+              <p className="text-[20px] font-['Arimo',sans-serif] font-normal text-[#6e6e6e] leading-snug">
+                {section.desc}
+              </p>
+              <div className="flex flex-col items-start">
+                <button className="text-[16px] font-semibold text-[#FF7A2D] underline underline-offset-4 hover:text-[#e66a25] transition-colors">
+                  Explore More
+                </button>
+              </div>
             </div>
           </div>
-          </div>
- 
-          {/* Right: The Colored Card */}
-          <div className={`w-1/3 h-[300px] ${section.color} rounded-[40px] !py-20 flex items-center justify-center shadow-inner`}>
-            <div className="text-9xl opacity-80">{section.icon}</div>
+
+          {/* Right Side: The Image Container */}
+          <div className="w-1/3 h-[350px] bg-[#dbe2e8] rounded-[40px] overflow-hidden shadow-sm relative group">
+            <img 
+              src={section.image} 
+              alt={section.title} 
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
           </div>
         </section>
       ))}
- 
-      {/* Spacer to ensure the last card can be scrolled fully */}
+
       <div className="h-screen"></div>
     </div>
   );
 };
- 
+
 export default StackedScroll;
