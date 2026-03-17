@@ -123,7 +123,7 @@ function Headline({ color, subColor }) {
       <h1
         style={{
           fontFamily: "'Arimo', sans-serif",
-          fontSize: "clamp(64px, 11vw, 144px)",
+          fontSize: "130px",
           fontWeight: 700,
           lineHeight: 0.92,
           letterSpacing: "-0.03em",
@@ -183,7 +183,7 @@ function HeroSection() {
   const ctaScale = useTransform(scrollYProgress, [0.88, 0.97], [0.9, 1]);
 
   return (
-    <div ref={containerRef} style={{ height: "520vh" }}>
+    <div ref={containerRef} style={{ height: "500vh" }}>
       <div
         style={{
           position: "sticky",

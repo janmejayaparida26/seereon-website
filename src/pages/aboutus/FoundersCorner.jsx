@@ -1,51 +1,60 @@
-import React from 'react';
+import React from "react";
 
-const FoundersCorner = () => {
+export default function TestimonialCard() {
   return (
-    <section className="bg-white p-10 md:p-32 flex justify-center items-center min-h-[700px] font-sans">
-      
-      {/* Main Purple Card - overflow-visible is essential for the clipping effect */}
-      <div className="bg-[#8B5CF6] rounded-[40px] px-8 py-12 md:px-20 md:py-24 w-full max-w-6xl relative flex flex-col md:flex-row items-center overflow-visible shadow-2xl">
+    <section className="flex items-center justify-center min-h-screen bg-[#f0eeeb] px-6 font-sans">
+      <div className="w-full max-w-7xl">
         
-        {/* Floating Founder Image Container */}
-        {/* The -top-32 value forces the head to pop out of the top of the card */}
-        <div className="absolute -top-32 left-0 md:left-16 w-full md:w-[480px] h-[calc(100%+128px)] pointer-events-none z-10">
-          <img 
-            src="http://googleusercontent.com/image_collection/image_retrieval/5643642457831458218_0" 
-            alt="Founder" 
-            className="w-full h-full object-contain object-bottom drop-shadow-2xl brightness-105"
-          />
-        </div>
-
-        {/* Text Content - Positioned to the right to balance the layout */}
-        <div className="md:w-[60%] ml-auto text-white relative z-20">
-          <h2 className="text-3xl md:text-[46px] font-bold leading-[1.15] tracking-tight mb-10">
-            Having Our Global Partners Join & Raise Over $3M With BizOCapital Has Been A Great Experience In Growing Business.
-          </h2>
+        {/* Main Card - overflow-visible is essential for the head-pop effect */}
+        <div className="relative bg-[#000000] rounded-[40px] flex flex-col md:flex-row items-center min-h-[400px] overflow-visible shadow-2xl">
           
-          <div className="flex items-end justify-between">
-            <div>
-              <p className="text-2xl font-bold mb-1">Johan Vaughn</p>
-              <p className="text-lg text-white/70">CEO, BizOCapital</p>
-            </div>
+          {/* 1. THE FOUNDER IMAGE (Exact Match to Reference) */}
+          {/* -top-32 lifts the head above the card edge. object-bottom keeps him flush with the bottom. */}
+          <div className="absolute -top-32 left-0 md:left-16 w-full md:w-[480px] h-[calc(100%+128px)] pointer-events-none z-10">
+            {/* <img
+              src="https://www.pngarts.com/files/3/Man-In-Suit-PNG-Transparent-Image.png"
+              alt="Johan Vaughn"
+              className="w-full h-full object-contain object-bottom filter drop-shadow-2xl"
+            /> */}
+          </div>
+
+          {/* 2. BACKGROUND STAR DECORATION */}
+          <div className="absolute left-24 top-12 opacity-10 pointer-events-none select-none z-0">
+            <span className="text-white text-[280px] font-thin leading-none">☆</span>
+          </div>
+
+          {/* 3. TEXT CONTENT AREA (Shifted with ml-auto and md:w-[60%]) */}
+          <div className="w-full md:w-[60%] ml-auto pr-8 md:pr-24 py-16 text-white relative z-20">
             
-            {/* Decorative white hand-drawn arrow */}
-            <div className="hidden md:block translate-y-2 opacity-60">
-                <svg width="140" height="70" viewBox="0 0 188 107" fill="none" className="rotate-[-5deg]">
-                    <path d="M10.1581 18.0673C16.9427 15.6698 21.0567 19.3898 24.1627 24.8143C28.2755 31.9968 29.8781 40.7397 30.6548 48.8856M30.6548 48.8856C30.9859 52.3559 30.6622 56.401 30.292 59.8519M30.6548 48.8856C30.2843 41.7335 30.1578 34.0041 31.9213 27.2407M30.6548 48.8856L1.50361 74.5262" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+            {/* The Quote - Bold and Large */}
+            <h2 className="text-xl md:text-[24px] font-['Arimo',sans-serif] font-light leading-[1.2] tracking-tight mb-12">
+              At Seereon, I believe the greatest thing we can bring to our customers is value. For me, quality is non-negotiable. Every deliverable must meet the highest standards, because every customer at Seereon deserve results that satisfy them. This philosophy drives me and my team every day to create solutions that add value, build trust, and empower our clients to grow with confidence.
+
+            </h2>
+
+            {/* Footer: Name/Title + Arrow Detail */}
+            <div className="flex items-end justify-between">
+              <div>
+                <p className="text-2xl md:text-3xl font-['Arimo',sans-serif] font-bold mb-1">Santosh Kumar Nayak</p>
+                <p className="text-lg md:text-xl text-white/70 font-['Arimo',sans-serif] font-medium tracking-wide">CEO, SEEREON</p>
+              </div>
+
+              {/* Hand-drawn Arrow SVG */}
+              {/* <div className="hidden md:block translate-y-4 opacity-60">
+                <svg width="150" height="75" viewBox="0 0 188 107" fill="none" className="rotate-[-6deg]">
+                  <path 
+                    d="M10.1581 18.0673C16.9427 15.6698 21.0567 19.3898 24.1627 24.8143C28.2755 31.9968 29.8781 40.7397 30.6548 48.8856M30.6548 48.8856C30.9859 52.3559 30.6622 56.401 30.292 59.8519M30.6548 48.8856C30.2843 41.7335 30.1578 34.0041 31.9213 27.2407M30.6548 48.8856L1.50361 74.5262" 
+                    stroke="white" 
+                    strokeWidth="4" 
+                    strokeLinecap="round"
+                  />
                 </svg>
+              </div> */}
             </div>
           </div>
+          
         </div>
-
-        {/* Background Decorative Star - Fixed low opacity to match original design */}
-        <div className="absolute top-10 left-10 md:left-24 opacity-10 text-white text-[280px] font-thin leading-none select-none pointer-events-none z-0">
-          ☆
-        </div>
-        
       </div>
     </section>
   );
-};
-
-export default FoundersCorner;
+}
