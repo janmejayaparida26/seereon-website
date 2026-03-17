@@ -1,79 +1,74 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 // ─── PHOTO CONFIG ────────────────────────────────────────────
+// objectPosition: "50% 20%" ensures the crop focuses on the head/face area
 const PHOTOS = [
   {
-    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&auto=format&fit=crop",
-    range: [0.04, 0.18, 0.28],
+    src: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773747069/Santosh-Nayak-1024x1536_bfh47t.jpg",
+    range: [0.05, 0.14, 0.19],
+    pos: "center 20%" 
   },
   {
-    src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&auto=format&fit=crop",
-    range: [0.24, 0.38, 0.48],
+    src: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773747328/Sarasweta-Patra-e1740936862466-1011x1024_d6hop8.jpg",
+    range: [0.10, 0.18, 0.22],
+    pos: "center 25%"
   },
   {
-    src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1200&auto=format&fit=crop",
-    range: [0.44, 0.57, 0.67],
+    src: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773747612/WhatsApp-Image-2025-08-16-at-11.36.06-e1755324688102-1011x1024_hwndgf.jpg",
+    range: [0.20, 0.28, 0.32],
+    pos: "center 20%"
   },
   {
-    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=1200&auto=format&fit=crop",
-    range: [0.63, 0.76, 0.86],
+    src: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773751043/WhatsApp_Image_2026-03-17_at_18.06.14_i6kmyo.jpg",
+    range: [0.30, 0.38, 0.42],
+    pos: "center 20%"
+  },
+  {
+    src: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773747611/WhatsApp-Image-2025-08-16-at-11.41.20-e1755324969945-945x1024_yt0jb3.jpg",
+    range: [0.40, 0.48, 0.52],
+    pos: "center 20%"
+  },
+  {
+    src: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773747612/WhatsApp-Image-2025-08-16-at-11.50.24-e1755325392773-942x1024_emzw0v.jpg",
+    range: [0.50, 0.58, 0.62],
+    pos: "center 20%"
+  },
+  {
+    src: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773748740/1772735033045_2_sjnfza.png",
+    range: [0.60, 0.68, 0.72],
+    pos: "center 25%"
+  },
+  {
+    src: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773748731/WhatsApp_Image_2026-03-17_at_17.12.42_eynti0.jpg",
+    range: [0.70, 0.78, 0.82],
+    pos: "center 20%"
+  },
+  {
+    src: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773749128/WhatsApp_Image_2026-03-17_at_17.14.15_yfjd9q.jpg",
+    range: [0.80, 0.86, 0.90],
+    pos: "center 20%"
+  },
+  {
+    src: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773748743/1000446811.jpg_fy84po.jpg",
+    range: [0.88, 0.94, 0.99],
+    pos: "center 20%"
   },
 ];
 
-// ─── TEAM DATA (Avatars Added) ───────────────────────────────
 const team = [
-  { 
-    name: "Rahul Mehta", 
-    role: "Founder & CEO", 
-    initials: "RM", 
-    avatar: "src/assets/Santosh-Nayak-1024x1536-1-e1755151945459-982x1024.jpg" 
-  },
-  { 
-    name: "Priya Shah", 
-    role: "Lead Engineer", 
-    initials: "PS", 
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80" 
-  },
-  {
-    name: "Arjun Nair",
-    role: "Product Designer",
-    initials: "AN",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Sneha Verma",
-    role: "Mobile Developer",
-    initials: "SV",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Karan Joshi",
-    role: "Backend Architect",
-    initials: "KJ",
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Divya Pillai",
-    role: "UI/UX Specialist",
-    initials: "DP",
-    avatar: "https://images.unsplash.com/photo-1567532939604-b6c5b0ad2e01?w=400&auto=format&fit=crop&q=80",
-  },
-  { 
-    name: "Mohit Gupta", 
-    role: "ERP Consultant", 
-    initials: "MG", 
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80" 
-  },
-  { 
-    name: "Ananya Roy", 
-    role: "QA Engineer", 
-    initials: "AR", 
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&auto=format&fit=crop&q=80" 
-  },
+  { name: "Mr. Santosh S Nayak", role: "Founder & CEO", avatar: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773747069/Santosh-Nayak-1024x1536_bfh47t.jpg" },
+  { name: "Mrs. Sarasweta Patra", role: "Co-Founder & CHRO", avatar: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773747328/Sarasweta-Patra-e1740936862466-1011x1024_d6hop8.jpg" },
+  { name: "Subhankar Rout", role: "Sr. Project Manager", avatar: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773747612/WhatsApp-Image-2025-08-16-at-11.36.06-e1755324688102-1011x1024_hwndgf.jpg" },
+  { name: "Baishali Rout", role: "Customer Success Manager", avatar: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773751043/WhatsApp_Image_2026-03-17_at_18.06.14_i6kmyo.jpg" },
+  { name: "Janmejaya Parida", role: "Sr. UI/UX Developer", avatar: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773747611/WhatsApp-Image-2025-08-16-at-11.41.20-e1755324969945-945x1024_yt0jb3.jpg" },
+  { name: "Subham Biswal", role: "Jr. Designer", avatar: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773747612/WhatsApp-Image-2025-08-16-at-11.50.24-e1755325392773-942x1024_emzw0v.jpg" },
+  { name: "Jayashree Das", role: "Jr. Developer", avatar: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773748740/1772735033045_2_sjnfza.png" },
+  { name: "Hritesh Panda", role: "SDE - 2", avatar: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773748731/WhatsApp_Image_2026-03-17_at_17.12.42_eynti0.jpg" },
+  { name: "Akankshya Mohanty", role: "SDE - 1", avatar: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773749128/WhatsApp_Image_2026-03-17_at_17.14.15_yfjd9q.jpg" },
+  { name: "Pragyansmita Palei", role: "SDE - 1", avatar: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773748743/1000446811.jpg_fy84po.jpg" },
 ];
 
-// ─── ANIMATION HELPERS ──────────────────────────────────────
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
@@ -88,17 +83,17 @@ const fadeIn = (delay = 0) => ({
   viewport: { once: true },
 });
 
-// ─── FULLSCREEN PHOTO LAYER ──────────────────────────────────
 function PhotoLayer({ photo, scrollYProgress }) {
   const opacity = useTransform(
     scrollYProgress,
     [photo.range[0] - 0.04, photo.range[0], photo.range[1], photo.range[2]],
-    [0, 1, 1, 0],
+    [0, 1, 1, 0]
   );
+  // Slightly increased zoom (1.1 to 1.25) to focus more on the face
   const scale = useTransform(
     scrollYProgress,
     [photo.range[0], photo.range[2]],
-    [1.04, 1.1],
+    [1.1, 1.25]
   );
 
   return (
@@ -110,6 +105,7 @@ function PhotoLayer({ photo, scrollYProgress }) {
           width: "100%",
           height: "100%",
           objectFit: "cover",
+          objectPosition: photo.pos || "center 20%",
           display: "block",
           scale,
           transformOrigin: "center center",
@@ -136,17 +132,17 @@ function HeroSection() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
 
-  const overlayOp = useTransform(scrollYProgress, [0, 0.06, 0.88, 0.96], [0, 0.52, 0.52, 0]);
-  const textDarkOp = useTransform(scrollYProgress, [0, 0.05, 0.88, 0.96], [1, 0, 0, 1]);
-  const textWhiteOp = useTransform(scrollYProgress, [0, 0.05, 0.88, 0.96], [0, 1, 1, 0]);
-  const progressW = useTransform(scrollYProgress, [0.04, 0.88], ["0%", "100%"]);
-  const progressOp = useTransform(scrollYProgress, [0.02, 0.07, 0.85, 0.92], [0, 1, 1, 0]);
-  const hintOp = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
-  const ctaOp = useTransform(scrollYProgress, [0.88, 0.97], [0, 1]);
-  const ctaScale = useTransform(scrollYProgress, [0.88, 0.97], [0.9, 1]);
+  const overlayOp = useTransform(scrollYProgress, [0, 0.06, 0.92, 0.98], [0, 0.52, 0.52, 0]);
+  const textDarkOp = useTransform(scrollYProgress, [0, 0.05, 0.92, 0.98], [1, 0, 0, 1]);
+  const textWhiteOp = useTransform(scrollYProgress, [0, 0.05, 0.92, 0.98], [0, 1, 1, 0]);
+  const progressW = useTransform(scrollYProgress, [0.01, 0.98], ["0%", "100%"]);
+  const progressOp = useTransform(scrollYProgress, [0.01, 0.05, 0.94, 0.99], [0, 1, 1, 0]);
+  const hintOp = useTransform(scrollYProgress, [0, 0.03], [1, 0]);
+  const ctaOp = useTransform(scrollYProgress, [0.94, 0.99], [0, 1]);
+  const ctaScale = useTransform(scrollYProgress, [0.94, 0.99], [0.9, 1]);
 
   return (
-    <div ref={containerRef} style={{ height: "500vh" }}>
+    <div ref={containerRef} style={{ height: "700vh" }}> {/* Extra height for smoother browsing of 10 faces */}
       <div style={{ position: "sticky", top: 0, height: "100vh", overflow: "hidden", background: "#f0eeeb", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
         {PHOTOS.map((photo, i) => (
           <PhotoLayer key={i} photo={photo} scrollYProgress={scrollYProgress} />
@@ -163,7 +159,7 @@ function HeroSection() {
           <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }} style={{ width: 1, height: 36, background: "#bbb" }} />
         </motion.div>
         <motion.div style={{ opacity: progressOp, position: "absolute", bottom: 40, left: "50%", x: "-50%", zIndex: 12, display: "flex", flexDirection: "column", alignItems: "center", gap: 12, pointerEvents: "none" }}>
-          <span style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.45)", fontFamily: "'Arimo', sans-serif" }}>Scroll to meet everyone</span>
+          <span style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.45)", fontFamily: "'Arimo', sans-serif" }}>Progress through team</span>
           <div style={{ width: 180, height: 1, background: "rgba(255,255,255,0.2)", borderRadius: 1, overflow: "hidden" }}>
             <motion.div style={{ height: "100%", background: "rgba(255,255,255,0.8)", width: progressW }} />
           </div>
@@ -177,7 +173,6 @@ function HeroSection() {
   );
 }
 
-// ─── MEMBER CARD (Image Logic Refined) ───────────────────────
 function MemberCard({ member, index }) {
   return (
     <motion.div
@@ -198,44 +193,37 @@ function MemberCard({ member, index }) {
     >
       <div
         style={{
-          width: 80,
-          height: 80,
-          borderRadius: 24, // Changed to a rounded-square look for a modern feel
+          width: 125,
+          height: 125,
+          borderRadius: 70,
           background: "#f0eeeb",
           border: "1px solid #e0ddd8",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: 18,
-          fontWeight: 600,
-          color: "#555",
           overflow: "hidden",
           flexShrink: 0,
         }}
       >
-        {member.avatar ? (
-          <img
-            src={member.avatar}
-            alt={member.name}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
-        ) : (
-          member.initials
-        )}
+        <img 
+          src={member.avatar} 
+          alt={member.name} 
+          style={{ 
+            width: "100%", 
+            height: "100%", 
+            objectFit: "cover",
+            objectPosition: "center 20%" // Focus on face in grid cards too
+          }} 
+        />
       </div>
       <div>
-        <p style={{ fontSize: 22, fontWeight: 700, color: "#111", margin: "0 0 4px", letterSpacing: "-0.01em" }}>
-          {member.name}
-        </p>
-        <p style={{ fontSize: 14, color: "#777", fontWeight: 500, margin: 0 }}>
-          {member.role}
-        </p>
+        <p style={{ fontSize: 22, fontWeight: 500, color: "#111", margin: "0 0 4px", letterSpacing: "-0.01em" }}>{member.name}</p>
+        <p style={{ fontSize: 16, color: "#777", fontWeight: 400, margin: 0 }}>{member.role}</p>
       </div>
     </motion.div>
   );
 }
 
-// ─── PAGE ROOT ───────────────────────────────────────────────
 export default function TeamPage() {
   return (
     <div style={{ background: "#f0eeeb", fontFamily: "'Arimo', sans-serif" }}>
