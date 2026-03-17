@@ -1,119 +1,134 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
-  viewport: { once: true, margin: "-60px" },
-});
-
-const missionImg =
-  "https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=800&auto=format&fit=crop";
-const visionImg =
-  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop";
+// ─── IMAGE CONFIG ──────
+const missionImg = "https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=800&auto=format&fit=crop";
+const visionImg = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop";
+const valueImg = "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop";
 
 export default function FourthSectionAbout() {
+  const containerRef = useRef(null);
+
+  // 1. Capture Raw Scroll Progress
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  // 2. SMOOTHING: Pass the raw progress through a Spring
+  // stiffness: 100 (how fast it snaps), damping: 30 (how much it bounces/resists)
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  // 3. TILT ANIMATION: Using smoothProgress instead of raw scrollYProgress
+  const rotate1 = useTransform(smoothProgress, [0, 0.45], [-18, 0]);
+  const rotate3 = useTransform(smoothProgress, [0, 0.45], [18, 0]);
+  const rotate2 = useTransform(smoothProgress, [0, 0.45], [6, 0]);
+
+  // 4. ENHANCED FADE & SCALE: Starts earlier and is more gradual
+  const opacity = useTransform(smoothProgress, [0, 0.35], [0, 1]);
+  const scale = useTransform(smoothProgress, [0, 0.4], [0.75, 1]);
+
+  // 5. VERTICAL FLOAT: Smoothed upward movement
+  const yTranslate = useTransform(smoothProgress, [0, 0.45], [150, 0]);
+
   return (
-    <section className="bg-[#f0eeeb] py-28 px-6 md:px-12 lg:px-20 font-['Arimo',sans-serif]">
+    <section ref={containerRef} className="bg-[#f0f0f0] py-28 px-6 md:px-12 font-['Arimo',sans-serif] overflow-hidden">
       {/* Eyebrow */}
       <motion.p
-        {...fadeUp(0)}
-        className="text-center text-[11px] font-['Arimo',sans-serif] font-semibold tracking-[0.16em] uppercase text-[#888] mb-14"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="text-center text-[11px] font-semibold tracking-[0.16em] uppercase text-[#888] mb-14"
       >
         Our Foundation
       </motion.p>
 
-      <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-5">
-        {/* ── MISSION: dark card ── */}
+      {/* Grid container */}
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        
+        {/* ── MISSION: Card 01 ── */}
         <motion.div
-          {...fadeUp(0.1)}
-          className="relative bg-[#111] rounded-[20px] overflow-hidden flex flex-col group"
+          style={{ rotate: rotate1, y: yTranslate, opacity, scale }}
+          className="relative bg-[#111] rounded-[20px] overflow-hidden flex flex-col group min-h-[580px] shadow-xl"
         >
-          {/* Background number stamp */}
-          <span className="absolute top-4 right-5 font-['Arimo',sans-serif] text-[130px] leading-none tracking-[-0.04em] text-white/[0.04] pointer-events-none select-none z-0">
+          <span className="absolute top-4 right-5 font-['Arimo',sans-serif] text-[100px] leading-none tracking-[-0.04em] text-white/[0.04] pointer-events-none select-none z-0">
             01
           </span>
-
-          {/* Image */}
-          <div className="h-[240px] overflow-hidden relative flex-shrink-0">
-            <img
-              src={missionImg}
-              alt="Mission"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            {/* gradient fade into card bg */}
+          <div className="h-[220px] overflow-hidden relative flex-shrink-0">
+            <img src={missionImg} alt="Mission" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#111]" />
           </div>
-
-          {/* Body */}
-          <div className="relative z-10 px-9 pb-10 pt-2 flex flex-col gap-4 flex-1">
-            <span className="inline-block text-[10px] font-['Arimo',sans-serif] font-bold tracking-[0.16em] uppercase px-3 py-1.5 rounded-full bg-white/[0.07] border border-white/[0.1] text-white/50 w-fit">
+          <div className="relative z-10 px-8 pb-10 pt-2 flex flex-col gap-4 flex-1">
+            <span className="inline-block text-[10px] font-bold tracking-[0.16em] uppercase px-3 py-1.5 rounded-full bg-white/[0.07] border border-white/[0.1] text-white/50 w-fit">
               Our Mission
             </span>
-
-            <h2 className="font-['Arimo',sans-serif] text-[clamp(38px,4.5vw,56px)] leading-[0.95] tracking-[0.01em] text-white">
-              BUILDING TECH
-              <br />
-              THAT THINKS
-              <br />
-              AHEAD
+            <h2 className="text-[36px] md:text-[42px] leading-[1] tracking-[0.01em] text-white uppercase">
+              Building Tech<br />That Thinks<br />Ahead
             </h2>
-
             <div className="w-8 h-[1.5px] bg-white/20" />
-
-            <p className="text-[16px] font-['Arimo',sans-serif] leading-[1.85] text-white/55 max-w-[400px]">
-              To empower businesses with software that anticipates the future.
-              We build ERPs, CRMs, mobile apps, and digital platforms that solve
-              real problems today — and scale effortlessly tomorrow.
+            <p className="text-[15px] leading-[1.7] text-white/55">
+              To empower businesses with software that anticipates the future. We build ERPs, CRMs, and platforms that solve real problems today and scale effortlessly tomorrow.
             </p>
           </div>
         </motion.div>
 
-        {/* ── VISION: light card ── */}
+        {/* ── VISION: Card 02 ── */}
         <motion.div
-          {...fadeUp(0.2)}
-          className="relative bg-white border border-[#e0ddd8] rounded-[20px] overflow-hidden flex flex-col group"
+          style={{ rotate: rotate2, y: yTranslate, opacity, scale }}
+          className="relative bg-white border border-[#e0ddd8] rounded-[20px] overflow-hidden flex flex-col group min-h-[580px] shadow-xl"
         >
-          {/* Background number stamp */}
-          <span className="absolute top-4 right-5 font-['Arimo',sans-serif] text-[130px] leading-none tracking-[-0.04em] text-black/[0.04] pointer-events-none select-none z-0">
+          <span className="absolute top-4 right-5 font-['Arimo',sans-serif] text-[100px] leading-none tracking-[-0.04em] text-black/[0.04] pointer-events-none select-none z-0">
             02
           </span>
-
-          {/* Image */}
-          <div className="h-[240px] overflow-hidden relative flex-shrink-0">
-            <img
-              src={visionImg}
-              alt="Vision"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
+          <div className="h-[220px] overflow-hidden relative flex-shrink-0">
+            <img src={visionImg} alt="Vision" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
           </div>
-
-          {/* Body */}
-          <div className="relative z-10 px-9 pb-10 pt-2 flex flex-col gap-4 flex-1">
-            <span className="inline-block text-[10px] font-['Arimo',sans-serif] font-bold tracking-[0.16em] uppercase px-3 py-1.5 rounded-full bg-[#f0eeeb] border border-[#ddd] text-[#888] w-fit">
+          <div className="relative z-10 px-8 pb-10 pt-2 flex flex-col gap-4 flex-1">
+            <span className="inline-block text-[10px] font-bold tracking-[0.16em] uppercase px-3 py-1.5 rounded-full bg-[#f0eeeb] border border-[#ddd] text-[#888] w-fit">
               Our Vision
             </span>
-
-            <h2 className="font-['Arimo',sans-serif] text-[clamp(38px,4.5vw,56px)] leading-[0.95] tracking-[0.01em] text-[#111]">
-              TRUSTED TECH
-              <br />
-              FOR THE
-              <br />
-              EONS
+            <h2 className="text-[36px] md:text-[42px] leading-[1] tracking-[0.01em] text-[#111] uppercase">
+              Trusted Tech<br />For The<br />Eons
             </h2>
-
             <div className="w-8 h-[1.5px] bg-[#ccc]" />
-
-            <p className="text-[16px] font-['Arimo',sans-serif] leading-[1.85] text-[#555] max-w-[450px]">
-              To become the most trusted technology partner for growth-focused
-              companies worldwide — known for foresight, engineering excellence,
-              and products that outlast trends and serve your business for years
-              to come.
+            <p className="text-[15px] leading-[1.7] text-[#555]">
+              To become the most trusted technology partner worldwide—known for foresight, engineering excellence, and products that outlast trends to serve your business for years.
             </p>
           </div>
         </motion.div>
+
+        {/* ── VALUE: Card 03 ── */}
+        <motion.div
+          style={{ rotate: rotate3, y: yTranslate, opacity, scale }}
+          className="relative bg-[#111] rounded-[20px] overflow-hidden flex flex-col group min-h-[580px] shadow-xl"
+        >
+          <span className="absolute top-4 right-5 font-['Arimo',sans-serif] text-[100px] leading-none tracking-[-0.04em] text-white/[0.04] pointer-events-none select-none z-0">
+            03
+          </span>
+          <div className="h-[220px] overflow-hidden relative flex-shrink-0">
+            <img src={valueImg} alt="Value" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#111]" />
+          </div>
+          <div className="relative z-10 px-8 pb-10 pt-2 flex flex-col gap-4 flex-1">
+            <span className="inline-block text-[10px] font-bold tracking-[0.16em] uppercase px-3 py-1.5 rounded-full bg-white/[0.07] border border-white/[0.1] text-white/50 w-fit">
+              Our Value
+            </span>
+            <h2 className="text-[36px] md:text-[42px] leading-[1] tracking-[0.01em] text-white uppercase">
+              Quality over<br />Volume<br />Always
+            </h2>
+            <div className="w-8 h-[1.5px] bg-white/20" />
+            <p className="text-[15px] leading-[1.7] text-white/55">
+              We believe in deep focus and uncompromising quality. Every line of code is written with purpose, ensuring your product is high-performing, secure, and user-centric.
+            </p>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );
