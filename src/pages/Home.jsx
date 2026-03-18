@@ -12,6 +12,7 @@ import MarqueeBrand from '../components/MarqueeBrand';
 import Testimonial from '../components/Testimonial';
 import ScheduleCall from '../components/ScheduleCall';
 import Footer from '../components/Footer';
+import SolutionsHeading from '../components/SolutionsHeading';
 
 function Home() {
   return (
@@ -23,6 +24,7 @@ function Home() {
     <PortfolioSection />
     <DesignFuture />
     <HistorySection />
+    <SolutionsHeading />
     <OurSolutions />
     <ZoomScroll />
     <MarqueeBrand />
