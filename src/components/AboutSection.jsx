@@ -42,7 +42,7 @@ export default function AboutSection() {
         }
 
         .big-headline {
-          font-size: 86px;
+          font-size: 80px;
           font-weight: 400;
           line-height: 1.0;
           letter-spacing: -0.03em;
@@ -95,9 +95,7 @@ export default function AboutSection() {
               transition: "opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s",
             }}
           >
-            Whether you’re a startup ready to launch or an established business
-            aiming to scale, our team works with you to turn your vision into
-            reality — faster, smarter, and better.
+            Whether you're a startup building from scratch or an enterprise scaling operations, we partner with you to transform ideas into powerful, high-performance software — built to scale, built to last.
           </div>
 
           <div className="right-col">
@@ -109,7 +107,7 @@ export default function AboutSection() {
                 transition: "opacity 0.9s ease 0.1s, transform 0.9s ease 0.1s",
               }}
             >
-              <ScrollFillText>Best Website Development & Digital Marketing Company</ScrollFillText>
+              <ScrollFillText>Best Software Development Company</ScrollFillText>
             </h2>
 
             <div
