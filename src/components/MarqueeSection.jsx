@@ -61,7 +61,7 @@ const GlobalLeadersScroll = () => {
           {/* Left Side: Heading */}
           <div className="w-full md:w-1/4 flex-shrink-0 text-center md:text-left">
             <h2 className="!text-2.5xl md:text-2xl font-['Arimo',sans-serif] font-bold text-gray-900 leading-[1.1] tracking-tight">
-            Advanced tech-stacks<br />used in our projects
+            Advanced tech stacks powering our solutions
             </h2>
           </div>
  
