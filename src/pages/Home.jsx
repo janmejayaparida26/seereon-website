@@ -13,6 +13,7 @@ import Testimonial from '../components/Testimonial';
 import ScheduleCall from '../components/ScheduleCall';
 import Footer from '../components/Footer';
 import SolutionsHeading from '../components/SolutionsHeading';
+import ContactCTA from '../components/ContactCTA';
 
 function Home() {
   return (
@@ -30,6 +31,7 @@ function Home() {
     <MarqueeBrand />
     <Testimonial />
     <ScheduleCall />
+    <ContactCTA />
     <Footer />
     </div>
   )

@@ -21,7 +21,7 @@ const CTASection = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="bg-[#f2f2f2] min-h-[80vh] flex flex-col items-center justify-center overflow-hidden py-32 px-6"
+      className="bg-[#f2f2f2] min-h-[60vh] flex flex-col items-center justify-center overflow-hidden pt-20 px-6"
     >
       <motion.div 
         style={{ scale, opacity }}
