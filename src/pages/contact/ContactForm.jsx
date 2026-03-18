@@ -30,7 +30,7 @@ const ContactForm = () => {
   ];
 
   return (
-    <section className="relative min-h-screen bg-[#0a0a0a] overflow-hidden flex items-center py-20 px-6 md:px-12 lg:px-24">
+    <section className="relative min-h-screen bg-[#0a0a0a] overflow-hidden flex items-center py-20 px-6 md:px-12 lg:px-24 font-['Arimo',sans-serif]">
 
       {/* Background ambient glow */}
       <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] rounded-full bg-[#1a1a2e] blur-[120px] opacity-60 pointer-events-none" />
@@ -38,93 +38,96 @@ const ContactForm = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
-        {/* ── LEFT SIDE ── */}
+        {/* ── LEFT SIDE (Updated to Reference Style) ── */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true }}
           className="space-y-10"
         >
           {/* Tag */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs text-white/50 tracking-widest uppercase">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-[10px] text-white/50 tracking-[0.2em] uppercase font-bold">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Available for projects
+            Direct Collaboration
           </div>
 
           <div>
-            <h1 className="text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight text-white mb-6">
-              Get the full hands-on{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 to-white/40">
-                ONEDESIGN
-              </span>{" "}
-              method with our book.
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-white mb-8">
+              Build the future of your brand with <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/30 italic">
+                SEEREON
+              </span>
             </h1>
-            <p className="text-base text-white/40 leading-relaxed max-w-lg">
-              The ONEDESIGN E-Book isn't just a read — it's a roadmap. Crafted from real startup
-              journeys and refined through 300+ brand builds, it breaks down the chaos of launching
-              and scaling into clear, actionable steps.
+            <p className="text-lg text-white/50 leading-relaxed max-w-lg font-light">
+              We don't just build software; we architect growth. Join 50+ clients 
+              who have scaled their visions into high-performing digital realities.
             </p>
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-5">
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="group flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-semibold rounded-full hover:bg-white/90 transition-colors"
+              className="group flex items-center gap-2 px-8 py-4 bg-white text-black text-sm font-bold rounded-full hover:bg-white/90 transition-all shadow-xl shadow-white/5"
             >
-              Get the Book
-              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              Start a Project
+              <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </motion.button>
             <motion.a
               href="#"
-              whileHover={{ x: 4 }}
-              className="flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors font-medium"
+              whileHover={{ x: 5 }}
+              className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors font-semibold tracking-wide"
             >
-              Learn our Method <ArrowUpRight size={15} />
+              View Our Method <ArrowUpRight size={16} />
             </motion.a>
           </div>
 
-          {/* Stats row */}
-          <div className="flex gap-10 pt-4 border-t border-white/5">
-            {[["300+", "Brand Builds"], ["12+", "Years Experience"], ["98%", "Client Satisfaction"]].map(([num, label]) => (
-              <div key={label}>
-                <div className="text-2xl font-bold text-white">{num}</div>
-                <div className="text-xs text-white/30 mt-0.5">{label}</div>
+          {/* Stats row (Updated to match image_a59c02.png) */}
+          {/* <div className="grid grid-cols-3 gap-8 pt-10 border-t border-white/10">
+            {[
+              ["50+", "Awesome Clients"], 
+              ["2Cr+", "Earnings a Year"], 
+              ["100+", "Created Projects"]
+            ].map(([num, label]) => (
+              <div key={label} className="space-y-1">
+                <div className="text-3xl md:text-4xl font-bold text-white tracking-tighter">{num}</div>
+                <div className="text-[10px] uppercase tracking-widest text-white/30 font-bold leading-tight">{label}</div>
               </div>
             ))}
-          </div>
+          </div> */}
         </motion.div>
 
         {/* ── RIGHT SIDE: Contact Form ── */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true }}
           className="relative"
         >
           {/* Card glow border */}
-          <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-white/10 via-white/5 to-transparent pointer-events-none" />
+          <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-br from-white/20 via-white/5 to-transparent pointer-events-none" />
 
-          <div className="relative bg-white/[0.04] backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white/[0.08]">
+          <div className="relative bg-white/[0.03] backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/[0.08] shadow-2xl">
 
-            <div className="mb-8">
-              <h2 className="text-xl font-bold text-white tracking-tight">Send a message</h2>
-              <p className="text-sm text-white/30 mt-1">We'll get back to you within 24 hours.</p>
+            <div className="mb-10">
+              <h2 className="text-2xl font-bold text-white tracking-tight">Let's talk business</h2>
+              <p className="text-sm text-white/40 mt-2 font-light">Fill out the form below and our team will be in touch.</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-8">
               {fields.map(({ name, label, type }) => (
                 <div key={name} className="relative">
                   <motion.label
                     animate={{
-                      y: focused === name || form[name] ? -22 : 0,
-                      scale: focused === name || form[name] ? 0.78 : 1,
-                      color: focused === name ? "#a5f3fc" : "rgba(255,255,255,0.3)",
+                      y: focused === name || form[name] ? -24 : 0,
+                      scale: focused === name || form[name] ? 0.8 : 1,
+                      color: focused === name ? "#fff" : "rgba(255,255,255,0.3)",
                     }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-0 top-3 text-sm origin-left pointer-events-none font-medium"
-                    style={{ color: "rgba(255,255,255,0.3)" }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="absolute left-0 top-3 text-sm origin-left pointer-events-none font-medium tracking-wide"
                   >
                     {label}
                   </motion.label>
@@ -133,23 +136,24 @@ const ContactForm = () => {
                     <input
                       type={name === "email" ? "email" : "text"}
                       name={name}
+                      autoComplete="off"
                       value={form[name]}
                       onChange={handleChange}
                       onFocus={() => setFocused(name)}
                       onBlur={() => setFocused(null)}
-                      className="w-full bg-transparent border-b border-white/10 pt-7 pb-2 text-white text-sm outline-none
-                                 focus:border-cyan-300/50 transition-colors duration-200 placeholder-transparent"
+                      className="w-full bg-transparent border-b border-white/10 pt-8 pb-3 text-white text-base outline-none
+                                 focus:border-white transition-colors duration-300 placeholder-transparent"
                     />
                   ) : (
                     <textarea
                       name={name}
-                      rows={4}
+                      rows={3}
                       value={form[name]}
                       onChange={handleChange}
                       onFocus={() => setFocused(name)}
                       onBlur={() => setFocused(null)}
-                      className="w-full bg-transparent border-b border-white/10 pt-7 pb-2 text-white text-sm outline-none
-                                 focus:border-cyan-300/50 transition-colors duration-200 resize-none placeholder-transparent"
+                      className="w-full bg-transparent border-b border-white/10 pt-8 pb-3 text-white text-base outline-none
+                                 focus:border-white transition-colors duration-300 resize-none placeholder-transparent"
                     />
                   )}
 
@@ -157,8 +161,8 @@ const ContactForm = () => {
                   <motion.div
                     animate={{ scaleX: focused === name ? 1 : 0 }}
                     initial={{ scaleX: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-cyan-300 to-blue-400 origin-left"
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute bottom-0 left-0 h-[1.5px] w-full bg-white origin-left"
                   />
                 </div>
               ))}
@@ -166,19 +170,18 @@ const ContactForm = () => {
               {/* Submit */}
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-                className="mt-4 w-full flex items-center justify-center gap-2.5 py-4 rounded-xl
-                           bg-gradient-to-r from-slate-700 to-slate-600 hover:from-slate-600 hover:to-slate-500
-                           text-white text-sm font-semibold tracking-wide border border-white/10
-                           transition-all duration-200 group"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="mt-6 w-full flex items-center justify-center gap-3 py-5 rounded-2xl
+                           bg-white text-black text-sm font-bold tracking-widest uppercase
+                           hover:bg-gray-100 transition-all duration-300 group shadow-lg"
               >
                 {submitted ? (
-                  <span className="text-emerald-400">✓ Message Sent!</span>
+                  <span className="text-emerald-600 flex items-center gap-2">✓ SENT SUCCESSFULLY</span>
                 ) : (
                   <>
                     Send Message
-                    <Send size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </>
                 )}
               </motion.button>
