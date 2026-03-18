@@ -59,7 +59,7 @@ const CareerFourthSection = () => {
           We are looking for
         </h2>
         <p className="text-sm font-['Arimo',sans-serif] text-gray-400">
-          Seats are limited. We review applications on a rolling basis.
+          Join the Seereon crew. We review applications on a rolling basis.
         </p>
       </div>
 
@@ -73,7 +73,7 @@ const CareerFourthSection = () => {
             }`}
           >
             {/* Thumbnail */}
-            <div className="w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
+            <div className="w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
               <img
                 src={cohort.image}
                 alt={cohort.title}
@@ -81,11 +81,13 @@ const CareerFourthSection = () => {
                 onError={(e) => {
                   e.target.style.display = "none";
                   e.target.parentElement.classList.add(
+                    "bg-[#080808]",
                     "flex",
                     "items-center",
                     "justify-center"
                   );
-                  e.target.parentElement.innerHTML = `<span class="text-xs text-gray-400 text-center px-2">ONEDESIGN</span>`;
+                  // Replaced "ONEDESIGN" with "SEEREON"
+                  e.target.parentElement.innerHTML = `<span class="text-[10px] font-bold tracking-widest text-green-500 text-center px-2">SEEREON</span>`;
                 }}
               />
             </div>
@@ -104,7 +106,7 @@ const CareerFourthSection = () => {
               <p className="text-sm text-gray-500">{cohort.program}</p>
             </div>
 
-            {/* Date & Price */}
+            {/* Date & Price - Kept structure but ensured clean spacing */}
             <div className="text-right flex-shrink-0 w-32">
               <p className="text-sm text-gray-500">{cohort.startDate}</p>
               <p className="text-base font-semibold text-gray-900 mt-1">

@@ -12,6 +12,7 @@ import AboutUs from "./pages/aboutus/AboutUs";
 import TeamPage from "./pages/teams/TeamPage";
 import Services from "./pages/services/ServicesPage";
 import ServiceInner from "./pages/services/ServiceInner";
+import Work from "./pages/work/Work";
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
@@ -42,6 +43,7 @@ function App() {
         <Route path="/teams" element={<TeamPage />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/:id" element={<ServiceInner />} />
+        <Route path="/work" element={<Work />} />
       </Routes>
     </>
   );
