@@ -24,7 +24,7 @@ export default function CareerBanner() {
         {/* Background Image */}
         <motion.img
           style={{ y: imageY }}
-          src="src/assets/616972.jpg"
+          src="https://plus.unsplash.com/premium_photo-1769788976249-9f0b048db31a?q=80&w=1482&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Contact"
           className="absolute inset-0 w-full h-[120%] object-cover"
         />
