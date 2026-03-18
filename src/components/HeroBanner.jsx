@@ -38,7 +38,7 @@ const HeroBannner = () => {
         .headline {
           font-family: 'Arimo', sans-serif;
           font-weight: 500;
-          font-size: 130px;
+          font-size: 110px;
           line-height: 1.0;
           letter-spacing: -0.03em;
           color: #0A0A0A;
@@ -56,7 +56,7 @@ const HeroBannner = () => {
           max-width: 575px;
           text-align: center;
           font-family: 'Arimo', sans-serif;
-          font-size: 14px;
+          font-size: 16px;
           line-height: 1.7;
           color: #3a3a3a;
           opacity: ${mounted ? 1 : 0};
@@ -141,16 +141,14 @@ const HeroBannner = () => {
         {/* Headline + Description stacked */}
         <div className="headline-wrapper">
           <h1 className="headline">
-            Increase your<br />
-            web traffic with<br />
-            our experts
+            Engineering Scalable<br />
+            Software Systems for<br />
+            Modern Enterprises
           </h1>
 
           <div className="description-block !pb-20">
             <p>
-              <strong style={{ color: '#0A0A0A', fontWeight: 600 }}>SEEREON</strong> are more than just a tech company — we're your digital growth partner.
-              From visually stunning websites to powerful CRM systems and high-impact marketing campaigns,
-              Seereon delivers solutions that combine creativity, technology, and strategy.
+              <strong style={{ color: '#0A0A0A', fontWeight: 600 }}>Custom software, mobile applications, and AI-powered solutions</strong>  designed to solve complex business challenges with precision, scalability, and long-term reliability.
             </p>
           </div>
         </div>
@@ -159,14 +157,14 @@ const HeroBannner = () => {
         <div className="bottom-row">
           <div className="cta-group">
             <button className="btn-pill">
-              Learn More
+              Request a Consultation
               <svg className="arrow-icon" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="#0A0A0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
 
             <button className="btn-plain">
-              Hire SEEREON
+              Explore Our Work
               <svg className="arrow-icon" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="#0A0A0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
