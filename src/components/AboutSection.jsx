@@ -118,9 +118,17 @@ export default function AboutSection() {
                 transition: "opacity 0.7s ease 1s",
               }}
             >
-              <button className="btn-pill">Our Clients</button>
+              <button className="btn-pill">Our Clients
+              <svg className="arrow-icon" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="#0A0A0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              </button>
 
-              <button className="btn-plain">Our Story</button>
+              <button className="btn-plain">Our Story
+                <svg className="arrow-icon" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="#0A0A0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              </button>
             </div>
           </div>
         </div>
