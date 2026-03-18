@@ -92,19 +92,18 @@ export default function LatestWorkSection() {
           {/* ── LEFT — fixed panel ── */}
           <div
             className="flex-shrink-0 flex flex-col justify-between z-10"
-            style={{ width: "600px", padding: "80px 60px", backgroundColor: "#0A0A0A" }}
+            style={{ width: "700px", padding: "80px 60px", backgroundColor: "#0A0A0A" }}
           >
             <div className="flex flex-col gap-6">
               <p className="text-white/50 text-[12px] font-semibold tracking-[0.14em] uppercase m-0">
-                From Startups to MNCs
+                FROM STARTUPS TO ENTERPRISES
               </p>
               <h2 className="text-white font-semibold m-0 leading-[1.0]" style={{ fontSize: "80px" }}>
-                Latest Brand<br />Work
+                Latest Product<br />Work
               </h2>
               {/* NEW DESCRIPTION */}
                 <p className="text-white/60 text-[16px] leading-relaxed mt-4 max-w-[400px]">
-                  A curated selection of our most recent brand identities and digital experiences, 
-                  crafted with a blend of strategic thinking and visual excellence.
+                  A curated showcase of our latest software products, platforms, and digital systems — engineered with precision, performance, and scalability at the core.
                 </p>
               <button className="flex items-center gap-2 bg-white text-[#0A0A0A] font-semibold text-[15px] rounded-full px-6 py-3 w-fit border-none cursor-pointer hover:bg-white/90 transition-all">
                 View All <ArrowIcon />
