@@ -11,11 +11,11 @@ export default function TestimonialCard() {
           {/* 1. THE FOUNDER IMAGE (Exact Match to Reference) */}
           {/* -top-32 lifts the head above the card edge. object-bottom keeps him flush with the bottom. */}
           <div className="absolute -top-32 left-0 md:left-16 w-full md:w-[480px] h-[calc(100%+128px)] pointer-events-none z-10">
-            {/* <img
-              src="https://www.pngarts.com/files/3/Man-In-Suit-PNG-Transparent-Image.png"
-              alt="Johan Vaughn"
-              className="w-full h-full object-contain object-bottom filter drop-shadow-2xl"
-            /> */}
+            <img
+              src="https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773810329/Santosh-Nayak-1024x1536-Photoroom_1_pl4bro.png"
+              alt="Santosh Kumar Nayak"
+              className="w-full h-full object-contain object-bottom filter drop-shadow-xxl"
+            />
           </div>
 
           {/* 2. BACKGROUND STAR DECORATION */}
@@ -28,7 +28,7 @@ export default function TestimonialCard() {
             
             {/* The Quote - Bold and Large */}
             <h2 className="text-xl md:text-[24px] font-['Arimo',sans-serif] font-light leading-[1.2] tracking-tight mb-12">
-              At Seereon, I believe the greatest thing we can bring to our customers is value. For me, quality is non-negotiable. Every deliverable must meet the highest standards, because every customer at Seereon deserve results that satisfy them. This philosophy drives me and my team every day to create solutions that add value, build trust, and empower our clients to grow with confidence.
+              "At Seereon, I believe the greatest thing we can bring to our customers is value. For me, quality is non-negotiable. Every deliverable must meet the highest standards, because every customer at Seereon deserve results that satisfy them. This philosophy drives me and my team every day to create solutions that add value, build trust, and empower our clients to grow with confidence."
 
             </h2>
 
