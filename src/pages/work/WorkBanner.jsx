@@ -22,7 +22,7 @@ const WorkBanner = () => {
         {/* Background Image */}
         <motion.img
           style={{ y: imageY }}
-          src="src/assets/129655.jpg"
+          src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8V29ya3xlbnwwfHwwfHx8MA%3D%3D"
           alt="Our Works"
           className="absolute inset-0 w-full h-[120%] object-cover"
         />
