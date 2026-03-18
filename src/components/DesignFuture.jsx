@@ -9,9 +9,9 @@ const DesignFuture = () => {
       <div className="max-w-6xl text-center">
 
         {/* Heading */}
-        <h1 className="text-[90px] leading-[1.05] font-['Arimo',sans-serif] font-semibold text-black mb-05">
-        <ScrollFillText>Technology Built Around<br /> Your Business</ScrollFillText>
-        </h1>
+        <h2 className="text-[75px] leading-[1.05] font-['Arimo',sans-serif] font-semibold text-black mb-05">
+        Technology Built Around<br /> Your Business
+        </h2>
 
         {/* Subheading */}
         <p className="text-[26px] font-['Arimo',sans-serif] font-medium text-black !pb-0 !pt-15">
