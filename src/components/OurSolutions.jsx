@@ -3,14 +3,14 @@ import React from 'react';
 const sections = [
   {
     id: "01",
-    title: "Custom Software",
-    desc: "Tailor-made systems engineered around how your business actually works — not how an off-the-shelf product thinks it should.",
+    title: "Custom Software Development",
+    desc: "Design and development of tailored systems that align with your business workflows and operational needs. Scalable backend systems, API-driven architecture, Business process automation.",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&auto=format&fit=crop", 
   },
   {
     id: "02",
     title: "Mobile App Development",
-    desc: "From concept to App Store — we design and build performant, beautiful mobile experiences that your users keep coming back to.",
+    desc: "High-performance mobile applications engineered for seamless user experience and scalability. Android & iOS applications, Optimized for large user bases, Secure and performance-driven.",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&auto=format&fit=crop",
   },
   {
