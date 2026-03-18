@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ScrollFillText } from "./ScrollFillText";
 
 export default function AboutSection() {
   const [mounted, setMounted] = useState(false);
@@ -108,7 +109,7 @@ export default function AboutSection() {
                 transition: "opacity 0.9s ease 0.1s, transform 0.9s ease 0.1s",
               }}
             >
-              Best Website Development & Digital Marketing Company
+              <ScrollFillText>Best Website Development & Digital Marketing Company</ScrollFillText>
             </h2>
 
             <div

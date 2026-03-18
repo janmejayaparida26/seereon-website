@@ -9,7 +9,7 @@ export default function LogoZoomSection() {
     offset: ["start end", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [0.3, 1.7]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.3, 1.9]);
 
   return (
     <section
@@ -21,7 +21,7 @@ export default function LogoZoomSection() {
         className="w-full h-full flex items-center justify-center"
       >
         <video
-          src="/src/assets/file (1).mp4"
+          src="https://res.cloudinary.com/dcc7qgxmb/video/upload/v1773825456/From_Main_Klickpin_CF-_The_Peter_Principle_Understand_Why_Employees_Fail_to_Succeed_-_5Jjg4vYxx_l0ekzn.mp4"
           autoPlay
           loop
           muted
