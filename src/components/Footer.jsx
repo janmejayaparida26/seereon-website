@@ -10,16 +10,16 @@ const Footer = () => {
         <div className="space-y-6">
             {/* <img src="src/assets/Updated Logo.png" /> */}
           <h2 className="text-5xl font-['Arimo',sans-serif] font-bold tracking-tighter !py-6">SEEREON</h2>
-          <p className="text-[15px] font-['Arimo',sans-serif] leading-[1.6] text-[#3e3e3e] max-w-[300px]">
-            ONEDESIGN is a Brand Strategy & Creative Consultancy helping founders realise their brand dream by helping them launch in the market with ease.
+          <p className="text-[18px] font-['Arimo',sans-serif] leading-[1.6] text-[#3e3e3e] max-w-[300px]">
+            Every project is designed to attract the right audience, engage them effectively, and convert them into loyal customers.
           </p>
         </div>
 
         {/* Column 2: Expertise */}
         <div className="space-y-6 !py-7">
           <h4 className="text-[24px] font-['Arimo',sans-serif] font-bold text-black !pb-5">Expertise</h4>
-          <ul className="space-y-4 text-[14px] font-['Arimo',sans-serif] font-medium text-[#3e3e3e]">
-            {['BRAND STRATEGY', 'VISUAL IDENTITY', 'BUILD A PRODUCT', 'DESIGN AN EXPERIENCE', 'LAUNCH YOUR COMPANY', 'INTERNSHIPS & MENTORSHIP'].map((item) => (
+          <ul className="space-y-2 text-[14px] font-['Arimo',sans-serif] font-medium text-[#3e3e3e]">
+            {['Custom Software Development', 'Mobile Application Development', 'MVP Builder', 'E-Commerce', 'AI Development', 'Website Development'].map((item) => (
               <li key={item}><a href="#" className="hover:text-gray-500 transition-colors">{item}</a></li>
             ))}
           </ul>
@@ -39,10 +39,10 @@ const Footer = () => {
         <div className="space-y-6 !py-7">
           <h4 className="text-[24px] font-['Arimo',sans-serif] font-bold text-black !pb-5">Contact</h4>
           <div className="text-[14px] leading-[1.8] text-black space-y-4">
-            <p className="max-w-[250px] font-['Arimo',sans-serif]">ONEDESIGN, 3rd Floor, 55, Lane 2, Westend Marg, Saidullajab, Saket, New Delhi 110030, INDIA</p>
+            <p className="max-w-[250px] font-['Arimo',sans-serif]">Sai Vihar, 75 / 2, Ln 11D, Durga Madhab Nagar, Bharatpur, Bhubaneswar, Odisha 751003, India</p>
             <div>
-              <p className="font-bold">hello@onedesignlabs.com</p>
-              <p>+91 628-083-4209</p>
+              <p className="font-bold">info@seereon.co.in</p>
+              <p>+91-9090705533</p>
             </div>
             
             {/* Social Icons */}
