@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ServiceIcon } from "./ServicesIcons";
 import { services } from "../../data/services";
 import { Weight } from "lucide-react";
+import { ScrollFillText } from "../../utils/Scrollfilltext";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -250,9 +251,7 @@ function ServiceCard({ service, index }) {
       </div>
 
       {/* Image side */}
-      <motion.div
-        style={{ overflow: "hidden", order: isEven ? 1 : 0 }}
-      >
+      <motion.div style={{ overflow: "hidden", order: isEven ? 1 : 0 }}>
         <motion.img
           src={service.image}
           alt={service.title}
@@ -302,7 +301,7 @@ export default function ServicesPage() {
               marginBottom: 80,
             }}
           >
-            <motion.h1
+            {/* <motion.h1
               {...fadeUp(0.1)}
               style={{
                 fontFamily: "'Arimo',sans-serif",
@@ -317,7 +316,21 @@ export default function ServicesPage() {
               Our
               <br />
               Services
-            </motion.h1>
+            </motion.h1> */}
+            <ScrollFillText
+              as="h1"
+              style={{
+                fontFamily: "'Arimo',sans-serif",
+                fontSize: "120px",
+                fontWeight: "600",
+                lineHeight: 0.9,
+                letterSpacing: "0.01em",
+                color: "#111",
+                margin: 0,
+              }}
+            >
+              Our Services
+            </ScrollFillText>
             <motion.p
               {...fadeUp(0.2)}
               style={{
