@@ -14,7 +14,7 @@ export default function TestimonialCard() {
             <img
               src="https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773810329/Santosh-Nayak-1024x1536-Photoroom_1_pl4bro.png"
               alt="Santosh Kumar Nayak"
-              className="w-full h-full object-contain object-bottom filter drop-shadow-xxl"
+              className="w-full h-full object-contain object-bottom filter drop-shadow-xl"
             />
           </div>
 
