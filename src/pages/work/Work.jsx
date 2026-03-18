@@ -1,7 +1,8 @@
 import React from 'react'
 import WorkBanner from "./WorkBanner";
+import Footer from '../../components/Footer';
 
-function Work() {
+const  Work = () => {
   return (
         <>
       <WorkBanner />
