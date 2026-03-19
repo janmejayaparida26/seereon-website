@@ -7,6 +7,8 @@ import SeereonStats from "./SeereonStats";
 import SeereonMissionVision from "./SeereonMissionVision";
 import Footer from "../../components/Footer";
 import FoundersCorner from "./FoundersCorner";
+import ScheduleCall from "../../components/ScheduleCall";
+import ContactCTA from "../../components/ContactCTA";
 
 const AboutUs = () => {
   return (
@@ -18,6 +20,8 @@ const AboutUs = () => {
       <FoundersCorner />
       <SeereonStats />
       <SeereonMissionVision />
+      <ScheduleCall />
+      <ContactCTA />
       <Footer />
     </>
   );
