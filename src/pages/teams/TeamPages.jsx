@@ -527,10 +527,7 @@ export default function TeamPage() {
                 marginBottom: 20,
               }}
             >
-              At Seereon, we don't believe in siloed teams or rigid hierarchies.
-              We build with people who take ownership — developers, designers,
-              and strategists who are as invested in your product as you are. No
-              passengers. Only builders.
+              At Seereon, we don’t operate in silos or rigid hierarchies. We work with people who take ownership — engineers, designers, and product thinkers who treat every system like their own. No handoffs. No shortcuts. Just accountability and execution.
             </p>
             <p
               style={{
@@ -540,10 +537,7 @@ export default function TeamPage() {
                 margin: 0,
               }}
             >
-              We work remotely and collaboratively, bringing together sharp
-              technical minds and product thinkers from across India — united by
-              a shared obsession with quality, foresight, and software that
-              actually lasts.
+              We collaborate remotely, bringing together strong technical minds from across India — united by a shared focus on building clean, scalable, and reliable software that stands the test of time.
             </p>
           </motion.div>
         </div>
