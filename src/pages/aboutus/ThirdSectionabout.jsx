@@ -5,27 +5,27 @@ const items = [
   {
     num: "01.",
     title: "FORESIGHT",
-    body: "We anticipate what your business needs before it does. Our solutions are architected for where you're going — not just where you stand today. Strategic clarity is baked into every decision we make.",
+    body: "We design systems with the future in mind. Our solutions are built to support where your business is headed, ensuring you’re always prepared for growth, scale, and change.",
   },
   {
     num: "02.",
     title: "PRECISION",
-    body: "Every feature, every interaction, every API endpoint is crafted with intent. We don't ship bloat — we ship exactly what moves the needle. Clean code, clear purpose, zero compromise.",
+    body: "Every component we build has a purpose. From architecture to execution, we focus on clean, efficient, and reliable systems without unnecessary complexity.",
   },
   {
     num: "03.",
     title: "SCALABILITY",
-    body: "From early-stage startup to enterprise scale, our architecture grows with you. Built modular, built clean, built to handle whatever comes next without breaking what already works.",
+    body: "Our solutions are built to grow with you. Whether you're expanding operations or increasing users, the systems remain stable, adaptable, and performance-driven.",
   },
   {
     num: "04.",
     title: "LONGEVITY",
-    body: "The Eon in Seereon means enduring impact. We build products that outlast trends, survive pivots, and continue to serve your business for years — even decades — to come.",
+    body: "We build software that lasts. Our focus is on creating systems that remain relevant, functional, and valuable over the long term.",
   },
   {
     num: "05.",
     title: "PARTNERSHIP",
-    body: "We don't disappear after delivery. We stay invested in your roadmap, respond to your evolving needs, and show up as a long-term technology partner — not a one-time vendor.",
+    body: "We work as an extension of your team. From development to evolution, we stay involved, ensuring your systems continue to support your business as it grows.",
   },
 ];
 
@@ -80,7 +80,7 @@ const ThirdSectionabout = () => {
             viewport={{ once: true }}
             className="text-[clamp(36px,4.5vw,58px)] font-['Arimo',sans-serif] font-bold leading-[1.08] tracking-[-0.025em] text-[#111] mb-6"
           >
-            We build software that gives your business a reason to be chosen.
+            We build software that strengthens your business advantage
           </motion.h2>
 
           <motion.p
@@ -90,9 +90,7 @@ const ThirdSectionabout = () => {
             viewport={{ once: true }}
             className="text-[15px] font-['Arimo',sans-serif] leading-[1.8] text-[#555] max-w-[440px]"
           >
-            From scalable ERPs to sleek mobile apps — every product we ship is
-            engineered with foresight, precision, and your long-term growth in
-            mind.
+            From enterprise systems to high-performance applications — everything we create is engineered with clarity, precision, and long-term scalability in mind.
           </motion.p>
         </div>
 
