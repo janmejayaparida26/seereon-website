@@ -28,7 +28,7 @@ export default function TestimonialCard() {
             
             {/* The Quote - Bold and Large */}
             <h2 className="text-xl md:text-[24px] font-['Arimo',sans-serif] font-light leading-[1.2] tracking-tight mb-12">
-              "At Seereon, I believe the greatest thing we can bring to our customers is value. For me, quality is non-negotiable. Every deliverable must meet the highest standards, because every customer at Seereon deserve results that satisfy them. This philosophy drives me and my team every day to create solutions that add value, build trust, and empower our clients to grow with confidence."
+              "At Seereon, our focus is simple — build software that delivers real value. Quality is never optional. Every solution we develop is designed to be reliable, scalable, and aligned with our client’s business goals. We believe technology should simplify complexity and create measurable impact. This belief drives our team to consistently deliver systems that businesses can depend on and grow with."
 
             </h2>
 
