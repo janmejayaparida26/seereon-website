@@ -29,7 +29,7 @@ const Footer = () => {
         <div className="space-y-6 !py-7">
           <h4 className="text-[24px] font-['Arimo',sans-serif] font-bold text-black !pb-5">Explore</h4>
           <ul className="space-y-4 text-[14px] font-['Arimo',sans-serif] font-medium text-[#3e3e3e]">
-            {['ONEDESIGN METHOD', 'ABOUT THE COMPANY', 'OUR WORK & CLIENTS', 'PEOPLE & PROCESSES', 'WORK WITH US'].map((item) => (
+            {['ABOUT THE COMPANY', 'OUR WORK & CLIENTS', 'PEOPLE & PROCESSES', 'WORK WITH US'].map((item) => (
               <li key={item}><a href="#" className="hover:text-gray-500 transition-colors">{item}</a></li>
             ))}
           </ul>
