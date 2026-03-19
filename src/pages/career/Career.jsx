@@ -6,6 +6,8 @@ import CareerThirdSection from './CareerThirdSection';
 import CareerFourthSection from './CareerFourthSection';
 import CareerFifthSection from './CareerFifthSection';
 import Footer from '../../components/Footer';
+import ScheduleCall from '../../components/ScheduleCall';
+import ContactCTA from '../../components/ContactCTA';
 
 function Career() {
   return (
@@ -16,6 +18,8 @@ function Career() {
     <CareerThirdSection />
     <CareerFourthSection />
     <CareerFifthSection />
+    <ScheduleCall />
+    <ContactCTA />
     <Footer />
     </>
   )

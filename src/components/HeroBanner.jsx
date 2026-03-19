@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 const cyclingWords = [
   "Modern Enterprises",
   "Growing Businesses",
-  "Future Leaders",
   "Ambitious Startups",
   "Global Innovators",
 ];
