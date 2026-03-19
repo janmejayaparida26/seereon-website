@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
- 
+ import { useNavigate } from "react-router-dom";
 const cyclingWords = [
   "Modern Enterprises",
   "Growing Businesses",
@@ -11,6 +11,7 @@ const HeroBannner = () => {
   const [mounted, setMounted] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
   const [animState, setAnimState] = useState("visible");
+  const navigate = useNavigate();
  
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 80);
@@ -341,7 +342,7 @@ const HeroBannner = () => {
         {/* Bottom Row */}
 <div className="bottom-row">
 <div className="cta-group">
-<button className="btn-pill">
+<button className="btn-pill" onClick={() => navigate("/contact")}>
               Request a Consultation
 <svg className="arrow-icon" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="#0A0A0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
