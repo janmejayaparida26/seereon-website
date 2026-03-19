@@ -1,33 +1,33 @@
 const faqs = [
   {
-    question: "Is this mentorship online or in person?",
+    question: "What is the hiring process at Seereon?",
     answer:
-      "It's primarily online with live Q&A and mentor hours. Marketplace day and showcases are hosted virtually.",
+      "Our hiring process typically includes an initial screening, a technical assessment, and a final discussion to evaluate your problem-solving approach, technical skills, and cultural fit.",
   },
   {
-    question: "Do I need prior experience?",
+    question: "Do you offer internships or trainee programs?",
     answer:
-      "Basic interest in branding, design, or marketing is enough. The programme starts with fundamentals.",
+      "Yes, we offer internship and trainee opportunities for freshers who are eager to learn, build, and grow in a real engineering environment.",
   },
   {
-    question: "How do payouts work?",
+    question: "Q3. What technologies do you work with?",
     answer:
-      "When your brand sells on the marketplace or gets invested by a VC, 80% of the sale amount is transferred directly to you. ONEDESIGN retains 20% as platform commission or 5% as VC Fund Commission.",
+      "We work with modern tech stacks including web development frameworks, backend systems, cloud technologies, and enterprise solutions like SAP.",
   },
   {
-    question: "What exactly is included for ₹999?",
+    question: "Is prior experience mandatory to apply?",
     answer:
-      "Full 3-month cohort access, the ONEDESIGN Brand Book, theory modules, marketplace access, certificate, live training, support and mentor hours. You can also become a part of the ONEDESIGN Creator Community.",
+      "Not always. While some roles require experience, we also hire freshers and trainees who demonstrate strong fundamentals and a willingness to learn.",
   },
   {
-    question: "Can teams continue after the cohort?",
+    question: "What kind of projects will I work on?",
     answer:
-      "Absolutely. Many teams choose to iterate and list additional assets based on buyer feedback.",
+      "You’ll work on scalable software systems, business applications, and performance-driven platforms designed to solve real-world challenges.",
   },
   {
-    question: "What is the weekly time commitment?",
+    question: "Do you provide training or mentorship?",
     answer:
-      "Expect ~20–26 hours weekly across learning, team work, and critiques. By the end of the cohort, you'd have your brand launched!",
+      "Yes, we provide hands-on training, guidance from experienced developers, and continuous learning opportunities to help you grow.",
   },
 ];
 
@@ -36,10 +36,10 @@ const CareerFifthSection = () => {
     <section className="bg-white py-20 px-6 md:px-12 lg:px-24">
       {/* Header */}
       <div className="text-center mb-14">
-        <h2 className="text-5xl md:text-7xl lg:text-8xl font-['Arimo',sans-serif] font-bold text-gray-900 tracking-tight leading-[1.05]">
+        <h2 className="text-5xl md:text-7xl lg:text-7xl font-['Arimo',sans-serif] font-semibold text-gray-900 tracking-tight leading-[1.05]">
           Frequently
           <br />
-          asked questions
+          asked questions?
         </h2>
       </div>
 
