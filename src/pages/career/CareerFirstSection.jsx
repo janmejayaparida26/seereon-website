@@ -1,18 +1,18 @@
 const steps = [
   {
-    title: "Learn the craft (Month 01-02)",
+    title: "Foundation & Learning (Month 01-02)",
     description:
-      "You go through a structured, chapter-by-chapter learning journey covering how brands are built, positioned, differentiated, and prepared for the market. Weekly sessions, quizzes, and Q&As ensure you don't just absorb information.",
+      "You go through a structured, module-based learning journey covering software engineering fundamentals, system design principles, and modern development practices. Guided sessions, technical exercises, and continuous evaluations ensure strong conceptual clarity and practical understanding.",
   },
   {
-    title: "Build in teams (Month 02-03)",
+    title: "Build & Collaborate (Month 02-03)",
     description:
-      "You're grouped into teams and begin crafting a complete D2C brand — from strategy and naming to identity, communication, and product experience. Mentors guide you through reviews, corrections, and feedback loops so your brand takes shape the right way.",
+      "You work in teams to build real-world software systems, focusing on architecture, development, and deployment. Mentors guide you through code reviews, feedback cycles, and best practices to ensure your work meets professional standards.",
   },
   {
-    title: "Pitch & Launch (Month 03)",
+    title: "Deploy & Deliver (Month 03)",
     description:
-      "You'll prepare a pitch, finalize your brand kit, and pitch to VCs for funding or upload your brand to the ONEDESIGN Marketplace. You learn how to market the brand, talk to buyers, and position it for acquisition — and earn when your brand sells or gets valued.",
+      "You finalize your project, prepare technical documentation, and deploy your solution. You gain hands-on experience in presenting your work, understanding production environments, and delivering systems ready for real-world use.",
   },
 ];
 
@@ -25,7 +25,7 @@ const CareerFirstSection = () => {
           How it works?
         </h2>
         <p className="text-base font-['Arimo',sans-serif] text-gray-500">
-          A simple, three-step journey that turns theory into outcomes.
+          A structured, outcome-driven journey designed to build real-world engineering capabilities.
         </p>
       </div>
 
