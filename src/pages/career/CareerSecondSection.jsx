@@ -1,18 +1,18 @@
 const steps = [
   {
-    title: "Learn the craft (Month 01-02)",
+    title: "Foundation & Learning (Month 01-02)",
     description:
-      "You go through a structured, chapter-by-chapter learning journey covering how brands are built, positioned, differentiated, and prepared for the market. Weekly sessions, quizzes, and Q&As ensure you don't just absorb information.",
+      "Gain a strong understanding of software development fundamentals, system architecture, and engineering best practices.",
   },
   {
-    title: "Build in teams (Month 02-03)",
+    title: "Build & Collaborate (Month 02-03)",
     description:
-      "You're grouped into teams and begin crafting a complete D2C brand — from strategy and naming to identity, communication, and product experience. Mentors guide you through reviews, corrections, and feedback loops so your brand takes shape the right way.",
+      "Apply your knowledge by building scalable systems, working with teams, and following structured development workflows.",
   },
   {
-    title: "Pitch & Launch (Month 03)",
+    title: "Deploy & Deliver (Month 03)",
     description:
-      "You'll prepare a pitch, finalize your brand kit, and pitch to VCs for funding or upload your brand to the ONEDESIGN Marketplace. You learn how to market the brand, talk to buyers, and position it for acquisition — and earn when your brand sells or gets valued.",
+      "Learn deployment strategies, system optimization, and how to deliver production-ready applications with confidence.",
   },
 ];
 
@@ -25,7 +25,7 @@ const CareerSecondSection = () => {
           What will you learn?
         </h2>
         <p className="text-base font-['Arimo',sans-serif] text-gray-500">
-          Theory‑first, application‑ready. Each month, close with a tangible deliverable.
+          Structured learning combined with hands-on execution, resulting in practical deliverables at every stage.
         </p>
       </div>
 
