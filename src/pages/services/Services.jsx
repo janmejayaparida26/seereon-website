@@ -352,7 +352,7 @@ export default function ServicesPage() {
 
       {/* Service cards — alternating layout */}
       <div
-        style={{ maxWidth: 1400, margin: "0 auto 0", padding: "0 80px" }}
+        style={{ maxWidth: 1400, margin: "0 auto 0", padding: "0 80px 80px" }}
         className="px-6 md:px-16 lg:px-24"
       >
         {services.map((s, i) => (
@@ -363,7 +363,7 @@ export default function ServicesPage() {
       </div>
 
       {/* CTA Banner */}
-      <section
+      {/* <section
         style={{ padding: "80px 96px 120px" }}
         className="px-6 md:px-16 lg:px-24"
       >
@@ -427,7 +427,7 @@ export default function ServicesPage() {
             Start a Project ↗
           </button>
         </motion.div>
-      </section>
+      </section> */}
     </div>
   );
 }
