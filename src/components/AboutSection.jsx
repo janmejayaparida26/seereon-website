@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { ScrollFillText } from "./ScrollFillText";
+ import { useNavigate } from "react-router-dom";
 
 export default function AboutSection() {
   const [mounted, setMounted] = useState(false);
+    const navigate = useNavigate();
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 80);
@@ -117,13 +119,13 @@ export default function AboutSection() {
                 transition: "opacity 0.7s ease 1s",
               }}
             >
-              <button className="btn-pill">Our Clients
+              <button className="btn-pill" onClick={() => navigate("/aboutus")}>Explore about us
               <svg className="arrow-icon" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="#0A0A0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               </button>
 
-              <button className="btn-plain">Our Story
+              <button className="btn-plain" onClick={() => navigate("/services")}>Our Services
                 <svg className="arrow-icon" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="#0A0A0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
