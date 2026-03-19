@@ -42,11 +42,11 @@ const FirstSectionabout = () => {
         </motion.p>
 
         {/* CTA */}
-        <motion.div {...fadeUp(0.4)} className="mt-12">
+        {/* <motion.div {...fadeUp(0.4)} className="mt-12">
           <button className="inline-flex items-center font-['Arimo',sans-serif] gap-2 border border-[#111] rounded-full px-7 py-3 text-sm text-[#111] hover:bg-[#111] hover:text-white transition-all duration-300">
             Learn More ↗
           </button>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
