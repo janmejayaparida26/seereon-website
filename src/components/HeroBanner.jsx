@@ -134,7 +134,7 @@ const HeroBannner = () => {
         .headline {
           font-family: 'Arimo', sans-serif;
           font-weight: 600;
-          font-size: 110px;
+          font-size: 90px;
           line-height: 1.0;
           letter-spacing: -0.03em;
           color: #ffffff;

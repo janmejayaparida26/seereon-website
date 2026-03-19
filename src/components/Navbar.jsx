@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Replace this with the actual path to your logo file
+import logo from "../assets/Updated Logo.png"; 
+
 const NAV_LINKS = [
   { label: "About Us", href: "/aboutus" },
   { label: "Teams", href: "/teams" },
@@ -23,7 +26,6 @@ function DesktopLink({ link, active }) {
       className="relative pb-1 text-[11px] font-semibold uppercase tracking-[0.08em] transition-colors duration-250"
       style={{
         fontFamily: "'DM Sans', sans-serif",
-        // Brighter inactive state (0.8 instead of 0.5)
         color: isActive ? "#ffffff" : "rgba(255,255,255,0.8)",
         textDecoration: "none",
       }}
@@ -60,17 +62,23 @@ export default function Navbar() {
       <header
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         style={{
-          background: scrolled || menuOpen ? "#000000" : "#027501",
-          backdropFilter: scrolled ? "blur(12px)" : "none",
+          background: scrolled || menuOpen ? "rgba(0, 0, 0, 0.85)" : "transparent",
+          backdropFilter: scrolled || menuOpen ? "blur(12px)" : "none",
+          borderBottom: scrolled || menuOpen ? "1px solid rgba(255,255,255,0.1)" : "1px solid transparent",
         }}
       >
         <div className="w-[90%] max-w-[1400px] mx-auto h-[72px] flex items-center justify-between">
           <Link
             to="/"
-            className="text-white no-underline tracking-[0.04em] flex-shrink-0"
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22 }}
+            className="flex items-center no-underline flex-shrink-0"
           >
-            SEEREON
+            {/* Logo Image Implementation */}
+            <img 
+              src={"https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773926744/Updated_Logo_ppjmvp.png"} 
+              alt="Seereon Logo" 
+              className="h-[200px] w-auto object-contain" 
+              style={{ filter: "brightness(1.1)" }} // Keeps the gold looking vibrant
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -94,7 +102,7 @@ export default function Navbar() {
                          transition-all duration-200 hover:bg-[#e8ff00] hover:text-black flex-shrink-0"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
-              HIRE SEEREON
+              Contact Us
             </Link>
 
             <button
@@ -152,7 +160,6 @@ export default function Navbar() {
                       fontWeight: 600,
                       letterSpacing: "0.06em",
                       textTransform: "uppercase",
-                      // Brighter mobile inactive state
                       color: location.pathname === link.href ? "#fff" : "rgba(255,255,255,0.8)",
                     }}
                   >
