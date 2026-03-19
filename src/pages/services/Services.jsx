@@ -32,12 +32,13 @@ function Ticker() {
         borderTop: "1px solid #ddd9d3",
         borderBottom: "1px solid #ddd9d3",
         padding: "14px 0",
-        marginBottom: 80,
+        marginTop: 180,
+        marginBottom: 200,
       }}
     >
       <motion.div
         animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
         style={{
           display: "flex",
           gap: 48,
@@ -290,14 +291,14 @@ export default function ServicesPage() {
               marginBottom: 20,
             }}
           >
-            What We Build
+            Our ERP Solutions
           </motion.p>
           <div
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
               gap: 48,
-              alignItems: "end",
+              alignItems: "start",
               marginBottom: 80,
             }}
           >
@@ -321,15 +322,15 @@ export default function ServicesPage() {
               as="h1"
               style={{
                 fontFamily: "'Arimo',sans-serif",
-                fontSize: "120px",
-                fontWeight: "600",
+                fontSize: "80px",
+                fontWeight: "500",
                 lineHeight: 0.9,
                 letterSpacing: "0.01em",
                 color: "#111",
                 margin: 0,
               }}
             >
-              Our Services
+              Advanced Systems we Build
             </ScrollFillText>
             <motion.p
               {...fadeUp(0.2)}
@@ -340,9 +341,7 @@ export default function ServicesPage() {
                 paddingBottom: 8,
               }}
             >
-              End-to-end software solutions engineered with foresight — froms
-              your first sprint to long-term growth. We don't just write code,
-              we build things that last for eons.
+              End-to-end software solutions engineered for scale — from initial concept to long-term evolution. We don’t just develop software, we build systems designed to perform, adapt, and last.
             </motion.p>
           </div>
         </div>
@@ -353,7 +352,7 @@ export default function ServicesPage() {
 
       {/* Service cards — alternating layout */}
       <div
-        style={{ maxWidth: 1400, margin: "0 auto 0", padding: "0 96px" }}
+        style={{ maxWidth: 1400, margin: "0 auto 0", padding: "0 80px" }}
         className="px-6 md:px-16 lg:px-24"
       >
         {services.map((s, i) => (
