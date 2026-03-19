@@ -340,7 +340,7 @@ export default function ServicesPage() {
                 paddingBottom: 8,
               }}
             >
-              End-to-end software solutions engineered with foresight — from
+              End-to-end software solutions engineered with foresight — froms
               your first sprint to long-term growth. We don't just write code,
               we build things that last for eons.
             </motion.p>
