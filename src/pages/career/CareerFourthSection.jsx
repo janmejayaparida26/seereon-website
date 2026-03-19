@@ -4,49 +4,42 @@ const cohorts = [
     image: "/cohort-feb.png",
     title: "Business Development Executive",
     badge: "Open-Position",
-    program: "Founder Mentorship Programme",
+    program: "Enterprise Technology Solutions",
   },
   {
     id: 2,
     image: "/cohort-feb.png",
     title: "Business Development Manager",
     badge: "Open-Position",
-    program: "Founder Mentorship Programme",
+    program: "Enterprise Technology Solutions",
   },
   {
     id: 3,
     image: "/cohort-feb.png",
     title: "Jr. Software Associate Trainee",
     badge: "Open-Position",
-    program: "Founder Mentorship Programme",
-  },
-  {
-    id: 4,
-    image: "/cohort-feb.png",
-    title: "Digital Marketing Executive",
-    badge: "Open-Position",
-    program: "Founder Mentorship Programme",
+    program: "Software Engineering",
   },
   {
     id: 5,
     image: "/cohort-feb.png",
     title: "MERN Stack Developer",
     badge: "Open-Position",
-    program: "Founder Mentorship Programme",
+    program: "Full Stack Development",
   },
   {
     id: 6,
     image: "/cohort-feb.png",
     title: "SAP ABAP Trainee",
     badge: "Open-Position",
-    program: "Founder Mentorship Programme",
+    program: "Enterprise Application Development",
   },
   {
     id: 7,
     image: "/cohort-feb.png",
     title: "Front Desk Associate",
     badge: "Open-Position",
-    program: "Founder Mentorship Programme",
+    program: "Operations",
   },
 ];
 
@@ -55,11 +48,11 @@ const CareerFourthSection = () => {
     <section className="bg-white py-20 px-6 md:px-12 lg:px-24">
       {/* Header */}
       <div className="text-center mb-12">
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-['Arimo',sans-serif] font-bold text-gray-900 tracking-tight mb-4">
+        <h2 className="text-5xl md:text-6xl lg:text-6xl font-['Arimo',sans-serif] font-semibold text-gray-900 tracking-tight mb-4">
           We are looking for
         </h2>
-        <p className="text-sm font-['Arimo',sans-serif] text-gray-400">
-          Join the Seereon crew. We review applications on a rolling basis.
+        <p className="text-base font-['Arimo',sans-serif] text-gray-500">
+          Join Seereon and work on building scalable software systems and enterprise-grade solutions. <br />Applications are reviewed on a rolling basis.
         </p>
       </div>
 
