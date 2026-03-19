@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const projects = [
   {
@@ -60,6 +62,8 @@ const ArrowIcon = ({ color = "#0A0A0A" }) => (
 export default function LatestWorkSection() {
   const targetRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -105,7 +109,7 @@ export default function LatestWorkSection() {
                 <p className="text-white/60 text-[16px] leading-relaxed mt-4 max-w-[400px]">
                   A curated showcase of our latest software products, platforms, and digital systems — engineered with precision, performance, and scalability at the core.
                 </p>
-              <button className="flex items-center gap-2 bg-white text-[#0A0A0A] font-semibold text-[15px] rounded-full px-6 py-3 w-fit border-none cursor-pointer hover:bg-white/90 transition-all">
+              <button className="flex items-center gap-2 bg-white text-[#0A0A0A] font-semibold text-[15px] rounded-full px-6 py-3 w-fit border-none cursor-pointer hover:bg-white/90 transition-all" onClick={() => navigate("/work")}>
                 View All <ArrowIcon />
               </button>
             </div>
