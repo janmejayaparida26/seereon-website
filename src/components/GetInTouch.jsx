@@ -9,7 +9,7 @@ const LocationCard = ({ city, address, image,}) => (
     <div>
       <h4 className="text-gray-200 font-medium text-xl">We are here</h4>
       <h3 className="text-4xl font-medium tracking-tighter mb-2">{city}</h3>
-      <p className="text-xs text-gray-500 leading-relaxed mb-4">{address}</p>
+      <p className="text-base text-gray-500 leading-relaxed mb-4">{address}</p>
       {/* <div className="flex items-center gap-2">
         <span>🇮🇳</span>
         <span className="text-sm font-medium">{lang}</span>
@@ -21,9 +21,9 @@ const LocationCard = ({ city, address, image,}) => (
 // Main section rendering the 3 cards in a single row
 const LocationSection = () => {
   const locations = [
-    { city: "Phone", address: "ONEDESIGN, 3rd Floor, 55, Lane 2, Westend Marg, Saidullajab, Saket, New Delhi 110030, INDIA", image: "https://www.svgrepo.com/show/520583/call.svg" },
-    { city: "Email", address: "ONEDESIGN, Tower 2, BKC, Bandra East, Mumbai, Maharashtra 400051", image: "https://www.svgrepo.com/show/434378/email.svg" },
-    { city: "Location", address: "ONEDESIGN, Indiranagar, 12th Main Rd, Bangalore, Karnataka 560038", image: "https://www.svgrepo.com/show/432221/location-on.svg" },
+    { city: "Phone", address: "+91-9090705533", image: "https://www.svgrepo.com/show/520583/call.svg" },
+    { city: "Email", address: "info@seereon.co.in", image: "https://www.svgrepo.com/show/434378/email.svg" },
+    { city: "Location", address: "Bhubaneswar, Odisha 751003, India", image: "https://www.svgrepo.com/show/432221/location-on.svg" },
   ];
 
   return (

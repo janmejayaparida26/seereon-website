@@ -22,7 +22,7 @@ const ServiceBanner = () => {
         {/* Background Image */}
         <motion.img
           style={{ y: imageY }}
-          src="src/assets/129655.jpg"
+          src="https://images.unsplash.com/photo-1763568258535-fa1066506571?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTYyfHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50fGVufDB8fDB8fHww"
           alt="About Us"
           className="absolute inset-0 w-full h-[120%] object-cover"
         />
