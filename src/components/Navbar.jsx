@@ -23,7 +23,8 @@ function DesktopLink({ link, active }) {
       className="relative pb-1 text-[11px] font-semibold uppercase tracking-[0.08em] transition-colors duration-250"
       style={{
         fontFamily: "'DM Sans', sans-serif",
-        color: isActive ? "#fff" : "rgba(255,255,255,0.5)",
+        // Brighter inactive state (0.8 instead of 0.5)
+        color: isActive ? "#ffffff" : "rgba(255,255,255,0.8)",
         textDecoration: "none",
       }}
     >
@@ -44,7 +45,6 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Close menu on route change
   useEffect(() => {
     setMenuOpen(false);
   }, [location.pathname]);
@@ -60,13 +60,11 @@ export default function Navbar() {
       <header
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         style={{
-          background: scrolled || menuOpen ? "rgba(0,0,0,0.97)" : "#000",
+          background: scrolled || menuOpen ? "#000000" : "#027501",
           backdropFilter: scrolled ? "blur(12px)" : "none",
         }}
       >
-        {/* ── Inner — 80% width, centered ── */}
         <div className="w-[90%] max-w-[1400px] mx-auto h-[72px] flex items-center justify-between">
-          {/* Logo */}
           <Link
             to="/"
             className="text-white no-underline tracking-[0.04em] flex-shrink-0"
@@ -75,7 +73,6 @@ export default function Navbar() {
             SEEREON
           </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <DesktopLink
@@ -89,7 +86,6 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop CTA + mobile hamburger */}
           <div className="flex items-center gap-4">
             <Link
               to="/contact"
@@ -101,7 +97,6 @@ export default function Navbar() {
               HIRE SEEREON
             </Link>
 
-            {/* Hamburger — mobile only */}
             <button
               onClick={() => setMenuOpen((v) => !v)}
               className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px] bg-transparent border-none cursor-pointer"
@@ -113,18 +108,12 @@ export default function Navbar() {
                 className="block w-6 h-px bg-white origin-center"
               />
               <motion.span
-                animate={
-                  menuOpen
-                    ? { opacity: 0, scaleX: 0 }
-                    : { opacity: 1, scaleX: 1 }
-                }
+                animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.2 }}
                 className="block w-6 h-px bg-white origin-center"
               />
               <motion.span
-                animate={
-                  menuOpen ? { rotate: -45, y: -9 } : { rotate: 0, y: 0 }
-                }
+                animate={menuOpen ? { rotate: -45, y: -9 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3 }}
                 className="block w-6 h-px bg-white origin-center"
               />
@@ -133,7 +122,6 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* ── Mobile Menu ── */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -164,10 +152,8 @@ export default function Navbar() {
                       fontWeight: 600,
                       letterSpacing: "0.06em",
                       textTransform: "uppercase",
-                      color:
-                        location.pathname === link.href
-                          ? "#fff"
-                          : "rgba(255,255,255,0.5)",
+                      // Brighter mobile inactive state
+                      color: location.pathname === link.href ? "#fff" : "rgba(255,255,255,0.8)",
                     }}
                   >
                     {link.label}
@@ -175,7 +161,6 @@ export default function Navbar() {
                 </motion.div>
               ))}
 
-              {/* Mobile CTA */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -185,8 +170,8 @@ export default function Navbar() {
                 <Link
                   to="/contact"
                   className="block text-center text-[#e8ff00] border border-[#e8ff00] py-3 px-6
-                             text-[12px] font-bold tracking-[0.1em] uppercase no-underline
-                             hover:bg-[#e8ff00] hover:text-black transition-all duration-200"
+                               text-[12px] font-bold tracking-[0.1em] uppercase no-underline
+                               hover:bg-[#e8ff00] hover:text-black transition-all duration-200"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   HIRE SEEREON
