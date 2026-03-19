@@ -30,7 +30,7 @@ const SecondSectionabout = () => {
                 </svg>
               </div>
 
-              <div className="sp-img-badge">Est. Future-Ready</div>
+              <div className="sp-img-badge">SEEREON Est. Future-Ready</div>
             </div>
           </div>
 
@@ -43,13 +43,8 @@ const SecondSectionabout = () => {
             </h2>
 
             <p className="sp-body font-['Arimo',sans-serif]">
-              At Seereon, we don't just deliver code — we deliver ownership. We
-              embed ourselves in your business, understand your roadmap, and
-              build software that moves with your ambitions. Whether it's an ERP
-              overhaul, a CRM from scratch, or a mobile product launch, we
-              challenge assumptions, navigate complexity, and stay accountable
-              through every sprint.
-            </p>
+              At Seereon, we don’t just deliver software — we take ownership. We align ourselves with your business objectives, understand your systems, and build solutions that support your long-term growth. Whether it's an ERP transformation, a custom CRM, or a scalable application, we simplify complexity, make informed decisions, and stay accountable at every stage.
+              </p>
           </div>
         </div>
       </section>

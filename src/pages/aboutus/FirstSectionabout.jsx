@@ -36,20 +36,9 @@ const FirstSectionabout = () => {
           {...fadeUp(0.25)}
           className="text-[clamp(15px,1.3vw,18px)] leading-[1.8] text-[#444] max-w-[1400px] mx-auto"
         >
-          Seereon is a forward-thinking technology company specializing in
-          building powerful software products that drive businesses into the
-          future. We design and develop scalable solutions including mobile
-          applications, ERP systems, CRM platforms, and e-commerce portals,
-          tailored to solve real-world business challenges.
-          <br />
-          The name <span className="italic">Seereon</span> is derived from{" "}
-          <strong>Seer</strong> and <strong>Eon</strong>—reflecting our core
-          philosophy. A Seer represents foresight, clarity, and the ability to
-          anticipate what lies ahead, while Eon signifies longevity and enduring
-          impact.
-          <br />
-          At Seereon, we don't just build software—we envision what your
-          business needs next and engineer solutions that evolve with you.
+          Seereon is a technology-driven company focused on building scalable, high-performance software systems that power modern businesses. We specialize in developing mobile applications, ERP systems, CRM platforms, and enterprise-grade solutions designed to solve real-world operational challenges.
+          The name Seereon comes from Seer and Eon—the foundation of how we think and build. A Seer represents vision, clarity, and the ability to anticipate what’s ahead, while Eon reflects longevity and lasting impact.
+          At Seereon, we don’t just develop software—we build systems that are engineered to evolve, adapt, and grow with your business over time.
         </motion.p>
 
         {/* CTA */}
