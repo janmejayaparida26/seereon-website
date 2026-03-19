@@ -66,7 +66,7 @@ const ContactForm = () => {
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-wrap items-center gap-5">
+          {/* <div className="flex flex-wrap items-center gap-5">
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
@@ -82,7 +82,7 @@ const ContactForm = () => {
             >
               View Our Method <ArrowUpRight size={16} />
             </motion.a>
-          </div>
+          </div> */}
 
           {/* Stats row (Updated to match image_a59c02.png) */}
           {/* <div className="grid grid-cols-3 gap-8 pt-10 border-t border-white/10">
@@ -112,10 +112,10 @@ const ContactForm = () => {
 
           <div className="relative bg-white/[0.03] backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/[0.08] shadow-2xl">
 
-            <div className="mb-10">
+            {/* <div className="mb-10">
               <h2 className="text-2xl font-bold text-white tracking-tight">Let's talk business</h2>
               <p className="text-sm text-white/40 mt-2 font-light">Fill out the form below and our team will be in touch.</p>
-            </div>
+            </div> */}
 
             <form onSubmit={handleSubmit} className="space-y-8">
               {fields.map(({ name, label, type }) => (
@@ -172,7 +172,7 @@ const ContactForm = () => {
                 type="submit"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="mt-6 w-full flex items-center justify-center gap-3 py-5 rounded-2xl
+                className="mt-6 w-full flex items-center justify-center gap-3 py-3 rounded-xl
                            bg-white text-black text-sm font-bold tracking-widest uppercase
                            hover:bg-gray-100 transition-all duration-300 group shadow-lg"
               >
