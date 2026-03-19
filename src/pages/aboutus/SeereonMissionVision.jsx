@@ -72,7 +72,7 @@ export default function FourthSectionAbout() {
             </h2>
             <div className="w-8 h-[1.5px] bg-white/20" />
             <p className="text-[15px] leading-[1.7] text-white/55">
-              To empower businesses with software that anticipates the future. We build ERPs, CRMs, and platforms that solve real problems today and scale effortlessly tomorrow.
+              To empower businesses with intelligent, scalable software systems that solve real challenges today while preparing them for tomorrow’s growth.
             </p>
           </div>
         </motion.div>
@@ -98,7 +98,7 @@ export default function FourthSectionAbout() {
             </h2>
             <div className="w-8 h-[1.5px] bg-[#ccc]" />
             <p className="text-[15px] leading-[1.7] text-[#555]">
-              To become the most trusted technology partner worldwide—known for foresight, engineering excellence, and products that outlast trends to serve your business for years.
+              To become a globally trusted technology partner known for building reliable, future-ready software that stands the test of time.
             </p>
           </div>
         </motion.div>
@@ -124,7 +124,7 @@ export default function FourthSectionAbout() {
             </h2>
             <div className="w-8 h-[1.5px] bg-white/20" />
             <p className="text-[15px] leading-[1.7] text-white/55">
-              We believe in deep focus and uncompromising quality. Every line of code is written with purpose, ensuring your product is high-performing, secure, and user-centric.
+              We prioritize precision, performance, and reliability over quantity. Every solution is crafted with attention to detail, ensuring it is secure, scalable, and built to perform.
             </p>
           </div>
         </motion.div>
