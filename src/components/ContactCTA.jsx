@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ArrowIcon = () => (
   <svg width="14" height="14" viewBox="0 0 13 13" fill="none">
@@ -13,6 +14,8 @@ const ArrowIcon = () => (
 );
 
 export default function CTASection() {
+const navigate = useNavigate();
+
   return (
     <>
       <style>{`
@@ -108,7 +111,7 @@ export default function CTASection() {
           </div>
 
           {/* RIGHT BUTTON */}
-          <button className="cta-btn">
+          <button className="cta-btn" onClick={() => navigate("/contact")}>
             Start a Project <ArrowIcon />
           </button>
 
