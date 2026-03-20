@@ -35,9 +35,9 @@ export function ScrollFillText({
   children,
   className = "",
   style = {},
-  startOffset = "start 0.9",
-  endOffset = "start 0.4",
-  fadeFrom = 0.2,
+  startOffset = "start 0.5",
+  endOffset = "start 0.2",
+  fadeFrom = 0.1,
 }) {
   const targetRef = useRef(null);
 
@@ -90,7 +90,7 @@ function ScrollWord({ children, progress, range, fadeFrom }) {
       style={{
         position: "relative",
         display: "inline-block",
-        marginRight: "0.25em",
+        marginRight: "0.5em",
       }}
     >
       {/* Ghost layer — always visible at low opacity to show placeholder */}
