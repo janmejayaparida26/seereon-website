@@ -4,36 +4,46 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const SolutionsHeading = () => {
   const sectionRef = useRef(null);
 
-  // Track scroll progress specifically for this section
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    // "start 0.9" = starts when section is near bottom
-    // "start 0.5" = finishes when section is in the middle
-    offset: ["start 0.9", "start 0.5"]
+    offset: ["start 0.9", "start 0.6"]
   });
 
-  // ANIMATION: Only Opacity (No Scale/Zoom)
   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  
-  // Optional: Add a subtle 'y' lift (slide up 20px) to make the fade look smoother
-  const y = useTransform(scrollYProgress, [0, 1], [20, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], [30, 0]);
 
   return (
     <section 
       ref={sectionRef} 
-      className="bg-[#f2f2f2] min-h-[20vh] flex flex-col items-center justify-center overflow-hidden py-32 px-6"
+      className="bg-white flex flex-col items-center justify-center overflow-hidden py-16 md:py-24 px-6"
+      style={{ fontFamily: "'Arimo', sans-serif" }}
     >
       <motion.div 
-        style={{ opacity, y }} // Apply opacity and subtle slide up only
-        className="flex flex-col items-center justify-center text-center"
+        style={{ opacity, y }} 
+        className="flex flex-col items-center justify-center text-center w-full max-w-7xl"
       >
-        {/* LARGE HEADING */}
-        <h2 className="text-[70px] md:text-[70px] font-['Arimo',sans-serif] font-medium leading-[1] tracking-[-0.05em] text-[#0A0A0A]">
-          Our Core Capabilities
+        {/* FIXED: Added clamp() for the heading size and improved line-height */}
+        <h2 
+          className="font-medium tracking-[-0.04em] text-[#0A0A0A]"
+          style={{ 
+            fontSize: "clamp(42px, 8vw, 85px)", // Scalable: Min 42px, Max 85px
+            lineHeight: "1.05",
+            marginBottom: "1.5rem",
+            wordBreak: "keep-all" // Prevents awkward word splitting
+          }}
+        >
+          Our Core <br className="block md:hidden" /> Capabilities
         </h2>
 
-        {/* SUBTEXT */}
-        <p className="mt-4 text-[18px] md:text-[20px] font-['Arimo',sans-serif] font-medium text-black/80 max-w-2xl">
+        {/* SUBTEXT - Refined for better readability on mobile */}
+        <p 
+          className="text-[#444] font-medium w-full max-w-[320px] md:max-w-2xl"
+          style={{ 
+            fontSize: "clamp(16px, 2vw, 20px)",
+            lineHeight: "1.6",
+            opacity: 0.8
+          }}
+        >
           Focused engineering solutions built for performance, scalability, and business impact.
         </p>
       </motion.div>
