@@ -60,9 +60,9 @@ const DesignFuture = () => {
         }
 
         .main-title {
-          font-size: clamp(32px, 5vw, 64px);
+          font-size: 80px;
           line-height: 1.1;
-          font-weight: 600;
+          font-weight: 500;
           color: #000;
           letter-spacing: -0.04em;
           margin-top: 24px;
