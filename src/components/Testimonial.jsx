@@ -47,14 +47,60 @@ const TestimonialCard = ({ item, i, scrollYProgress }) => {
   const startScroll = i * 0.12;
   const endScroll = startScroll + 0.25;
 
-  // ✅ Only bottom-to-top animation
-  const startY = 600 + i * 120;
+  // ✅ detect mobile
+  const isMobile =
+    typeof window !== "undefined" && window.innerWidth < 768;
 
-  const x = useTransform(scrollYProgress, [startScroll, endScroll], [0, 0]);
-  const y = useTransform(scrollYProgress, [startScroll, endScroll], [startY, 0]);
-  const rotate = useTransform(scrollYProgress, [startScroll, endScroll], [8, 0]);
-  const opacity = useTransform(scrollYProgress, [startScroll, startScroll + 0.08], [0, 1]);
-  const scale = useTransform(scrollYProgress, [startScroll, endScroll], [0.85, 1]);
+  const getStartPosition = (index) => {
+    if (isMobile) {
+      // 🔥 Mobile: only from bottom
+      return { x: 0, y: 800, r: 0 };
+    }
+
+    // 💻 Desktop: original positions
+    const positions = [
+      { x: -800, y: 300, r: -30 },
+      { x: 800, y: -200, r: 30 },
+      { x: 200, y: 900, r: 15 },
+      { x: -900, y: -400, r: -40 },
+      { x: 900, y: 500, r: 45 },
+      { x: 0, y: -1000, r: 0 },
+    ];
+    return positions[index] || { x: 500, y: 500, r: 20 };
+  };
+
+  const pos = getStartPosition(i);
+  const xOffset = isMobile ? 0 : i * 40;
+
+  const x = useTransform(
+    scrollYProgress,
+    [startScroll, endScroll],
+    [pos.x, xOffset]
+  );
+
+  const y = useTransform(
+    scrollYProgress,
+    [startScroll, endScroll],
+    [pos.y, 0]
+  );
+
+  const rotate = useTransform(
+    scrollYProgress,
+    [startScroll, endScroll],
+    [pos.r, 0]
+  );
+
+  const opacity = useTransform(
+    scrollYProgress,
+    [startScroll, startScroll + 0.08],
+    [0, 1]
+  );
+
+  const scale = useTransform(
+    scrollYProgress,
+    [startScroll, endScroll],
+    [0.7, 1]
+  );
 
   return (
     <motion.div
@@ -65,15 +111,24 @@ const TestimonialCard = ({ item, i, scrollYProgress }) => {
         opacity,
         scale,
         zIndex: i,
-        backgroundColor: item.color.startsWith("#") ? item.color : undefined,
+        backgroundColor: item.color.startsWith("#")
+          ? item.color
+          : undefined,
       }}
-      className={`absolute left-1/2 top-10 -translate-x-1/2
+      className={`absolute 
+        left-1/2 -translate-x-1/2   /* ✅ center on mobile */
+        md:left-0 md:translate-x-0 /* ✅ keep desktop same */
+        top-10 
         w-[90vw] max-w-[580px] h-[420px] md:h-[520px]
         rounded-[35px] p-6 md:p-12 shadow-2xl flex flex-col
         ${item.color.startsWith("bg-") ? item.color : ""}`}
     >
       <div className="h-20 w-20 md:h-24 md:w-24 overflow-hidden rounded-full mb-4 md:mb-6 border-4 border-white/20">
-        <img src={item.img} alt={item.quote} className="h-full w-full object-cover" />
+        <img
+          src={item.img}
+          alt={item.quote}
+          className="h-full w-full object-cover"
+        />
       </div>
 
       <h3 className="text-xl md:text-[32px] font-extrabold text-black mb-4">
