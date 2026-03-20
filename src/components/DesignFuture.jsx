@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ScrollFillText } from "./ScrollFillText";
 
-
 const DesignFuture = () => {
   const [mounted, setMounted] = useState(false);
 
@@ -29,25 +28,30 @@ const DesignFuture = () => {
       <style>{`
         .design-section {
           background-color: #ffffff;
-          padding: 60px 24px;
-          font-family: 'DM Sans', sans-serif;
+          padding: 60px 20px;
+          font-family: 'Arimo', sans-serif;
           overflow: hidden;
         }
 
         .design-container {
           max-width: 1400px;
           margin: 0 auto;
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 60px;
-          align-items: center;
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
         }
 
         @media (min-width: 1024px) {
-          .design-container {
-            grid-template-columns: 1fr 1fr;
-            gap: 100px;
+          .design-section {
             padding: 100px 40px;
+          }
+          .design-container {
+            flex-direction: row;
+            align-items: center;
+            gap: 80px;
+          }
+          .content-col, .image-col {
+            flex: 1;
           }
         }
 
@@ -56,16 +60,17 @@ const DesignFuture = () => {
           text-align: left;
           display: flex;
           flex-direction: column;
-          gap: 32px;
+          gap: 24px;
         }
 
         .main-title {
-          font-size: 80px;
+          /* Fluid typography: Min 40px, Scales with viewport, Max 80px */
+          font-size: 85px;
           line-height: 1.1;
           font-weight: 500;
           color: #000;
           letter-spacing: -0.04em;
-          margin-top: 24px;
+          margin: 16px 0;
         }
 
         .sub-heading {
@@ -74,12 +79,10 @@ const DesignFuture = () => {
           text-transform: uppercase;
           letter-spacing: 0.15em;
           color: #888;
-          margin: 0;
-          display: inline-block;
         }
 
         .description {
-          font-size: 18px;
+          font-size: clamp(16px, 2vw, 18px);
           line-height: 1.6;
           color: #444;
           max-width: 550px;
@@ -89,41 +92,46 @@ const DesignFuture = () => {
         .features-stack {
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 16px;
           margin-top: 20px;
         }
 
         .mini-card {
           display: flex;
-          gap: 20px;
-          padding: 24px;
+          gap: 15px;
+          padding: 20px;
           background: #f8f8f8;
           border-radius: 16px;
-          transition: all 0.3s ease;
+          transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
           border: 1px solid transparent;
+        }
+
+        @media (min-width: 768px) {
+           .mini-card { gap: 24px; padding: 24px; }
         }
 
         .mini-card:hover {
           background: #fff;
           border-color: #eee;
-          transform: translateX(10px);
+          transform: translateX(8px);
           box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .card-idx {
           font-weight: 800;
-          color: #000; /* Seereon Accent */
-          font-size: 18px;
+          color: #000;
+          font-size: 16px;
+          opacity: 0.5;
         }
 
         .mini-card h3 {
-          font-size: 20px;
+          font-size: 18px;
           font-weight: 700;
-          margin: 0 0 8px 0;
+          margin: 0 0 6px 0;
         }
 
         .mini-card p {
-          font-size: 15px;
+          font-size: 14px;
           color: #666;
           margin: 0;
           line-height: 1.5;
@@ -133,59 +141,79 @@ const DesignFuture = () => {
         .image-col {
           position: relative;
           width: 100%;
+          order: -1; /* Image first on mobile */
+        }
+
+        @media (min-width: 1024px) {
+          .image-col { order: 2; }
         }
 
         .main-image-wrapper {
           width: 100%;
-          aspect-ratio: 4/5;
-          border-radius: 32px;
+          aspect-ratio: 1/1;
+          border-radius: 24px;
           overflow: hidden;
-          background: #000;
+          background: #f0f0f0;
+        }
+
+        @media (min-width: 768px) {
+          .main-image-wrapper { aspect-ratio: 4/5; border-radius: 32px; }
         }
 
         .main-image-wrapper img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          opacity: 0.85;
+          transition: transform 0.8s ease;
+        }
+        
+        .main-image-wrapper:hover img {
+            transform: scale(1.05);
         }
 
         .floating-tag {
           position: absolute;
-          bottom: -30px;
-          left: -20px;
+          bottom: 20px;
+          right: 20px;
           background: #0A0A0A;
           color: #fff;
-          padding: 30px;
-          border-radius: 20px;
-          max-width: 240px;
-          box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-          display: none; /* Hidden on mobile */
+          padding: 20px;
+          border-radius: 16px;
+          max-width: 200px;
+          box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
         @media (min-width: 1024px) {
-          .floating-tag { display: block; }
+          .floating-tag {
+            bottom: -30px;
+            left: -30px;
+            right: auto;
+            max-width: 260px;
+            padding: 30px;
+          }
         }
 
         .floating-tag p {
-          font-size: 13px;
+          font-size: 11px;
           color: #888;
           margin-bottom: 8px;
           text-transform: uppercase;
           font-weight: 700;
+          letter-spacing: 0.1em;
         }
 
         .floating-tag h4 {
-          font-size: 18px;
+          font-size: 16px;
           margin: 0;
           line-height: 1.4;
+          font-weight: 500;
         }
 
         /* REVEAL ANIMATION */
         .reveal {
           opacity: 0;
           transform: translateY(30px);
-          transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+          transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .reveal.active {
@@ -197,18 +225,19 @@ const DesignFuture = () => {
       <section className="design-section">
         <div className="design-container">
           
-          {/* LEFT: CONTENT & FEATURES */}
+          {/* CONTENT & FEATURES */}
           <div className={`content-col reveal ${mounted ? 'active' : ''}`}>
             <div>
               <span className="sub-heading">Expertise</span>
-              <h2 className="main-title"><ScrollFillText>Technology Built Around Your Business</ScrollFillText></h2>
+              <h2 className="main-title">
+                <ScrollFillText>Technology Built Around Your Business</ScrollFillText>
+              </h2>
+              <p className="description">
+                SEEREON aligns every line of code with your business goals. 
+                We deliver scalable, high-performance systems that are strategically 
+                impactful and future-ready.
+              </p>
             </div>
-            
-            <p className="description">
-              SEEREON aligns every line of code with your business goals. 
-              We deliver scalable, high-performance systems that are strategically 
-              impactful and future-ready.
-            </p>
 
             <div className="features-stack">
               {features.map((item, index) => (
@@ -223,13 +252,12 @@ const DesignFuture = () => {
             </div>
           </div>
 
-          {/* RIGHT: IMAGE COMPOSITION */}
-          <div className={`image-col reveal ${mounted ? 'active' : ''}`} style={{ transitionDelay: '0.3s' }}>
+          {/* IMAGE COMPOSITION */}
+          <div className={`image-col reveal ${mounted ? 'active' : ''}`} style={{ transitionDelay: '0.2s' }}>
             <div className="main-image-wrapper">
-              {/* Replace with your specific engineering/abstract tech image */}
               <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000" 
-                alt="Engineering Excellence" 
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" 
+                alt="Digital Strategy and Engineering" 
               />
             </div>
             
