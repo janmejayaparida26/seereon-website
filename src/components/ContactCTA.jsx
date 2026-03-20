@@ -22,7 +22,7 @@ export default function CTASection() {
         .cta-wrapper {
           width: 100%;
           background: #f0f0f0;
-          padding: 0px 20px; /* Reduced padding for mobile */
+          padding: 0px 40px; /* Reduced padding for mobile */
           padding-bottom: 60px;
           box-sizing: border-box;
         }
