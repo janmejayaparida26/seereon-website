@@ -23,24 +23,26 @@ const SolutionsHeading = () => {
         style={{ opacity, y }} 
         className="flex flex-col items-center justify-center text-center w-full max-w-7xl"
       >
-        {/* FIXED: Added clamp() for the heading size and improved line-height */}
+        {/* HEADING - Centered with fixed clamp for mobile readability */}
         <h2 
-          className="font-medium tracking-[-0.04em] text-[#0A0A0A]"
+          className="font-medium tracking-[-0.04em] text-[#0A0A0A] text-center w-full flex flex-col items-center justify-center"
           style={{ 
-            fontSize: "clamp(42px, 8vw, 85px)", // Scalable: Min 42px, Max 85px
+            fontSize: "clamp(42px, 8vw, 85px)", 
             lineHeight: "1.05",
             marginBottom: "1.5rem",
-            wordBreak: "keep-all" // Prevents awkward word splitting
+            wordBreak: "keep-all"
           }}
         >
-          <ScrollFillText>Our Core Capabilities</ScrollFillText>
+          <ScrollFillText>
+            Our Core <br className="md:hidden" /> Capabilities
+          </ScrollFillText>
         </h2>
 
-        {/* SUBTEXT - Refined for better readability on mobile */}
+        {/* SUBTEXT - Centered and max-width adjusted for mobile */}
         <p 
-          className="text-[#444] font-medium w-full max-w-[320px] md:max-w-2xl"
+          className="text-[#000] font-normal w-full max-w-[320px] md:max-w-2xl text-center"
           style={{ 
-            fontSize: "clamp(16px, 2vw, 20px)",
+            fontSize: "18px",
             lineHeight: "1.6",
             opacity: 0.8
           }}
