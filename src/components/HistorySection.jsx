@@ -68,7 +68,7 @@ function StatItem({ stat, index }) {
 export default function SeereonStats() {
   return (
     <section
-      className="bg-white px-6 md:px-12 pb-20 pt-10 lg:pb-40 lg:pt-20"
+      className="bg-white px-6 md:px-12 pb-20 pt-10 lg:pb-20 lg:pt-20"
       style={{ fontFamily: "'Arimo', sans-serif" }}
     >
       {/* Stats grid: Stacked on mobile (grid-cols-1), 3 cols on desktop (lg) */}
