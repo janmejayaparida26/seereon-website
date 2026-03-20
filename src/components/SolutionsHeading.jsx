@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { ScrollFillText } from "./ScrollFillText";
 
 const SolutionsHeading = () => {
   const sectionRef = useRef(null);
@@ -32,7 +33,7 @@ const SolutionsHeading = () => {
             wordBreak: "keep-all" // Prevents awkward word splitting
           }}
         >
-          Our Core <br className="block md:hidden" /> Capabilities
+          <ScrollFillText>Our Core Capabilities</ScrollFillText>
         </h2>
 
         {/* SUBTEXT - Refined for better readability on mobile */}
