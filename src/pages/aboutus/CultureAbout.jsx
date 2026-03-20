@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+
 const CultureAbout = () => {
   const ref = useRef(null);
 
@@ -9,36 +9,53 @@ const CultureAbout = () => {
     offset: ["start end", "end start"],
   });
 
-  // Parallax effects
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  // Parallax effects: Image moves slower, text moves slightly faster for depth
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
 
   return (
-    <section className="px-6 py-16 mt-10 bg-[#f0f0f0]">
+    <section className="relative w-full overflow-hidden bg-black">
       <div
         ref={ref}
-        className="relative w-full h-[420px] overflow-hidden rounded-[40px]"
+        className="relative w-full h-[450px] md:h-[450px] overflow-hidden flex items-center justify-center"
       >
-        {/* Background Image */}
+        {/* Background Image - Scale 1.1 prevents edges showing during parallax movement */}
         <motion.img
-          style={{ y: imageY }}
-          src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJvdXQlMjB1cyUyMGNvbXBhbnl8ZW58MHwwfDB8fHww"
-          alt="About Us"
-          className="absolute inset-0 w-full h-[120%] object-cover"
+          style={{ y: imageY, scale: 1.1 }}
+          src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+          alt="Our Office Culture"
+          className="absolute inset-0 w-full h-[120%] object-cover pointer-events-none"
         />
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        {/* Dark Overlay - Gradient provides better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
 
-        {/* Center Text */}
-        <motion.h1
-          style={{}}
-          className="absolute inset-0 flex items-center justify-center text-white text-[90px] font-medium"
-        >
-          About Us
-        </motion.h1>
+        {/* Center Text Container */}
+        <div className="relative z-10 flex flex-col items-center">
+          <motion.h1
+            className="text-white font-['Arimo',sans-serif] font-bold text-center select-none"
+            style={{ 
+              y: textY,
+              fontSize: "90px",
+              letterSpacing: "-0.02em"
+            }}
+          >
+            About Us
+          </motion.h1>
+          
+          {/* Breadcrumb indicator */}
+          {/* <motion.div 
+            style={{ y: textY }}
+            className="mt-4 flex items-center gap-2 text-white/60 text-sm uppercase tracking-[0.2em] font-medium"
+          >
+            <span>Home</span>
+            <span className="w-1 h-1 rounded-full bg-white/40"></span>
+            <span className="text-white">About Us</span>
+          </motion.div> */}
+        </div>
       </div>
     </section>
   );
 };
+
 export default CultureAbout;
