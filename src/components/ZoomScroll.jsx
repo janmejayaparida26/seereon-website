@@ -14,7 +14,7 @@ export default function LogoZoomSection() {
   return (
     <section
       ref={ref}
-      className="h-[80vh] w-full bg-[#f0f0f0] flex items-center justify-center overflow-hidden"
+      className="h-[80vh] w-full bg-[#fff] flex items-center justify-center overflow-hidden"
     >
       <motion.div
         style={{ scale }}
