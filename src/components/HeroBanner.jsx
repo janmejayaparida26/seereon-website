@@ -303,12 +303,12 @@ const HeroBannner = () => {
             </div>
           </div>
 
-          <div className="bottom-row">
+          {/* <div className="bottom-row">
             <div className="cta-group">
               <button className="btn-pill" onClick={() => navigate("/contact")}>
                 Request a Consultation
                 <svg className="arrow-icon" viewBox="0 0 13 13" fill="none">
-                  <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
 
@@ -320,7 +320,7 @@ const HeroBannner = () => {
               </button>
             </div>
             <span className="latest-work">We Are Seereon...</span>
-          </div>
+          </div> */}
         </div>
       </section>
     </>
