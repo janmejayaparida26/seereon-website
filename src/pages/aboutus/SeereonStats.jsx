@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 
 const stats = [
@@ -8,7 +8,6 @@ const stats = [
 ];
 
 function StatItem({ stat, index }) {
-  // Separate refs: one for the motion visibility, one for the text content
   const inViewRef = useRef(null);
   const countRef = useRef(null);
   const inView = useInView(inViewRef, { once: true, margin: "-80px" });
@@ -39,17 +38,14 @@ function StatItem({ stat, index }) {
       initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-      className="flex flex-col items-center justify-center px-6 py-5 relative"
-      style={{
-        borderRight: index < stats.length - 1 ? "1px solid #ccc" : "none",
-      }}
+      className={`flex flex-col items-center justify-center px-6 py-10 md:py-5 relative
+        ${index < stats.length - 1 ? "border-b md:border-b-0 md:border-r border-[#ccc]" : ""}`}
     >
       <span
-        className="text-[#111] leading-none mb-3"
+        className="text-[#111] leading-none mb-3 font-light tracking-tighter"
         style={{
-          fontSize: "120px",
-          fontWeight: 300,
-          letterSpacing: "-0.03em",
+          // Fluid font size: scales from 60px on mobile to 120px on desktop
+          fontSize: "clamp(60px, 8vw, 120px)",
           fontFamily: "'Arimo', sans-serif",
         }}
       >
@@ -57,8 +53,7 @@ function StatItem({ stat, index }) {
         {stat.suffix}
       </span>
       <span
-        className="text-[#666] text-center font-['Arimo',sans-serif]"
-        style={{ fontSize: "18px", letterSpacing: "0.01em" }}
+        className="text-[#666] text-center font-['Arimo',sans-serif] text-[16px] md:text-[18px] tracking-wide"
       >
         {stat.label}
       </span>
@@ -69,11 +64,13 @@ function StatItem({ stat, index }) {
 export default function SeereonStats() {
   return (
     <section
-      className="bg-[#f0f0f0] px-12 pb-20 pt-20"
+      className="bg-[#f0f0f0] px-6 md:px-12 py-12 md:py-20"
       style={{ fontFamily: "'Arimo', sans-serif" }}
     >
-      {/* Stats grid - preserved exactly */}
-      <div className="max-w-[1400px] mx-auto grid grid-cols-3">
+      {/* Mobile: grid-cols-1 (stacking)
+          Tablet: grid-cols-3 (side-by-side)
+      */}
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3">
         {stats.map((s, i) => (
           <StatItem key={i} stat={s} index={i} />
         ))}
