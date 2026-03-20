@@ -14,38 +14,41 @@ const ArrowIcon = () => (
 );
 
 export default function CTASection() {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <>
       <style>{`
-
         .cta-wrapper {
           width: 100%;
           background: #f0f0f0;
-          padding: 0px 48px;
-          padding-bottom: 90px;
+          padding: 0px 20px; /* Reduced padding for mobile */
+          padding-bottom: 60px;
           box-sizing: border-box;
         }
 
         .cta-container {
           background: #0A0A0A;
           border-radius: 28px;
-          padding: 70px 64px;
+          padding: 40px 30px; /* Responsive padding */
           display: flex;
           align-items: center;
           justify-content: space-between;
+          gap: 20px;
+          max-width: 1200px;
+          margin: 0 auto;
         }
 
         .cta-left {
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 12px;
+          flex: 1; /* Takes up available space */
         }
 
         .cta-label {
           font-family: 'Arimo', sans-serif;
-          font-size: 12px;
+          font-size: 10px;
           letter-spacing: 0.18em;
           text-transform: uppercase;
           color: rgba(255,255,255,0.5);
@@ -54,9 +57,10 @@ const navigate = useNavigate();
 
         .cta-heading {
           font-family: 'Arimo', sans-serif;
-          font-size: 50px;
+          /* Fluid typography: shrinks on mobile, grows on desktop */
+          font-size: clamp(22px, 4vw, 50px); 
           font-weight: 700;
-          line-height: 1.05;
+          line-height: 1.1;
           color: #ffffff;
           margin: 0;
           letter-spacing: -0.02em;
@@ -65,48 +69,78 @@ const navigate = useNavigate();
         .cta-btn {
           display: inline-flex;
           align-items: center;
+          white-space: nowrap; /* Prevents button text from wrapping */
           gap: 8px;
           background: #EDEDED;
           color: #0A0A0A;
-          font-family: 'Barlow', sans-serif;
-          font-size: 15px;
+          font-family: 'Arimo', sans-serif;
+          font-size: 14px;
           font-weight: 500;
-          padding: 14px 26px;
+          padding: 12px 20px;
           border-radius: 999px;
           border: none;
           cursor: pointer;
           transition: all 0.25s ease;
+          flex-shrink: 0; /* Prevents button from squishing */
         }
 
         .cta-btn:hover {
-          transform: translateY(-2px) scale(1.03);
+          transform: translateY(-2px);
           box-shadow: 0 8px 25px rgba(255,255,255,0.12);
         }
 
-        /* Responsive */
-        @media (max-width: 900px) {
-          .cta-container {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 30px;
+        /* Desktop specific adjustments */
+        @media (min-width: 768px) {
+          .cta-wrapper {
+            padding: 0px 48px;
+            padding-bottom: 90px;
           }
-
-          .cta-heading {
-            font-size: 48px;
+          .cta-container {
+            padding: 70px 64px;
+          }
+          .cta-label {
+            font-size: 12px;
+          }
+          .cta-btn {
+            padding: 14px 26px;
+            font-size: 15px;
           }
         }
 
+        /* Prevent stacking on small screens until absolutely necessary */
+        @media (max-width: 480px) {
+           .cta-container {
+             padding: 14px 20px;
+             gap: 15px;
+           }
+           .cta-heading br {
+             display: none; /* Flatten heading for narrow horizontal space */
+           }
+             .cta-heading {
+          font-family: 'Arimo', sans-serif;
+          /* Fluid typography: shrinks on mobile, grows on desktop */
+          font-size: 20px; 
+          font-weight: 700;
+          line-height: 1.1;
+          color: #ffffff;
+          margin: 0;
+          letter-spacing: -0.02em;
+        }
+
+             .cta-btn {
+            padding: 5px 12px;
+            font-size: 12px;
+          }
+        }
       `}</style>
 
       <section className="cta-wrapper">
         <div className="cta-container">
-
           {/* LEFT */}
           <div className="cta-left">
             <p className="cta-label">Ready to Build?</p>
-
             <h2 className="cta-heading">
-                Let’s Build Systems That Scale <br />With Your Business
+              Let’s Build Systems That Scale <br className="hidden-mobile" /> With Your Business
             </h2>
           </div>
 
@@ -114,7 +148,6 @@ const navigate = useNavigate();
           <button className="cta-btn" onClick={() => navigate("/contact")}>
             Start a Project <ArrowIcon />
           </button>
-
         </div>
       </section>
     </>
