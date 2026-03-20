@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 
 const stats = [
@@ -8,7 +8,6 @@ const stats = [
 ];
 
 function StatItem({ stat, index }) {
-  // Separate refs: one for the motion visibility, one for the text content
   const inViewRef = useRef(null);
   const countRef = useRef(null);
   const inView = useInView(inViewRef, { once: true, margin: "-80px" });
@@ -39,15 +38,15 @@ function StatItem({ stat, index }) {
       initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-      className="flex flex-col items-center justify-center px-6 py-5 relative"
-      style={{
-        borderRight: index < stats.length - 1 ? "1px solid #ccc" : "none",
-      }}
+      // Updated borders: Vertical on desktop (lg), horizontal on mobile
+      className={`flex flex-col items-center justify-center px-6 py-12 lg:py-5 relative 
+        border-b border-[#ccc] lg:border-b-0 
+        ${index < stats.length - 1 ? "lg:border-r" : "border-b-0"}`}
     >
       <span
-        className="text-[#111] leading-none mb-3"
+        className="text-[#111] leading-none mb-3 inline-flex items-baseline"
         style={{
-          fontSize: "120px",
+          fontSize: "clamp(60px, 8vw, 120px)", // Responsive font size
           fontWeight: 300,
           letterSpacing: "-0.03em",
           fontFamily: "'Arimo', sans-serif",
@@ -69,11 +68,11 @@ function StatItem({ stat, index }) {
 export default function SeereonStats() {
   return (
     <section
-      className="bg-[#f0f0f0] px-12 pb-40 pt-20"
+      className="bg-white px-6 md:px-12 pb-20 pt-10 lg:pb-40 lg:pt-20"
       style={{ fontFamily: "'Arimo', sans-serif" }}
     >
-      {/* Stats grid - preserved exactly */}
-      <div className="max-w-[1400px] mx-auto grid grid-cols-3">
+      {/* Stats grid: Stacked on mobile (grid-cols-1), 3 cols on desktop (lg) */}
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-3">
         {stats.map((s, i) => (
           <StatItem key={i} stat={s} index={i} />
         ))}
