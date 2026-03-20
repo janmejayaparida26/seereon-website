@@ -28,7 +28,7 @@ const DesignFuture = () => {
       <style>{`
         .design-section {
           background-color: #ffffff;
-          padding: 60px 20px;
+          padding: 60px 24px;
           font-family: 'Arimo', sans-serif;
           overflow: hidden;
         }
@@ -48,7 +48,7 @@ const DesignFuture = () => {
           .design-container {
             flex-direction: row;
             align-items: center;
-            gap: 80px;
+            gap: 60px;
           }
           .content-col, .image-col {
             flex: 1;
@@ -64,13 +64,13 @@ const DesignFuture = () => {
         }
 
         .main-title {
-          /* Fluid typography: Min 40px, Scales with viewport, Max 80px */
-          font-size: 85px;
-          line-height: 1.1;
+          /* Fluid typography: Min 38px on small screens, scales to 85px on desktop */
+          font-size: clamp(38px, 7vw, 85px);
+          line-height: 1.05;
           font-weight: 500;
           color: #000;
           letter-spacing: -0.04em;
-          margin: 16px 0;
+          margin: 12px 0;
         }
 
         .sub-heading {
@@ -93,7 +93,7 @@ const DesignFuture = () => {
           display: flex;
           flex-direction: column;
           gap: 16px;
-          margin-top: 20px;
+          margin-top: 10px;
         }
 
         .mini-card {
@@ -125,9 +125,9 @@ const DesignFuture = () => {
         }
 
         .mini-card h3 {
-          font-size: 18px;
+          font-size: clamp(18px, 3vw, 20px);
           font-weight: 700;
-          margin: 0 0 6px 0;
+          margin: 0 0 4px 0;
         }
 
         .mini-card p {
@@ -141,7 +141,7 @@ const DesignFuture = () => {
         .image-col {
           position: relative;
           width: 100%;
-          order: -1; /* Image first on mobile */
+          order: -1; /* Image appears first on mobile for visual impact */
         }
 
         @media (min-width: 1024px) {
@@ -150,7 +150,7 @@ const DesignFuture = () => {
 
         .main-image-wrapper {
           width: 100%;
-          aspect-ratio: 1/1;
+          aspect-ratio: 1/1; /* Square on mobile */
           border-radius: 24px;
           overflow: hidden;
           background: #f0f0f0;
@@ -173,37 +173,39 @@ const DesignFuture = () => {
 
         .floating-tag {
           position: absolute;
-          bottom: 20px;
-          right: 20px;
+          bottom: 15px;
+          right: 15px;
           background: #0A0A0A;
           color: #fff;
-          padding: 20px;
-          border-radius: 16px;
-          max-width: 200px;
-          box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+          padding: 15px;
+          border-radius: 12px;
+          max-width: 180px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+          z-index: 5;
         }
 
         @media (min-width: 1024px) {
           .floating-tag {
-            bottom: -30px;
-            left: -30px;
+            bottom: -20px;
+            left: -40px;
             right: auto;
             max-width: 260px;
             padding: 30px;
+            border-radius: 16px;
           }
         }
 
         .floating-tag p {
-          font-size: 11px;
+          font-size: 10px;
           color: #888;
-          margin-bottom: 8px;
+          margin-bottom: 6px;
           text-transform: uppercase;
           font-weight: 700;
           letter-spacing: 0.1em;
         }
 
         .floating-tag h4 {
-          font-size: 16px;
+          font-size: clamp(14px, 2vw, 16px);
           margin: 0;
           line-height: 1.4;
           font-weight: 500;
@@ -212,8 +214,8 @@ const DesignFuture = () => {
         /* REVEAL ANIMATION */
         .reveal {
           opacity: 0;
-          transform: translateY(30px);
-          transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+          transform: translateY(20px);
+          transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .reveal.active {
@@ -225,6 +227,21 @@ const DesignFuture = () => {
       <section className="design-section">
         <div className="design-container">
           
+          {/* IMAGE COMPOSITION (Appears first on mobile) */}
+          <div className={`image-col reveal ${mounted ? 'active' : ''}`} style={{ transitionDelay: '0.1s' }}>
+            <div className="main-image-wrapper">
+              <img 
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" 
+                alt="Digital Strategy and Engineering" 
+              />
+            </div>
+            
+            <div className="floating-tag">
+              <p>Our Philosophy</p>
+              <h4>Building founders and the brands that define them.</h4>
+            </div>
+          </div>
+
           {/* CONTENT & FEATURES */}
           <div className={`content-col reveal ${mounted ? 'active' : ''}`}>
             <div>
@@ -249,21 +266,6 @@ const DesignFuture = () => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* IMAGE COMPOSITION */}
-          <div className={`image-col reveal ${mounted ? 'active' : ''}`} style={{ transitionDelay: '0.2s' }}>
-            <div className="main-image-wrapper">
-              <img 
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" 
-                alt="Digital Strategy and Engineering" 
-              />
-            </div>
-            
-            <div className="floating-tag">
-              <p>Our Philosophy</p>
-              <h4>Building founders and the brands that define them.</h4>
             </div>
           </div>
 
