@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+
 const ServiceBanner = () => {
   const ref = useRef(null);
 
@@ -9,31 +9,36 @@ const ServiceBanner = () => {
     offset: ["start end", "end start"],
   });
 
-  // Parallax effects
+  // Parallax effects - Kept exactly as your original logic
   const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
 
   return (
-    <section className="px-6 py-16 mt-10 bg-[#f0f0f0]">
+    /* Fix 1: mt-0 and bg-black ensures no gap exists between the navbar and this section */
+    <section className="px-0 py-0 mt-0 bg-black overflow-hidden block">
       <div
         ref={ref}
-        className="relative w-full h-[420px] overflow-hidden rounded-[40px]"
+        className="relative w-full h-[420px] overflow-hidden flex items-center justify-center"
       >
-        {/* Background Image */}
+        {/* Fix 2: h-[130%] and scale-110 provides the extra coverage needed to hide the grey line 
+            during the parallax transition */}
         <motion.img
-          style={{ y: imageY }}
+          style={{ y: imageY, scale: 1.1 }}
           src="https://images.unsplash.com/photo-1763568258535-fa1066506571?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTYyfHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50fGVufDB8fDB8fHww"
-          alt="About Us"
-          className="absolute inset-0 w-full h-[120%] object-cover"
+          alt="Services"
+          className="absolute inset-0 w-full h-[130%] object-cover pointer-events-none"
         />
 
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/40"></div>
 
-        {/* Center Text */}
+        {/* Center Text - Fix 3: Merged duplicate style attributes into one object */}
         <motion.h1
-          style={{}}
-          className="absolute inset-0 flex items-center justify-center text-white text-[90px] font-medium"
+          className="relative z-10 text-white text-[90px] font-medium text-center"
+          style={{ 
+            y: textY,
+            fontSize: "clamp(40px, 8vw, 90px)" 
+          }}
         >
           Services
         </motion.h1>
@@ -41,4 +46,5 @@ const ServiceBanner = () => {
     </section>
   );
 };
+
 export default ServiceBanner;
