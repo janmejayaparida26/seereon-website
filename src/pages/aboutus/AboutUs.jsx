@@ -7,6 +7,7 @@ import SeereonStats from "./SeereonStats";
 import SeereonMissionVision from "./SeereonMissionVision";
 import Footer from "../../components/Footer";
 import FoundersCorner from "./FoundersCorner";
+import CoFounder from "./CoFounder";
 import ScheduleCall from "../../components/ScheduleCall";
 import ContactCTA from "../../components/ContactCTA";
 
@@ -18,6 +19,7 @@ const AboutUs = () => {
       <SecondSectionabout />
       <ThirdSectionabout />
       <FoundersCorner />
+      <CoFounder />
       <SeereonStats />
       <SeereonMissionVision />
       <ScheduleCall />
