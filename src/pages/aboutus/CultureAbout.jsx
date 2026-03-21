@@ -9,44 +9,51 @@ const CultureAbout = () => {
     offset: ["start end", "end start"],
   });
 
-  // Parallax effects: Image moves slower, text moves slightly faster for depth
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+  // Parallax effects: Subtle movement for a premium feel
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
     <section className="relative w-full overflow-hidden bg-black">
       <div
         ref={ref}
-        className="relative w-full h-[450px] md:h-[450px] overflow-hidden flex items-center justify-center"
+        /* Mobile height is slightly shorter (350px) to keep the heading in view */
+        className="relative w-full h-[350px] md:h-[450px] overflow-hidden flex items-center justify-center"
       >
-        {/* Background Image - Scale 1.1 prevents edges showing during parallax movement */}
+        {/* Background Image */}
         <motion.img
           style={{ y: imageY, scale: 1.1 }}
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
           alt="Our Office Culture"
-          className="absolute inset-0 w-full h-[120%] object-cover pointer-events-none"
+          className="absolute inset-0 w-full h-[130%] object-cover pointer-events-none"
         />
 
-        {/* Dark Overlay - Gradient provides better text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70"></div>
 
         {/* Center Text Container */}
-        <div className="relative z-10 flex flex-col items-center">
+        <div className="relative z-10 flex flex-col items-center px-6">
           <motion.h1
             className="text-white font-['Arimo',sans-serif] font-bold text-center select-none"
             style={{ 
               y: textY,
-              fontSize: "90px",
-              letterSpacing: "-0.02em"
+              /* clamp(min, preferred, max) 
+                 - 40px on small mobile 
+                 - 8vw (8% of screen width) as it grows
+                 - 90px max on desktop
+              */
+              fontSize: "clamp(40px, 8vw, 90px)",
+              letterSpacing: "-0.02em",
+              lineHeight: "1.1"
             }}
           >
             About Us
           </motion.h1>
           
-          {/* Breadcrumb indicator */}
+          {/* Breadcrumb indicator - Optional but looks great on mobile when centered */}
           {/* <motion.div 
             style={{ y: textY }}
-            className="mt-4 flex items-center gap-2 text-white/60 text-sm uppercase tracking-[0.2em] font-medium"
+            className="mt-4 flex items-center gap-2 text-white/60 text-[10px] md:text-sm uppercase tracking-[0.2em] font-medium"
           >
             <span>Home</span>
             <span className="w-1 h-1 rounded-full bg-white/40"></span>
