@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+
 const WorkBanner = () => {
   const ref = useRef(null);
 
@@ -14,17 +15,18 @@ const WorkBanner = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
 
   return (
-    <section className="px-6 py-16 mt-10 bg-[#f0f0f0]">
+    /* Changed bg to black to prevent any gray lines from bleeding through */
+    <section className="px-0 py-0 mt-0 bg-black overflow-hidden">
       <div
         ref={ref}
-        className="relative w-full h-[420px] overflow-hidden rounded-[40px]"
+        className="relative w-full h-[420px] overflow-hidden"
       >
-        {/* Background Image */}
+        {/* Background Image - Increased height and adjusted top to prevent gap */}
         <motion.img
           style={{ y: imageY }}
           src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8V29ya3xlbnwwfHwwfHx8MA%3D%3D"
           alt="Our Works"
-          className="absolute inset-0 w-full h-[120%] object-cover"
+          className="absolute top-[-15%] inset-0 w-full h-[130%] object-cover"
         />
 
         {/* Dark Overlay */}
@@ -41,4 +43,5 @@ const WorkBanner = () => {
     </section>
   );
 };
+
 export default WorkBanner;
