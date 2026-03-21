@@ -35,10 +35,7 @@ const ServiceBanner = () => {
         {/* Center Text - Fix 3: Merged duplicate style attributes into one object */}
         <motion.h1
           className="relative z-10 text-white text-[90px] font-medium text-center"
-          style={{ 
-            y: textY,
-            fontSize: "clamp(40px, 8vw, 90px)" 
-          }}
+          style={{}}
         >
           Services
         </motion.h1>
