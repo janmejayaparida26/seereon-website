@@ -42,7 +42,8 @@ const CultureAbout = () => {
                  - 8vw (8% of screen width) as it grows
                  - 90px max on desktop
               */
-              fontSize: "clamp(40px, 8vw, 90px)",
+              fontSize: "90px",
+              fontWeight: "500",
               letterSpacing: "-0.02em",
               lineHeight: "1.1"
             }}
