@@ -13,10 +13,10 @@ function Career() {
   return (
     <>
     <CareerBanner />
+    <CareerFourthSection />
     <CareerFirstSection />
     <CareerSecondSection />
     <CareerThirdSection />
-    <CareerFourthSection />
     <CareerFifthSection />
     <ScheduleCall />
     <ContactCTA />
