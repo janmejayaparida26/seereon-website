@@ -1,6 +1,7 @@
 import React from 'react'
 import WorkBanner from "./WorkBanner";
 import OurTechstack from "./OurTechstack";
+import OurProjects from "./OurProjects";
 import Footer from '../../components/Footer';
 
 const  Work = () => {
@@ -8,6 +9,7 @@ const  Work = () => {
         <>
       <WorkBanner />
       <OurTechstack />
+      <OurProjects />
       <Footer />
     </>
   );
