@@ -34,19 +34,8 @@ const CultureAbout = () => {
         {/* Center Text Container */}
         <div className="relative z-10 flex flex-col items-center px-6">
           <motion.h1
-            className="text-white font-['Arimo',sans-serif] font-bold text-center select-none"
-            style={{ 
-              y: textY,
-              /* clamp(min, preferred, max) 
-                 - 40px on small mobile 
-                 - 8vw (8% of screen width) as it grows
-                 - 90px max on desktop
-              */
-              fontSize: "90px",
-              fontWeight: "500",
-              letterSpacing: "-0.02em",
-              lineHeight: "1.1"
-            }}
+            className="text-white text-[90px] font-['Arimo',sans-serif] font-medium text-center select-none"
+            style={{}}
           >
             About Us
           </motion.h1>
