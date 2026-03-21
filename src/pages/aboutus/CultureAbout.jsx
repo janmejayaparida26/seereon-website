@@ -18,7 +18,7 @@ const CultureAbout = () => {
       <div
         ref={ref}
         /* Mobile height is slightly shorter (350px) to keep the heading in view */
-        className="relative w-full h-[350px] md:h-[450px] overflow-hidden flex items-center justify-center"
+        className="relative w-full h-[350px] md:h-[420px] overflow-hidden flex items-center justify-center"
       >
         {/* Background Image */}
         <motion.img
