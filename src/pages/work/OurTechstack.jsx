@@ -138,7 +138,7 @@ export default function TechToolkit() {
 
           {/* 5. Infrastructure  */}
           <div className="bg-[#f1f5f9]/50 rounded-[32px] p-8 md:p-12 border border-gray-50">
-            <h3 className="text-sm uppercase tracking-[0.2em] text-gray-800 font-bold mb-10">Infrastructure</h3>
+            <h3 className="text-sm uppercase tracking-[0.2em] text-gray-800 font-bold mb-10">Infrastructures</h3>
             <div className="flex flex-wrap gap-4">
               {techStack.infrastructure.map((tech, i) => (
                 <TechCard key={`infra-${i}`} item={tech} />
