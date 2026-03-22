@@ -22,6 +22,15 @@ const techStack = {
     { name: "Redis", icon: "https://cdn.worldvectorlogo.com/logos/redis.svg" },
     { name: "Cloudflare", icon: "https://cdn.worldvectorlogo.com/logos/cloudflare-1.svg" },
   ],
+  designing: [
+    { name: "Photoshop", icon: "https://cdn.worldvectorlogo.com/logos/photoshop-cc-4.svg" },
+    { name: "Illusstrator", icon: "https://cdn.worldvectorlogo.com/logos/adobe-illustrator-cc-3.svg" },
+    { name: "Figma", icon: "https://cdn.worldvectorlogo.com/logos/figma-icon.svg" },
+    { name: "Adobe Xd", icon: "https://cdn.worldvectorlogo.com/logos/adobe-xd-2.svg" },
+    { name: "Canva", icon: "https://cdn.worldvectorlogo.com/logos/canva-wordmark-2.svg" },
+    { name: "Adobe Premiere Pro", icon: "https://cdn.worldvectorlogo.com/logos/adobe-premiere-pro-cc-1430-vector-svg-.svg" },
+    { name: "SVGator", icon: "https://pbs.twimg.com/profile_images/1367112479042658307/9dLKKg8H_400x400.jpg" },
+  ],
   aiframeworks: [
     { name: "LlammaIndex", icon: "https://cdn.brandfetch.io/id6a4s3gXI/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1767054339072" },
     { name: "AutoGen", icon: "https://cdn.brandfetch.io/idA5hQexcy/w/200/h/200/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1773154889221" },
@@ -29,6 +38,15 @@ const techStack = {
     { name: "DeepSpeed", icon: "https://deepchecks.com/wp-content/uploads/2024/11/logo-deepspeed.svg" },
     { name: "AutoGPT", icon: "https://upload.wikimedia.org/wikipedia/commons/8/80/Auto_GPT_Logo.png?_=20230501020539" },
     { name: "Semantic Kernel", icon: "https://devblogs.microsoft.com/semantic-kernel/wp-content/uploads/sites/78/2024/03/Large_SK_Logo-300x300.png" },
+  ],
+  infrastructure: [
+    { name: "Amazon EKS", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJeZ9upK47IHhQP7b9yQpTIpZr_mRnlG6rmA&s" },
+    { name: "Google Cloud", icon: "https://cdn.worldvectorlogo.com/logos/google-cloud-1.svg" },
+    { name: "AWS", icon: "https://cdn.worldvectorlogo.com/logos/aws-logo.svg" },
+    { name: "Microsoft Azure", icon: "https://cdn.worldvectorlogo.com/logos/azure-1.svg" },
+    { name: "Digital Ocean", icon: "https://cdn.worldvectorlogo.com/logos/digitalocean-icon-1.svg" },
+    { name: "Kubernets", icon: "https://cdn.worldvectorlogo.com/logos/kubernets.svg" },
+    { name: "Red Hat", icon: "https://cdn.worldvectorlogo.com/logos/red-hat-1.svg" },
   ],
 };
 
@@ -98,11 +116,31 @@ export default function TechToolkit() {
             </div>
           </div>
 
-          {/* 3. Infrastructure & DevOps - Adjusted to match style of above sections */}
+          {/* 3. Designing */}
+          <div className="bg-[#f1f5f9]/50 rounded-[32px] p-8 md:p-12 border border-gray-50">
+            <h3 className="text-sm uppercase tracking-[0.2em] text-gray-800 font-bold mb-10">Designing Tools</h3>
+            <div className="flex flex-wrap gap-4">
+              {techStack.designing.map((tech, i) => (
+                <TechCard key={`be-${i}`} item={tech} />
+              ))}
+            </div>
+          </div>
+
+          {/* 4. AI Framework  */}
           <div className="bg-[#f1f5f9]/50 rounded-[32px] p-8 md:p-12 border border-gray-50">
             <h3 className="text-sm uppercase tracking-[0.2em] text-gray-800 font-bold mb-10">AI Data Frameworks</h3>
             <div className="flex flex-wrap gap-4">
               {techStack.aiframeworks.map((tech, i) => (
+                <TechCard key={`infra-${i}`} item={tech} />
+              ))}
+            </div>
+          </div>
+
+          {/* 5. Infrastructure  */}
+          <div className="bg-[#f1f5f9]/50 rounded-[32px] p-8 md:p-12 border border-gray-50">
+            <h3 className="text-sm uppercase tracking-[0.2em] text-gray-800 font-bold mb-10">Infrastructure</h3>
+            <div className="flex flex-wrap gap-4">
+              {techStack.infrastructure.map((tech, i) => (
                 <TechCard key={`infra-${i}`} item={tech} />
               ))}
             </div>
