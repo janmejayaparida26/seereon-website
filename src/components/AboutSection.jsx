@@ -179,7 +179,7 @@ export default function AboutSection() {
               transform: mounted ? "translateX(0)" : "translateX(-20px)",
               transitionDelay: "0.2s"
             }}>
-              <div className="dna-pillar">
+              <div className="dna-pillarback">
                 <h3>FORESIGHT (SEER)</h3>
                 <p>Clarity and anticipation of technology trends before they arrive. We are proactive engineers, not reactive builders.</p>
               </div>

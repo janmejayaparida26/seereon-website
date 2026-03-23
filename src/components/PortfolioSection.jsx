@@ -4,24 +4,52 @@ import { useNavigate } from "react-router-dom";
 const projects = [
   {
     id: 1,
-    client: "Sudhir Bagul",
+    client: "ACCRM",
     year: "2025",
     title: "Designing the Future of Creator-First AI",
-    image: "https://static.wixstatic.com/media/67c604_cc6c5c3cb8a3408195b87d80e0e87a1a~mv2.jpg",
+    image: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1774266854/accrm_jenbmn.jpg",
   },
   {
     id: 2,
-    client: "Mohd. Areeb",
+    client: "AAKAV",
     year: "2025",
     title: "Weaving Heritage into Contemporary Living",
-    image: "https://static.wixstatic.com/media/67c604_ee53ba6ba28047ee90c89526f8c3fd3b~mv2.jpg",
+    image: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1774268209/aakav_spbsl1.jpg",
   },
   {
     id: 3,
-    client: "Metro Group",
+    client: "MPSTEEL",
     year: "2025",
     title: "Merai — A Harmony of Grace, Art, and Grandeur",
-    image: "https://static.wixstatic.com/media/67c604_99253eaefa204df9b88674822958be1d~mv2.jpg",
+    image: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1774268576/mpsteel_zapxoo.jpg",
+  },
+  {
+    id: 4,
+    client: "NavinGroup",
+    year: "2025",
+    title: "Merai — A Harmony of Grace, Art, and Grandeur",
+    image: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1774268969/navingroup_ebtqdj.jpg",
+  },
+  {
+    id: 5,
+    client: "Sasacorporate",
+    year: "2025",
+    title: "Merai — A Harmony of Grace, Art, and Grandeur",
+    image: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1774269920/sasacorporate_xkrnaj.jpg",
+  },
+  {
+    id: 6,
+    client: "DMS",
+    year: "2025",
+    title: "Merai — A Harmony of Grace, Art, and Grandeur",
+    image: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1774270921/dms_mhfjx2.jpg",
+  },
+  {
+    id: 7,
+    client: "SWEC",
+    year: "2025",
+    title: "Merai — A Harmony of Grace, Art, and Grandeur",
+    image: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1774271744/swec_rcsz9f.jpg",
   },
 ];
 
