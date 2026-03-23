@@ -14,7 +14,7 @@ import TeamPage from "./pages/teams/TeamPage";
 import Services from "./pages/services/ServicesPage";
 import ServiceInner from "./pages/services/ServiceInner";
 import Work from "./pages/work/Work";
-import Products from "./pages/product/Product";
+import Product from "./pages/product/Product";
 function App() {
   const lenisRef = useRef(null);
 
@@ -55,7 +55,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/services/:id" element={<ServiceInner />} />
         <Route path="/work" element={<Work />} />
-        <Route path="/products" element={<Products />} />
+        <Route path="/product" element={<Product />} />
       </Routes>
     </>
   );
