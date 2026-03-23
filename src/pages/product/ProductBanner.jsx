@@ -24,8 +24,8 @@ const ProductBanner = () => {
             during the parallax transition */}
         <motion.img
           style={{ y: imageY, scale: 1.1 }}
-          src="https://images.unsplash.com/photo-1763568258535-fa1066506571?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTYyfHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50fGVufDB8fDB8fHww"
-          alt="Services"
+          src="https://images.unsplash.com/photo-1731444008589-9922140dfb0f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGl0JTIwcHJvZHVjdHMlMjBtb2Rlcm4lMjBpbmZvZ3JhcGhpY3MlMjBiYW5uZXJ8ZW58MHx8MHx8fDI%3D"
+          alt="Products"
           className="absolute inset-0 w-full h-[130%] object-cover pointer-events-none"
         />
 
