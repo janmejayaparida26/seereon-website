@@ -4,15 +4,43 @@ import { ArrowUpRight } from 'lucide-react';
 
 const PROJECTS = [
   {
-    title: "Care Connect - Doctor Appointment App",
-    image: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1739824551/CareConnect_Mockup.jpg", // Replace with your actual image path
+    title: "Human Resource Management System",
+    image: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8SFJNU3xlbnwwfHwwfHx8Mg%3D%3D", // Replace with your actual image path
     tags: ["UI/UX Design", "App Design", "Wireframe"],
     buttonColor: "#3b82f6", // Bright Blue
     darkButton: false
   },
   {
-    title: "Dental - Dentist and Dental Clinic Website UIUX Design",
-    image: "https://res.cloudinary.com/dcc7qgxmb/image/upload/v1739824551/Dental_Mockup.jpg", // Replace with your actual image path
+    title: "Asset Management System",
+    image: "https://images.unsplash.com/photo-1730303827725-6cc9143877e7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8QXNzZXQlMjBtYW5hZ2VtZW50JTIwc3lzdGVtfGVufDB8fDB8fHwy", // Replace with your actual image path
+    tags: ["UI/UX Design", "Web Design", "Wireframe"],
+    buttonColor: "#000a1f", // Very Dark Navy
+    darkButton: true
+  },
+  {
+    title: "Wealth Management System",
+    image: "https://images.unsplash.com/photo-1719381565370-86f9d7a9fc34?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d2VhbHRoJTIwbWFuYWdlbWVudCUyMHN5c3RlbXxlbnwwfHwwfHx8Mg%3D%3D", // Replace with your actual image path
+    tags: ["UI/UX Design", "Web Design", "Wireframe"],
+    buttonColor: "#000a1f", // Very Dark Navy
+    darkButton: true
+  },
+  {
+    title: "Distributed Management System",
+    image: "https://images.unsplash.com/photo-1768796373907-418e59aee549?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8VHJhbnNwb3J0JTIwbWFuYWdlbWVudCUyMHN5c3RlbXxlbnwwfHwwfHx8Mg%3D%3D", // Replace with your actual image path
+    tags: ["UI/UX Design", "Web Design", "Wireframe"],
+    buttonColor: "#000a1f", // Very Dark Navy
+    darkButton: true
+  },
+  {
+    title: "Learning Management System",
+    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TGVhcm5pbmclMjBNYW5hZ2VtZW50JTIwc3lzdGVtfGVufDB8fDB8fHwy", // Replace with your actual image path
+    tags: ["UI/UX Design", "Web Design", "Wireframe"],
+    buttonColor: "#000a1f", // Very Dark Navy
+    darkButton: true
+  },
+  {
+    title: "Applicant Tracking System",
+    image: "https://images.unsplash.com/photo-1763718528755-4bca23f82ac3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QXBwbGljYW50JTIwdHJhY2tpbmclMjBzeXN0ZW18ZW58MHx8MHx8fDI%3D", // Replace with your actual image path
     tags: ["UI/UX Design", "Web Design", "Wireframe"],
     buttonColor: "#000a1f", // Very Dark Navy
     darkButton: true
@@ -21,7 +49,7 @@ const PROJECTS = [
 
 export default function WorkShowcase() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-5 bg-white">
       <div className="w-[95%] max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {PROJECTS.map((project, index) => (
