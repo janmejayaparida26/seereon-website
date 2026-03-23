@@ -1,10 +1,7 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-// import { ServiceIcon } from "../components/services/ServicesIcons";
 import { ServiceIcon } from "./ServicesIcons";
 import { services } from "../../data/services";
-import { Weight } from "lucide-react";
 import { ScrollFillText } from "../../utils/Scrollfilltext";
 
 const fadeUp = (delay = 0) => ({
@@ -13,58 +10,6 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
   viewport: { once: true, margin: "-60px" },
 });
-
-// ── Marquee ticker ────────────────────────────────────────────
-const TICKER = [
-  "Custom Software",
-  "Mobile Apps",
-  "MVP Builder",
-  "E-Commerce",
-  "AI Development",
-  "Website Dev",
-];
-
-function Ticker() {
-  return (
-    <div
-      style={{
-        overflow: "hidden",
-        borderTop: "1px solid #ddd9d3",
-        borderBottom: "1px solid #ddd9d3",
-        padding: "14px 0",
-        marginTop: 180,
-        marginBottom: 200,
-      }}
-    >
-      <motion.div
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-        style={{
-          display: "flex",
-          gap: 48,
-          whiteSpace: "nowrap",
-          width: "max-content",
-        }}
-      >
-        {[...TICKER, ...TICKER].map((t, i) => (
-          <span
-            key={i}
-            style={{
-              fontSize: 100,
-              fontWeight: 900,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "#cecfce",
-              fontFamily: "'Arimo',sans-serif",
-            }}
-          >
-            {t} <span style={{ color: "#ddd", marginLeft: 48 }}>·</span>
-          </span>
-        ))}
-      </motion.div>
-    </div>
-  );
-}
 
 // ── Service Card ──────────────────────────────────────────────
 function ServiceCard({ service, index }) {
@@ -77,9 +22,10 @@ function ServiceCard({ service, index }) {
       onClick={() => navigate(`/services/${service.id}`)}
       style={{
         display: "grid",
-        gridTemplateColumns: isEven ? "1fr 1fr" : "1fr 1fr",
+        gridTemplateColumns: "1fr 1fr",
         gap: 0,
         border: "1px solid #ddd9d3",
+        borderBottom: "none", // Prevent double borders between cards
         cursor: "pointer",
         overflow: "hidden",
       }}
@@ -273,10 +219,10 @@ function ServiceCard({ service, index }) {
 // ── Page ──────────────────────────────────────────────────────
 export default function ServicesPage() {
   return (
-    <div style={{ background: "#f0eeeb", fontFamily: "'Arimo',sans-serif" }}>
+    <div style={{ background: "#f0eeeb", fontFamily: "'Arimo',sans-serif", paddingBottom: "120px" }}>
       {/* Hero */}
       <section
-        style={{ padding: "80px 96px 0" }}
+        style={{ padding: "120px 96px 80px" }}
         className="px-6 md:px-16 lg:px-24"
       >
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -299,25 +245,8 @@ export default function ServicesPage() {
               gridTemplateColumns: "1fr 1fr",
               gap: 48,
               alignItems: "start",
-              marginBottom: 80,
             }}
           >
-            {/* <motion.h1
-              {...fadeUp(0.1)}
-              style={{
-                fontFamily: "'Arimo',sans-serif",
-                fontSize: "120px",
-                fontWeight: "600",
-                lineHeight: 0.9,
-                letterSpacing: "0.01em",
-                color: "#111",
-                margin: 0,
-              }}
-            >
-              Our
-              <br />
-              Services
-            </motion.h1> */}
             <ScrollFillText
               as="h1"
               style={{
@@ -347,87 +276,17 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Ticker */}
-      <Ticker />
-
       {/* Service cards — alternating layout */}
       <div
-        style={{ maxWidth: 1400, margin: "0 auto 0", padding: "0 80px 80px" }}
+        style={{ maxWidth: 1400, margin: "0 auto", padding: "0 80px" }}
         className="px-6 md:px-16 lg:px-24"
       >
         {services.map((s, i) => (
           <ServiceCard key={s.id} service={s} index={i} />
         ))}
-        {/* Bottom border */}
+        {/* Bottom border to close the grid */}
         <div style={{ borderTop: "1px solid #ddd9d3" }} />
       </div>
-
-      {/* CTA Banner */}
-      {/* <section
-        style={{ padding: "80px 96px 120px" }}
-        className="px-6 md:px-16 lg:px-24"
-      >
-        <motion.div
-          {...fadeUp(0)}
-          style={{
-            maxWidth: 1200,
-            margin: "0 auto",
-            background: "#111",
-            borderRadius: 24,
-            padding: "72px 80px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 48,
-          }}
-        >
-          <div>
-            <p
-              style={{
-                fontSize: 11,
-                fontWeight: 600,
-                letterSpacing: "0.16em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.4)",
-                marginBottom: 16,
-              }}
-            >
-              Ready to build?
-            </p>
-            <h2
-              style={{
-                fontFamily: "'Arimo',sans-serif",
-                fontSize: "clamp(40px,5vw,64px)",
-                color: "#fff",
-                lineHeight: 0.95,
-                margin: 0,
-              }}
-            >
-              Let's engineer
-              <br />
-              your next product
-            </h2>
-          </div>
-          <button
-            style={{
-              flexShrink: 0,
-              padding: "16px 36px",
-              borderRadius: 999,
-              background: "#f0eeeb",
-              color: "#111",
-              border: "none",
-              fontSize: 14,
-              fontWeight: 600,
-              letterSpacing: "0.05em",
-              cursor: "pointer",
-              fontFamily: "'Arimo',sans-serif",
-              whiteSpace: "nowrap",
-            }}
-          >
-            Start a Project ↗
-          </button>
-        </motion.div>
-      </section> */}
     </div>
   );
 }
