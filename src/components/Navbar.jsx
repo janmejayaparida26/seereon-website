@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   Globe, 
   Smartphone, 
-  Database, 
-  Layers, 
   BarChart, 
   Code,
-  ChevronDown 
+  ChevronDown,
+  Box,
+  Target
 } from "lucide-react";
 
 const NAV_LINKS = [
@@ -18,22 +18,12 @@ const NAV_LINKS = [
     href: "/services",
     isMega: true,
     subLinks: [
-      {
-        category: "Development",
-        items: [
-          { name: "Custom Software Development", href: "/services/software", icon: <Code size={20}/> },
-          { name: "Mobile App Development", href: "/services/mobile", icon: <Smartphone size={20}/> },
-          { name: "Website Development", href: "/services/web", icon: <Globe size={20}/> },
-        ]
-      },
-      {
-        category: "Solutions",
-        items: [
-          { name: "MVP Builder", href: "/services/mvp", icon: <Database size={20}/> },
-          { name: "E-Commerce", href: "/services/ecommerce", icon: <Layers size={20}/> },
-          { name: "AI Development", href: "/services/ai", icon: <BarChart size={20}/> },
-        ]
-      }
+      { name: "Custom Software Development", desc: "Lean frameworks applied to your vision.", href: "/services/software", icon: <Code size={20} />, color: "#3b82f6" },
+      { name: "Mobile App Development", desc: "High-performance iOS and Android apps.", href: "/services/mobile", icon: <Smartphone size={20} />, color: "#a855f7" },
+      { name: "Website Development", desc: "Scalable and lightning-fast web experiences.", href: "/services/web", icon: <Globe size={20} />, color: "#06b6d4" },
+      { name: "MVP Builder", desc: "Go to market quickly with high quality.", href: "/services/mvp", icon: <Target size={20} />, color: "#eab308" },
+      { name: "AI Development", desc: "Leveraging ML to ensure you are future-ready.", href: "/services/ai", icon: <BarChart size={20} />, color: "#6366f1" },
+      { name: "E-Commerce", desc: "End-to-end storefronts designed to convert.", href: "/services/ecommerce", icon: <Box size={20} />, color: "#f97316" },
     ]
   },
   { label: "Works", href: "/work" },
@@ -54,24 +44,22 @@ function DesktopLink({ link, active, onHover, isMegaOpen }) {
     >
       <Link
         to={link.href}
-        className="text-[12px] font-semibold uppercase tracking-[0.08em] transition-colors duration-250 no-underline flex items-center gap-1.5"
-        style={{
-          fontFamily: "'Arimo', sans-serif",
-          color: isActive ? "#ffffff" : "rgba(255,255,255,0.8)",
+        className="text-[12px] font-semibold uppercase tracking-[0.08em] no-underline flex items-center gap-1.5 transition-colors relative"
+        style={{ 
+          fontFamily: "'Arimo', sans-serif", 
+          color: isActive ? "#ffffff" : "rgba(255,255,255,0.8)" 
         }}
       >
         {link.label}
         {link.isMega && (
-          <motion.span
-            animate={{ rotate: isMegaOpen ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="flex items-center"
-          >
+          <motion.span animate={{ rotate: isMegaOpen ? 180 : 0 }} className="flex items-center">
             <ChevronDown size={14} strokeWidth={3} />
           </motion.span>
         )}
+        
+        {/* Animated Underline Hook */}
         <span
-          className="absolute bottom-4 left-0 h-px w-full bg-[#e8ff00] origin-left transition-transform duration-[350ms]"
+          className="absolute -bottom-1 left-0 h-[1px] w-full bg-[#e8ff00] origin-left transition-transform duration-[350ms] ease-out"
           style={{ transform: isActive ? "scaleX(1)" : "scaleX(0)" }}
         />
       </Link>
@@ -81,129 +69,94 @@ function DesktopLink({ link, active, onHover, isMegaOpen }) {
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    setMenuOpen(false);
-    setMegaMenuOpen(false);
-  }, [location.pathname]);
-
+  useEffect(() => { setMegaMenuOpen(false); }, [location.pathname]);
+  
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const services = NAV_LINKS.find(l => l.isMega).subLinks;
+
   return (
-    <>
-      <header
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-        style={{
-          background: scrolled || menuOpen || megaMenuOpen ? "rgba(0, 0, 0, 0.95)" : "transparent",
-          backdropFilter: scrolled || menuOpen || megaMenuOpen ? "blur(16px)" : "none",
-          borderBottom: scrolled || menuOpen || megaMenuOpen ? "1px solid rgba(255,255,255,0.08)" : "1px solid transparent",
-        }}
-      >
-        <div className="w-[90%] max-w-[1400px] mx-auto h-[80px] flex items-center justify-between relative">
-          <Link to="/" className="flex items-center no-underline z-10">
-            <img 
-              src="https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773926744/Updated_Logo_ppjmvp.png" 
-              alt="Seereon Logo" 
-              className="h-[200px] w-auto object-contain" 
+    <header 
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{ 
+        background: scrolled || megaMenuOpen ? "black" : "transparent", 
+        borderBottom: "1px solid rgba(255,255,255,0.1)" 
+      }}
+    >
+      <div className="w-[90%] max-w-[1400px] mx-auto h-[80px] flex items-center justify-between relative">
+        <Link to="/">
+          <img 
+            src="https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773926744/Updated_Logo_ppjmvp.png" 
+            alt="Logo" 
+            className="h-[160px] w-auto object-contain" 
+          />
+        </Link>
+
+        <nav className="hidden md:flex items-center gap-8">
+          {NAV_LINKS.map((link) => (
+            <DesktopLink 
+              key={link.label} 
+              link={link} 
+              isMegaOpen={link.isMega && megaMenuOpen} 
+              onHover={link.isMega ? setMegaMenuOpen : null} 
+              active={location.pathname.startsWith(link.href)} 
             />
-          </Link>
+          ))}
+        </nav>
 
-          <nav className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <DesktopLink
-                key={link.label}
-                link={link}
-                isMegaOpen={link.isMega && megaMenuOpen}
-                onHover={link.isMega ? setMegaMenuOpen : null}
-                active={location.pathname.startsWith(link.href)}
-              />
-            ))}
-          </nav>
+        <Link 
+          to="/contact" 
+          className="hidden md:block text-[#e8ff00] border border-[#e8ff00] px-5 py-2 text-[11px] font-bold uppercase no-underline hover:bg-[#e8ff00] hover:text-black transition-all"
+        >
+          Contact Us
+        </Link>
 
-          <div className="flex items-center gap-4 z-10">
-            <Link
-              to="/contact"
-              className="hidden md:inline-block text-[#e8ff00] border border-[#e8ff00] px-[22px] py-[10px] text-[11px] font-bold tracking-[0.08em] no-underline uppercase transition-all duration-200 hover:bg-[#e8ff00] hover:text-black"
-              style={{ fontFamily: "'Arimo', sans-serif" }}
+        {/* CONTAINED MEGA MENU */}
+        <AnimatePresence>
+          {megaMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              exit={{ opacity: 0, y: 10 }}
+              onMouseEnter={() => setMegaMenuOpen(true)} 
+              onMouseLeave={() => setMegaMenuOpen(false)}
+              className="absolute top-[80px] right-0 left-0 mx-auto w-full max-w-[900px] bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-100 z-50"
             >
-              Contact Us
-            </Link>
-
-            <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden flex flex-col gap-[6px] bg-transparent border-none">
-              <motion.span animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }} className="w-6 h-[1.5px] bg-white" />
-              <motion.span animate={menuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-6 h-[1.5px] bg-white" />
-              <motion.span animate={menuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }} className="w-6 h-[1.5px] bg-white" />
-            </button>
-          </div>
-
-          <AnimatePresence>
-            {megaMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                onMouseEnter={() => setMegaMenuOpen(true)}
-                onMouseLeave={() => setMegaMenuOpen(false)}
-                className="absolute top-[78px] left-0 right-0 w-full bg-white shadow-2xl z-40 hidden md:flex rounded-b-2xl border-t-2"
-              >
-                <div className="w-full flex min-h-[350px]">
-                  {/* Left Side: Blue CTA Box */}
-                  <div className="w-[35%] bg-[#2563eb] p-12 flex flex-col justify-between relative overflow-hidden">
-                    <div className="relative z-10">
-                      <span className="text-white/60 text-[10px] uppercase tracking-[0.2em] font-['Arimo',sans-serif] font-bold">Expert Consultation</span>
-                      <h3 className="text-white text-[32px] font-['Arimo',sans-serif] font-bold leading-[1.1] mt-4">Book a Free Call <br /> with an Expert!</h3>
+              <div className="grid grid-cols-2 p-10 gap-x-8 gap-y-2">
+                {services.map((item, i) => (
+                  <Link 
+                    key={i} 
+                    to={item.href} 
+                    className="group flex items-center gap-4 p-4 rounded-xl no-underline transition-all hover:bg-gray-50"
+                  >
+                    <div 
+                      className="p-3 rounded-lg transition-colors" 
+                      style={{ backgroundColor: `${item.color}10`, color: item.color }}
+                    >
+                      {item.icon}
                     </div>
-                    <div className="relative z-10">
-                      <Link to="/contact" className="inline-block bg-white text-[#2563eb] px-10 py-4 text-[12px] font-['Arimo',sans-serif] font-black uppercase tracking-widest no-underline hover:bg-gray-100 transition-all">Book Now!</Link>
+                    <div className="flex flex-col">
+                      <span className="text-[20px] font-bold text-black group-hover:text-lime-500 transition-colors leading-tight">
+                        {item.name}
+                      </span>
+                      <span className="text-[14px] text-gray-400 mt-1">
+                        {item.desc}
+                      </span>
                     </div>
-                    <div className="absolute bottom-[-20px] left-[-20px] w-40 h-40 bg-white/10 -rotate-45" />
-                  </div>
-
-                  {/* Right Side: Two Large Columns */}
-                  <div className="w-[65%] p-12 grid grid-cols-2 gap-16 bg-white items-start">
-                    {NAV_LINKS.find(l => l.isMega).subLinks.map((cat, idx) => (
-                      <div key={idx} className="flex flex-col gap-8">
-                        <h4 className="text-black text-[16px] uppercase tracking-[0.2em] font-['Arimo',sans-serif] font-black border-b-2 border-gray-100 pb-4">{cat.category}</h4>
-                        <ul className="flex flex-col gap-6 p-0 m-0 list-none">
-                          {cat.items.map((item, i) => (
-                            <li key={i}>
-                              <Link to={item.href} className="group flex items-center gap-4 text-gray-600 hover:text-[#2563eb] transition-all no-underline">
-                                <span className="bg-gray-50 p-2 rounded-lg group-hover:bg-blue-50 transition-colors">{item.icon}</span>
-                                <span className="text-[16px] font-bold">{item.name}</span>
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </header>
-
-      {/* MOBILE MENU (Condensed for brevity, same logic as before) */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} className="fixed inset-0 z-40 bg-black pt-[72px] md:hidden">
-            <div className="w-[90%] mx-auto py-8">
-              {NAV_LINKS.map((link) => (
-                <Link key={link.label} to={link.href} className="block py-5 border-b border-white/10 no-underline text-white text-[18px] font-bold uppercase">{link.label}</Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </header>
   );
 }
