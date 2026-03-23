@@ -37,7 +37,7 @@ const NAV_LINKS = [
     ]
   },
   { label: "Works", href: "/work" },
-  { label: "Products", href: "/Products"},
+  { label: "Products", href: "/Product"},
   { label: "Career", href: "/career" },
   { label: "Contact", href: "/contact" },
 ];
