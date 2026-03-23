@@ -37,7 +37,7 @@ const ProductBanner = () => {
           className="relative z-10 text-white text-[90px] font-medium text-center"
           style={{}}
         >
-          Services
+          Products
         </motion.h1>
       </div>
     </section>

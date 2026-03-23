@@ -1,5 +1,5 @@
 import React from 'react'
-import CareerBanner from './CareerBanner'
+import CareerBanner from './CareerBanner';
 import CareerFirstSection from './CareerFirstSection';
 import CareerSecondSection from './CareerSecondSection';
 import CareerThirdSection from './CareerThirdSection';

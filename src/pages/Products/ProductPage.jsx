@@ -3,7 +3,7 @@ import ProductBanner from "./ProductBanner";
 import Footer from "../../components/Footer";
 import ScheduleCall from "../../components/ScheduleCall";
 import ContactCTA from "../../components/ContactCTA";
-const ServicesPage = () => {
+const ProductPage = () => {
   return (
     <>
       <ProductBanner />
@@ -14,4 +14,4 @@ const ServicesPage = () => {
   );
 };
 
-export default ServicesPage;
+export default ProductPage;
