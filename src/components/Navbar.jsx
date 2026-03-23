@@ -95,7 +95,7 @@ export default function Navbar() {
           <img 
             src="https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773926744/Updated_Logo_ppjmvp.png" 
             alt="Logo" 
-            className="h-[160px] w-auto object-contain" 
+            className="h-[200px] w-auto object-contain" 
           />
         </Link>
 
