@@ -11,15 +11,18 @@ const DesignFuture = () => {
   const features = [
     {
       title: "Structured Engineering",
-      desc: "Functionality meets strategic, future-ready architecture."
+      desc: "Functionality meets strategic, future-ready architecture.",
+      bgColor: "#eef7ee" // Soft Mint
     },
     {
       title: "Modern Technologies",
-      desc: "Advanced tech stacks tailored for enterprise needs."
+      desc: "Advanced tech stacks tailored for enterprise needs.",
+      bgColor: "#eff6ff" // Soft Blue
     },
     {
       title: "Deep Understanding",
-      desc: "Code that serves clear, defined business purposes."
+      desc: "Code that serves clear, defined business purposes.",
+      bgColor: "#fdf4ff" // Soft Lavender
     }
   ];
 
@@ -48,14 +51,14 @@ const DesignFuture = () => {
           .design-container {
             flex-direction: row;
             align-items: center;
-            gap: 60px;
+            gap: 80px;
           }
           .content-col, .image-col {
             flex: 1;
           }
         }
 
-        /* LEFT SIDE: CONTENT */
+        /* CONTENT COL */
         .content-col {
           text-align: left;
           display: flex;
@@ -64,8 +67,7 @@ const DesignFuture = () => {
         }
 
         .main-title {
-          /* Fluid typography: Min 38px on small screens, scales to 85px on desktop */
-          font-size: clamp(38px, 7vw, 85px);
+          font-size: clamp(38px, 7vw, 72px);
           line-height: 1.05;
           font-weight: 500;
           color: #000;
@@ -82,66 +84,63 @@ const DesignFuture = () => {
         }
 
         .description {
-          font-size: clamp(16px, 2vw, 18px);
+          font-size: 18px;
           line-height: 1.6;
           color: #444;
           max-width: 550px;
+          margin-bottom: 10px;
         }
 
-        /* MINI CARDS LIST */
+        /* COLORFUL MINI CARDS */
         .features-stack {
           display: flex;
           flex-direction: column;
-          gap: 16px;
-          margin-top: 10px;
+          gap: 20px;
         }
 
         .mini-card {
           display: flex;
-          gap: 15px;
-          padding: 20px;
-          background: #f8f8f8;
-          border-radius: 16px;
-          transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-          border: 1px solid transparent;
-        }
-
-        @media (min-width: 768px) {
-           .mini-card { gap: 24px; padding: 24px; }
+          gap: 24px;
+          padding: 28px;
+          border-radius: 24px;
+          transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+          border: 1px solid rgba(0,0,0,0.02);
+          position: relative;
         }
 
         .mini-card:hover {
-          background: #fff;
-          border-color: #eee;
-          transform: translateX(8px);
+          transform: translateX(12px);
           box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+          filter: brightness(0.98);
         }
 
         .card-idx {
-          font-weight: 800;
+          font-weight: 900;
           color: #000;
-          font-size: 16px;
-          opacity: 0.5;
+          font-size: 14px;
+          opacity: 0.3;
+          margin-top: 4px;
         }
 
         .mini-card h3 {
-          font-size: clamp(18px, 3vw, 20px);
+          font-size: 22px;
           font-weight: 700;
-          margin: 0 0 4px 0;
+          margin: 0 0 6px 0;
+          color: #111;
         }
 
         .mini-card p {
-          font-size: 14px;
-          color: #666;
+          font-size: 15px;
+          color: #555;
           margin: 0;
           line-height: 1.5;
         }
 
-        /* RIGHT SIDE: IMAGE COMPOSITION */
+        /* IMAGE COMPOSITION */
         .image-col {
           position: relative;
           width: 100%;
-          order: -1; /* Image appears first on mobile for visual impact */
+          order: -1;
         }
 
         @media (min-width: 1024px) {
@@ -150,72 +149,66 @@ const DesignFuture = () => {
 
         .main-image-wrapper {
           width: 100%;
-          aspect-ratio: 1/1; /* Square on mobile */
-          border-radius: 24px;
+          aspect-ratio: 4/5;
+          border-radius: 32px;
           overflow: hidden;
           background: #f0f0f0;
-        }
-
-        @media (min-width: 768px) {
-          .main-image-wrapper { aspect-ratio: 4/5; border-radius: 32px; }
+          box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
 
         .main-image-wrapper img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.8s ease;
+          transition: transform 1.2s ease;
         }
         
         .main-image-wrapper:hover img {
-            transform: scale(1.05);
+          transform: scale(1.08);
         }
 
         .floating-tag {
           position: absolute;
-          bottom: 15px;
-          right: 15px;
+          bottom: 0px;
+          left: 0px;
           background: #0A0A0A;
           color: #fff;
-          padding: 15px;
-          border-radius: 12px;
-          max-width: 180px;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+          padding: 30px 50px;
+          border-radius: 0px;
+          max-width: 280px;
+          box-shadow: 0 15px 40px rgba(0,0,0,0.2);
           z-index: 5;
         }
 
-        @media (min-width: 1024px) {
+        @media (max-width: 1024px) {
           .floating-tag {
-            bottom: -20px;
-            left: -40px;
-            right: auto;
-            max-width: 260px;
-            padding: 30px;
-            border-radius: 16px;
+            right: 15px;
+            bottom: 15px;
+            padding: 20px;
+            max-width: 200px;
           }
         }
 
         .floating-tag p {
           font-size: 10px;
           color: #888;
-          margin-bottom: 6px;
+          margin-bottom: 8px;
           text-transform: uppercase;
           font-weight: 700;
-          letter-spacing: 0.1em;
+          letter-spacing: 0.12em;
         }
 
         .floating-tag h4 {
-          font-size: clamp(14px, 2vw, 16px);
+          font-size: 17px;
           margin: 0;
           line-height: 1.4;
           font-weight: 500;
         }
 
-        /* REVEAL ANIMATION */
         .reveal {
           opacity: 0;
-          transform: translateY(20px);
-          transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+          transform: translateY(30px);
+          transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .reveal.active {
@@ -227,8 +220,8 @@ const DesignFuture = () => {
       <section className="design-section">
         <div className="design-container">
           
-          {/* IMAGE COMPOSITION (Appears first on mobile) */}
-          <div className={`image-col reveal ${mounted ? 'active' : ''}`} style={{ transitionDelay: '0.1s' }}>
+          {/* IMAGE SIDE */}
+          <div className={`image-col reveal ${mounted ? 'active' : ''}`}>
             <div className="main-image-wrapper">
               <img 
                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" 
@@ -242,8 +235,8 @@ const DesignFuture = () => {
             </div>
           </div>
 
-          {/* CONTENT & FEATURES */}
-          <div className={`content-col reveal ${mounted ? 'active' : ''}`}>
+          {/* CONTENT SIDE */}
+          <div className={`content-col reveal ${mounted ? 'active' : ''}`} style={{ transitionDelay: '0.2s' }}>
             <div>
               <span className="sub-heading">Expertise</span>
               <h2 className="main-title">
@@ -258,7 +251,11 @@ const DesignFuture = () => {
 
             <div className="features-stack">
               {features.map((item, index) => (
-                <div key={index} className="mini-card">
+                <div 
+                  key={index} 
+                  className="mini-card" 
+                  style={{ backgroundColor: item.bgColor }}
+                >
                   <span className="card-idx">0{index + 1}</span>
                   <div>
                     <h3>{item.title}</h3>
