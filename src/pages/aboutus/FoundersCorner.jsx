@@ -2,7 +2,7 @@ import React from "react";
 
 export default function TestimonialCard() {
   return (
-    <section className="flex items-center justify-center min-h-screen bg-[#f0eeeb] px-4 md:px-6 py-20 md:py-0 font-sans">
+    <section className="flex items-center justify-center min-h-screen bg-[#ffffff] px-4 md:px-6 py-20 md:py-0 font-sans">
       <div className="w-full max-w-7xl">
         
         {/* Main Card */}
