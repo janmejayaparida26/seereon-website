@@ -131,11 +131,11 @@ const TestimonialCard = ({ item, i, scrollYProgress }) => {
         />
       </div>
 
-      <h3 className="text-xl md:text-[32px] font-extrabold text-black mb-4">
+      <h3 className="text-xl md:text-[32px] font-['Arimo',sans-serif] font-bold text-black mb-4">
         "{item.quote}"
       </h3>
 
-      <p className="text-sm md:text-[18px] text-black/70">
+      <p className="font-['Arimo',sans-serif]text-sm md:text-[18px] text-black/70">
         {item.desc}
       </p>
     </motion.div>
