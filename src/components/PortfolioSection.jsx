@@ -147,19 +147,22 @@ export default function LatestWorkSection() {
                   FROM STARTUPS TO ENTERPRISES
                 </p>
 
-                <h2 className="text-white font-semibold leading-[1.0] text-[80px] max-md:text-[42px]">
+                <h2 className="text-white font-['Arimo',sans-serif] font-semibold leading-[1.0] text-[85px] max-md:text-[42px]">
                   Latest Product<br />Work
                 </h2>
 
-                <p className="text-white/60 text-[16px] leading-relaxed max-w-[400px]">
+                <p className="text-white/60 text-[16px] font-['Arimo',sans-serif] leading-relaxed max-w-[400px]">
                   A curated showcase of our latest software products, platforms, and digital systems — engineered with precision, performance, and scalability at the core.
                 </p>
 
                 <button
                   onClick={() => navigate("/work")}
-                  className="flex items-center gap-2 bg-white text-[#0A0A0A] font-semibold text-[15px] rounded-full px-6 py-3 w-fit"
+                  className="flex items-center gap-2 bg-white text-[#0A0A0A] font-semibold text-[15px] rounded-full px-6 py-3 w-fit cursor-pointer hover:bg-[#019e18] hover:text-white"
                 >
-                  View All <ArrowIcon />
+                  View All
+                  <svg className="arrow-icon" viewBox="0 0 13 13" fill="none">
+                  <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
                 </button>
               </div>
             </div>
