@@ -1,4 +1,6 @@
 import React from "react";
+import { ScrollFillText } from "../../components/ScrollFillText";
+import { useNavigate } from "react-router-dom";
 
 const SecondSectionabout = () => {
   return (
@@ -39,7 +41,7 @@ const SecondSectionabout = () => {
             <p className="sp-eyebrow font-['Arimo',sans-serif]">Our Approach</p>
 
             <h2 className="sp-heading font-['Arimo',sans-serif] font-semibold">
-              More Than Vendors — We Think Like Your Tech Team
+              <ScrollFillText>More Than Vendors — We Think Like Your Tech Team</ScrollFillText>
             </h2>
 
             <p className="sp-body font-['Arimo',sans-serif]">
@@ -51,7 +53,7 @@ const SecondSectionabout = () => {
 
       <style>{`
         .sp-wrap {
-          background: #f0eeeb;
+          background: #ffffff;
           padding: 80px 10px;
           font-family: 'Arimo', sans-serif;
         }
@@ -84,7 +86,7 @@ const SecondSectionabout = () => {
        .sp-img-bg {
   position: absolute;
   inset: 0;
-  background-image: url("https://images.unsplash.com/photo-1716703432455-3045789de738?q=80&w=1170&auto=format&fit=crop");
+  background-image: url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8TG9uZ3Rlcm0lMjBncm93dGglMjBzb2Z0d2FyZXxlbnwwfHwwfHx8Mg%3D%3D");
   background-size: cover;
   background-position: center;
 }
@@ -134,7 +136,7 @@ const SecondSectionabout = () => {
         }
 
         .sp-heading {
-          font-size: clamp(36px, 4vw, 56px);
+          font-size: 56px;
           line-height: 1.1;
           margin-bottom: 24px;
           color: #111;
