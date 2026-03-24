@@ -19,7 +19,7 @@ const CTASection = () => {
     <section 
       ref={sectionRef} 
       // Responsive padding: pt-12 for mobile, pt-20 for desktop
-      className="bg-[#f2f2f2] min-h-[50vh] md:min-h-[70vh] flex flex-col items-center justify-center overflow-hidden py-12 md:py-20 px-6"
+      className="bg-[#ffffff] min-h-[50vh] md:min-h-[70vh] flex flex-col items-center justify-center overflow-hidden py-12 md:py-20 px-6"
     >
       <motion.div 
         style={{ scale, opacity }}
