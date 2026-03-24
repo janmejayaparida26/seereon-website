@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 
 const stats = [
@@ -38,22 +38,31 @@ function StatItem({ stat, index }) {
       initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-      className={`flex flex-col items-center justify-center px-6 py-10 md:py-5 relative
-        ${index < stats.length - 1 ? "border-b md:border-b-0 md:border-r border-[#ccc]" : ""}`}
+      className={`flex flex-col items-center justify-center px-6 py-12 lg:py-10 relative 
+        border-b border-gray-100 lg:border-b-0 
+        ${index < stats.length - 1 ? "lg:border-r" : "border-b-0"}`}
     >
       <span
-        className="text-[#111] leading-none mb-3 font-light tracking-tighter"
+        className="text-[#111] leading-none mb-3 inline-flex items-baseline"
         style={{
-          // Fluid font size: scales from 60px on mobile to 120px on desktop
+          color: "#019e18",
           fontSize: "clamp(60px, 8vw, 120px)",
+          fontWeight: 300,
+          letterSpacing: "-0.03em",
           fontFamily: "'Arimo', sans-serif",
         }}
       >
+        {/* Animated Number (Black) */}
         <span ref={countRef}>0</span>
-        {stat.suffix}
+        
+        {/* Suffix (Green #019e18) */}
+        <span style={{ color: "#000", marginLeft: "4px" }}>
+          {stat.suffix}
+        </span>
       </span>
       <span
-        className="text-[#666] text-center font-['Arimo',sans-serif] text-[16px] md:text-[18px] tracking-wide"
+        className="text-[#666] text-center font-['Arimo',sans-serif]"
+        style={{ fontSize: "18px", letterSpacing: "0.01em" }}
       >
         {stat.label}
       </span>
@@ -64,13 +73,10 @@ function StatItem({ stat, index }) {
 export default function SeereonStats() {
   return (
     <section
-      className="bg-[#f0f0f0] px-6 md:px-12 py-12 md:py-20"
+      className="bg-white px-6 md:px-12 pb-20 pt-10 lg:pb-20 lg:pt-20"
       style={{ fontFamily: "'Arimo', sans-serif" }}
     >
-      {/* Mobile: grid-cols-1 (stacking)
-          Tablet: grid-cols-3 (side-by-side)
-      */}
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3">
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-3">
         {stats.map((s, i) => (
           <StatItem key={i} stat={s} index={i} />
         ))}
