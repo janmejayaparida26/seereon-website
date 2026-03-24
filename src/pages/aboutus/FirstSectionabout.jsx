@@ -9,7 +9,7 @@ const fadeUp = (delay = 0) => ({
 
 const FirstSectionabout = () => {
   return (
-    <section className="bg-[#f0eeeb] py-28 px-6 md:px-12 lg:px-20 font-['Arimo',sans-serif]">
+    <section className="bg-[#ffffff] py-28 px-6 md:px-12 lg:px-20 font-['Arimo',sans-serif]">
       <div className="max-w-[1100px] mx-auto text-center">
         {/* Tag */}
         <motion.p
@@ -24,7 +24,7 @@ const FirstSectionabout = () => {
           {...fadeUp(0.1)}
           className="font-['Bebas_Neue'] leading-[0.9] text-[#111] mb-10"
         >
-          <span className="block text-[clamp(70px,12vw,150px)] font-['Arimo',sans-serif] text-left md:text-center">
+          <span className="block text-[130px] font-['Arimo',sans-serif] text-left md:text-center">
             Future-Ready!
           </span>
 
