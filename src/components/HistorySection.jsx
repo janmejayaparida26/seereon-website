@@ -45,6 +45,7 @@ function StatItem({ stat, index }) {
       <span
         className="text-[#111] leading-none mb-3 inline-flex items-baseline"
         style={{
+          color: "#019e18",
           fontSize: "clamp(60px, 8vw, 120px)",
           fontWeight: 300,
           letterSpacing: "-0.03em",
@@ -55,11 +56,10 @@ function StatItem({ stat, index }) {
         <span ref={countRef}>0</span>
         
         {/* Suffix (Green #019e18) */}
-        <span style={{ color: "#019e18", marginLeft: "4px" }}>
+        <span style={{ color: "#000", marginLeft: "4px" }}>
           {stat.suffix}
         </span>
       </span>
-      
       <span
         className="text-[#666] text-center font-['Arimo',sans-serif]"
         style={{ fontSize: "18px", letterSpacing: "0.01em" }}
