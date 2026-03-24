@@ -82,13 +82,12 @@ const StackedScroll = () => {
 
               <div className="flex flex-col items-start">
                 {/* 2. Added 'group' class for the arrow hover animation */}
-                <button className="group flex items-center gap-2 text-[14px] lg:text-[16px] font-semibold text-[#000] hover:text-[#FF7A2D] transition-all">
-                  Explore More
-                  {/* 3. Conditional rendering ensures client/server HTML match */}
-                  {isMounted && (
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  )}
-                </button>
+                <button className="btn-pill" onClick={() => navigate("/aboutus")}>
+                Explore More 
+                <svg className="arrow-icon" viewBox="0 0 13 13" fill="none">
+                  <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
               </div>
             </div>
           </div>
