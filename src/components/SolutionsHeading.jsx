@@ -34,7 +34,7 @@ const SolutionsHeading = () => {
           }}
         >
           <ScrollFillText>
-            Our Core <br className="md:hidden" /> Capabilities
+            Our Core<br className="md:hidden" /> Capabilities
           </ScrollFillText>
         </h2>
 
