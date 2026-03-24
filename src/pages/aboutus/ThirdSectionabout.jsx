@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { ScrollFillText } from "../../components/ScrollFillText";
 
 const items = [
   {
@@ -78,9 +79,9 @@ const ThirdSectionabout = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="text-[clamp(36px,4.5vw,58px)] font-['Arimo',sans-serif] font-bold leading-[1.08] tracking-[-0.025em] text-[#111] mb-6"
+            className="text-[clamp(36px,4.5vw,56px)] font-['Arimo',sans-serif] font-bold leading-[1.08] tracking-[-0.025em] text-[#111] mb-6"
           >
-            We build software that strengthens your business advantage
+            <ScrollFillText>We build software that strengthens your business advantage</ScrollFillText>
           </motion.h2>
 
           <motion.p
