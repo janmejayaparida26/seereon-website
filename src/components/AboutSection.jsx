@@ -28,32 +28,44 @@ export default function AboutSection() {
           grid-template-columns: 1fr 1.3fr;
           column-gap: 80px;
           align-items: center;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'Arimo', sans-serif;
         }
 
         /* LEFT SIDE CARDS */
         .left-col-dna {
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 24px;
           max-width: 500px;
+          perspective: 1000px;
         }
 
         .dna-pillar-card {
-          background: #f8f8f8;
-          padding: 30px;
-          border-radius: 20px;
-          border: 1px solid rgba(0,0,0,0.03);
-          transition: all 1s ease;
+          padding: 35px;
+          border-radius: 24px;
+          border: 1px solid rgba(0,0,0,0.02);
+          transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+          box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
 
+        .dna-pillar-card:hover {
+          transform: translateY(-5px) !important;
+          box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+        }
+
+        /* Unique Light Backgrounds */
+        .card-foresight { background: #eef7ee; } /* Soft Mint */
+        .card-engineering { background: #eff6ff; } /* Soft Blue */
+        .card-longevity { background: #fdf4ff; } /* Soft Lavender */
+
         .dna-pillar h3 {
-          font-family: 'DM Sans', sans-serif; /* Matching your clean look */
-          font-size: 28px;
-          font-weight: 700;
-          margin: 0 0 8px 0;
-          color: #0A0A0A;
+          font-family: 'Arimo', sans-serif;
+          font-size: 26px;
+          font-weight: 800;
+          margin: 0 0 10px 0;
+          color: #111;
           letter-spacing: -0.02em;
+          text-transform: uppercase;
         }
 
         .dna-pillar p {
@@ -63,11 +75,11 @@ export default function AboutSection() {
           margin: 0;
         }
 
-        /* RIGHT SIDE: ALIGNMENT FIXES */
+        /* RIGHT SIDE ALIGNMENT */
         .right-col {
           display: flex;
           flex-direction: column;
-          align-items: flex-start; /* CRITICAL: Aligns everything to the left */
+          align-items: flex-start;
           text-align: left;
           gap: 32px;
         }
@@ -75,7 +87,7 @@ export default function AboutSection() {
         .header-group {
           display: flex;
           flex-direction: column;
-          align-items: flex-start; /* Ensures span and h2 share the same left edge */
+          align-items: flex-start;
           gap: 12px;
           width: 100%;
         }
@@ -87,7 +99,6 @@ export default function AboutSection() {
           letter-spacing: 0.15em;
           color: #888;
           margin: 0;
-          display: inline-block;
         }
 
         .big-headline {
@@ -102,7 +113,7 @@ export default function AboutSection() {
         .description-text {
           font-size: 19px;
           line-height: 1.6;
-          color: #333;
+          color: #444;
           max-width: 600px;
         }
 
@@ -118,27 +129,25 @@ export default function AboutSection() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          background: #0A0A0A;
-          border: 1px solid #0A0A0A;
+          background: #019e18;
           border-radius: 999px;
-          padding: 14px 32px;
+          padding: 16px 32px;
           font-size: 14px;
           font-weight: 600;
           color: #fff;
           cursor: pointer;
           transition: all 0.3s ease;
+          border: none;
         }
 
         .btn-pill:hover {
-          background: #fff; /* Custom Green from your hero */
+          background: #fff;
           color: #000;
-          // border-color: #e8ff00;
+          border: 1px solid #000;
         }
 
         .btn-outline {
-          display: inline-flex;
-          align-items: center;
-          padding: 14px 32px;
+          padding: 16px 36px;
           background: transparent;
           border: 1px solid #ddd;
           border-radius: 999px;
@@ -150,8 +159,8 @@ export default function AboutSection() {
         }
 
         .btn-outline:hover {
-          border-color: #0A0A0A;
-          background: #fcfcfc;
+          background: #000;
+          color: #fff;
         }
 
         .arrow-icon {
@@ -162,33 +171,36 @@ export default function AboutSection() {
         @media (max-width: 1024px) {
           .about-container {
             grid-template-columns: 1fr;
+            padding: 80px 24px;
             gap: 60px;
           }
           .right-col { order: 1; }
-          .left-col-dna { order: 2; }
+          .left-col-dna { order: 2; margin: 0 auto; width: 100%; }
         }
       `}</style>
 
       <section className="about-section">
         <div className="about-container">
           
-          {/* LEFT COLUMN */}
+          {/* LEFT COLUMN: Animated DNA Pillars */}
           <div className="left-col-dna">
-            <div className="dna-pillar-card" style={{
+            {/* Foresight: Slides from Left */}
+            <div className="dna-pillar-card card-foresight" style={{
               opacity: mounted ? 1 : 0,
-              transform: mounted ? "translateX(0)" : "translateX(-20px)",
+              transform: mounted ? "translateX(0)" : "translateX(-40px)",
               transitionDelay: "0.2s"
             }}>
-              <div className="dna-pillarback">
+              <div className="dna-pillar">
                 <h3>FORESIGHT (SEER)</h3>
                 <p>Clarity and anticipation of technology trends before they arrive. We are proactive engineers, not reactive builders.</p>
               </div>
             </div>
 
-            <div className="dna-pillar-card" style={{
+            {/* Engineering: Scales Up */}
+            <div className="dna-pillar-card card-engineering" style={{
               opacity: mounted ? 1 : 0,
-              transform: mounted ? "translateX(0)" : "translateX(-20px)",
-              transitionDelay: "0.4s"
+              transform: mounted ? "scale(1)" : "scale(0.95)",
+              transitionDelay: "0.5s"
             }}>
               <div className="dna-pillar">
                 <h3>MODERN ENGINEERING</h3>
@@ -196,10 +208,11 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <div className="dna-pillar-card" style={{
+            {/* Longevity: Slides from Bottom */}
+            <div className="dna-pillar-card card-longevity" style={{
               opacity: mounted ? 1 : 0,
-              transform: mounted ? "translateX(0)" : "translateX(-20px)",
-              transitionDelay: "0.6s"
+              transform: mounted ? "translateY(0)" : "translateY(40px)",
+              transitionDelay: "0.8s"
             }}>
               <div className="dna-pillar">
                 <h3>LONGEVITY (EON)</h3>
@@ -208,7 +221,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* RIGHT COLUMN: ALIGNED */}
+          {/* RIGHT COLUMN: Big Intro */}
           <div className="right-col">
             <div className="header-group" style={{
               opacity: mounted ? 1 : 0,
@@ -217,20 +230,20 @@ export default function AboutSection() {
             }}>
               <span className="section-tag">Who We Are</span>
               <h2 className="big-headline">
-                <ScrollFillText>Custom Software Engineered for Tomorrow.</ScrollFillText>
+                <ScrollFillText>Custom Software Engineered for Tomorrow</ScrollFillText>
               </h2>
             </div>
 
             <p className="description-text" style={{
                 opacity: mounted ? 1 : 0,
-                transition: "opacity 1s ease 0.8s"
+                transition: "opacity 1s ease 1s"
             }}>
               Seereon is a forward-thinking product engineering company merging clarity, modern innovation, and enduring value. We help organizations solve complex challenges through foresight and engineering longevity.
             </p>
 
             <div className="cta-row" style={{
                 opacity: mounted ? 1 : 0,
-                transition: "opacity 1s ease 1s"
+                transition: "opacity 1s ease 1.2s"
             }}>
               <button className="btn-pill" onClick={() => navigate("/aboutus")}>
                 The Seereon Story 
