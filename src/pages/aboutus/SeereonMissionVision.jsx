@@ -36,7 +36,7 @@ export default function FourthSectionAbout() {
   const yTranslate = useTransform(smoothProgress, [0, 0.45], [150, 0]);
 
   return (
-    <section ref={containerRef} className="bg-[#f0f0f0] py-28 px-6 md:px-12 font-['Arimo',sans-serif] overflow-hidden">
+    <section ref={containerRef} className="bg-[#ffffff] py-28 px-6 md:px-12 font-['Arimo',sans-serif] overflow-hidden">
       {/* Eyebrow */}
       <motion.p
         initial={{ opacity: 0 }}
