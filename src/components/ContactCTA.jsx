@@ -21,7 +21,7 @@ export default function CTASection() {
       <style>{`
         .cta-wrapper {
           width: 100%;
-          background: #f0f0f0;
+          background: #ffffff;
           padding: 0px 40px;
           padding-bottom: 60px;
           box-sizing: border-box;
