@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react'; // Added missing import
+import { useNavigate } from 'react-router-dom';
 import { ScrollFillText } from "./ScrollFillText";
 
 const sections = [
   {
     id: "01",
+    serviceId: "custom-software",
     title: "Custom Software Development",
     desc: "Design and development of tailored systems that align with your business workflows and operational needs. Scalable backend systems, API-driven architecture, Business process automation.",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&auto=format&fit=crop",
@@ -12,6 +13,7 @@ const sections = [
   },
   {
     id: "02",
+    serviceId: "mobile-app",
     title: "Mobile App Development",
     desc: "High-performance mobile applications engineered for seamless user experience and scalability. Android & iOS applications, Optimized for large user bases, Secure and performance-driven.",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&auto=format&fit=crop",
@@ -19,6 +21,7 @@ const sections = [
   },
   {
     id: "03",
+    serviceId: "mvp-builder",
     title: "MVP Builder",
     desc: "We take your idea from whiteboard to working product in weeks — investor-ready, user-tested, and built to scale when you need it.",
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&auto=format&fit=crop",
@@ -26,6 +29,7 @@ const sections = [
   },
   {
     id: "04",
+    serviceId: "ecommerce",
     title: "E-Commerce",
     desc: "High-converting, scalable e-commerce platforms — from custom builds to Shopify, we make buying feel effortless for your customers.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&auto=format&fit=crop",
@@ -33,6 +37,7 @@ const sections = [
   },
   {
     id: "05",
+    serviceId: "ai-development",
     title: "AI Development",
     desc: "We embed AI where it matters — LLM integrations, custom models, intelligent automation — turning data into decisions.",
     image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&auto=format&fit=crop",
@@ -40,6 +45,7 @@ const sections = [
   },
   {
     id: "06",
+    serviceId: "website-development",
     title: "Website Development",
     desc: "Marketing sites, product landing pages, and corporate portals — engineered for speed, SEO, and the impression you want to make.",
     image: "https://images.unsplash.com/photo-1678690832311-bb6e361989ca?w=600&auto=format&fit=crop&q=60",
@@ -48,8 +54,8 @@ const sections = [
 ];
 
 const StackedScroll = () => {
-  // 1. Added state to prevent Hydration Error
   const [isMounted, setIsMounted] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsMounted(true);
@@ -82,7 +88,10 @@ const StackedScroll = () => {
 
               <div className="flex flex-col items-start">
                 {/* 2. Added 'group' class for the arrow hover animation */}
-                <button className="btn-pill" onClick={() => navigate("/aboutus")}>
+                <button
+                  className="btn-pill"
+                  onClick={() => navigate(`/services/${section.serviceId}`)}
+                >
                 Explore More 
                 <svg className="arrow-icon" viewBox="0 0 13 13" fill="none">
                   <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
