@@ -30,7 +30,7 @@ const CTASection = () => {
           className="font-['Arimo',sans-serif] font-bold leading-[1] tracking-[-0.05em] text-[#0A0A0A]"
           style={{ 
             // clamp(min, preferred, max) - scales automatically between 48px and 110px
-            fontSize: "clamp(48px, 10vw, 110px)",
+            fontSize: "90px",
             wordBreak: "keep-all"
           }}
         >
@@ -40,7 +40,7 @@ const CTASection = () => {
         </h2>
 
         {/* SUBTEXT - Scaled for mobile readability */}
-        <p className="mt-6 md:mt-10 text-[18px] md:text-[22px] font-['Arimo',sans-serif] font-medium text-black/80 max-w-[320px] md:max-w-xl">
+        <p className="mt-6 md:mt-10 text-[18px] md:text-[20px] font-['Arimo',sans-serif] font-medium text-black/80 max-w-[320px] md:max-w-xl">
           Your brand dream is just a call away.
         </p>
       </motion.div>
