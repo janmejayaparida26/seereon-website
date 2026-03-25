@@ -1,11 +1,11 @@
 const faqs = [
   {
-    question: "What is the hiring process at Seereon?",
+    question: "Q1. What is the hiring process at Seereon?",
     answer:
       "Our hiring process typically includes an initial screening, a technical assessment, and a final discussion to evaluate your problem-solving approach, technical skills, and cultural fit.",
   },
   {
-    question: "Do you offer internships or trainee programs?",
+    question: "Q2. Do you offer internships or trainee programs?",
     answer:
       "Yes, we offer internship and trainee opportunities for freshers who are eager to learn, build, and grow in a real engineering environment.",
   },
@@ -15,17 +15,17 @@ const faqs = [
       "We work with modern tech stacks including web development frameworks, backend systems, cloud technologies, and enterprise solutions like SAP.",
   },
   {
-    question: "Is prior experience mandatory to apply?",
+    question: "Q4. Is prior experience mandatory to apply?",
     answer:
       "Not always. While some roles require experience, we also hire freshers and trainees who demonstrate strong fundamentals and a willingness to learn.",
   },
   {
-    question: "What kind of projects will I work on?",
+    question: "Q5. What kind of projects will I work on?",
     answer:
       "You’ll work on scalable software systems, business applications, and performance-driven platforms designed to solve real-world challenges.",
   },
   {
-    question: "Do you provide training or mentorship?",
+    question: "Q6. Do you provide training or mentorship?",
     answer:
       "Yes, we provide hands-on training, guidance from experienced developers, and continuous learning opportunities to help you grow.",
   },
