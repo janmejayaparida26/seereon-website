@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-// import { ScrollFillText } from "./ScrollFillText";
+import { ScrollFillText } from "../../components/ScrollFillText";
 
 const techStack = {
   frontEnd: [
@@ -68,7 +68,7 @@ const TechCard = ({ item }) => (
 
 export default function TechToolkit() {
   return (
-    <section className="py-24 px-6 bg-white overflow-hidden">
+    <section className="py-45 px-6 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* Header Section */}
@@ -79,7 +79,7 @@ export default function TechToolkit() {
             viewport={{ once: true }}
             className="text-[48px] md:text-[85px] font-['Arimo',sans-serif] font-medium text-[#111111] leading-[1.1] tracking-tight md:w-1/2"
           >
-            Our tech toolkit <br className="hidden md:block" /> at a glance
+            <ScrollFillText>Our tech toolkit at a glance</ScrollFillText>
           </motion.h2>
           
           <motion.p 
