@@ -1,3 +1,5 @@
+import { ScrollFillText } from "../../components/ScrollFillText";
+
 const cohorts = [
   {
     id: 1,
@@ -45,11 +47,11 @@ const cohorts = [
 
 const CareerFourthSection = () => {
   return (
-    <section className="bg-white py-20 px-6 md:px-12 lg:px-24">
+    <section className="bg-white py-20 pt-40 px-6 md:px-12 lg:px-24">
       {/* Header */}
       <div className="text-center mb-12">
         <h2 className="text-5xl md:text-6xl lg:text-6xl font-['Arimo',sans-serif] font-semibold text-gray-900 tracking-tight mb-4">
-          We are looking for
+         <ScrollFillText>We are looking for</ScrollFillText>
         </h2>
         <p className="text-base font-['Arimo',sans-serif] text-gray-500">
           Join Seereon and work on building scalable software systems and enterprise-grade solutions. <br />Applications are reviewed on a rolling basis.
