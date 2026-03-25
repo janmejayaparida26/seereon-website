@@ -1,3 +1,5 @@
+import { ScrollFillText } from "../../components/ScrollFillText";
+
 const faqs = [
   {
     question: "Q1. What is the hiring process at Seereon?",
@@ -37,9 +39,7 @@ const CareerFifthSection = () => {
       {/* Header */}
       <div className="text-center mb-14">
         <h2 className="text-5xl md:text-7xl lg:text-7xl font-['Arimo',sans-serif] font-semibold text-gray-900 tracking-tight leading-[1.05]">
-          Frequently
-          <br />
-          asked questions?
+         <ScrollFillText>Frequently asked questions?</ScrollFillText>
         </h2>
       </div>
 
