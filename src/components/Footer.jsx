@@ -103,7 +103,7 @@ const MainFooter = () => {
                 <img 
                   src="https://res.cloudinary.com/dcc7qgxmb/image/upload/v1774455395/Updated_Logo-Photoroom_gxbwiv.png" 
                   alt="Seereon Logo" 
-                  className="h-[180px] md:h-[60px] w-auto object-contain transform -translate-x-4 md:-translate-x-4" 
+                  className="h-[70px] md:h-[70px] w-auto object-contain transform -translate-x-4 md:-translate-x-4" 
                 />
             </div>
             <div className="space-y-4 md:space-y-6 mt-2 md:mt-10 text-left">
@@ -118,7 +118,7 @@ const MainFooter = () => {
 
           {/* Column 2: Expertise */}
           <div className="flex flex-col">
-            <h4 className="text-[13px] md:text-[14px] font-bold text-white uppercase tracking-[0.2em] opacity-50 mb-4 md:mb-6 md:h-[21px] flex items-center">
+            <h4 className="text-[13px] md:text-[14px] font-bold text-white uppercase tracking-[0.2em] opacity-50 mb-4 md:mb-6 md:h-[21px] mt-5 flex items-center">
               Expertise
             </h4>
             <ul className="space-y-3 md:space-y-4 text-[14px] md:text-[15px] font-['Arimo',sans-serif] text-gray-400">
@@ -134,7 +134,7 @@ const MainFooter = () => {
 
           {/* Column 3: Explore */}
           <div className="flex flex-col">
-            <h4 className="text-[13px] md:text-[14px] font-bold text-white uppercase tracking-[0.2em] opacity-50 mb-4 md:mb-6 md:h-[21px] flex items-center">
+            <h4 className="text-[13px] md:text-[14px] font-bold text-white uppercase tracking-[0.2em] opacity-50 mb-4 md:mb-6 md:h-[21px] mt-5 flex items-center">
               Explore
             </h4>
             <ul className="space-y-3 md:space-y-4 text-[14px] md:text-[15px] font-['Arimo',sans-serif] text-gray-400">
@@ -150,7 +150,7 @@ const MainFooter = () => {
 
           {/* Column 4: Contact */}
           <div className="flex flex-col">
-            <h4 className="text-[13px] md:text-[14px] font-bold text-white uppercase tracking-[0.2em] opacity-50 mb-4 md:mb-6 md:h-[21px] flex items-center">
+            <h4 className="text-[13px] md:text-[14px] font-bold text-white uppercase tracking-[0.2em] opacity-50 mb-4 md:mb-6 md:h-[21px] mt-5 flex items-center">
               Contact
             </h4>
             <div className="text-[14px] md:text-[15px] leading-[1.6] md:leading-[1.8] text-gray-400 space-y-5 md:space-y-6">
