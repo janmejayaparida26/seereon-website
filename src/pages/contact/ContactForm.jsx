@@ -44,22 +44,22 @@ const ContactForm = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="space-y-10"
+          className="space-y-5"
         >
           {/* Tag */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-[10px] text-white/50 tracking-[0.2em] uppercase font-bold">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="inline-flex items-center gap-0 px-0 py-0 text-[10px] text-[#dbb34e] tracking-[0.2em] uppercase font-bold">
+            <span className="w-1.5 h-1.5 rounded-full" />
             Direct Collaboration
           </div>
 
           <div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-white mb-8">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-['Arimo',sans-serif] font-bold leading-[1.1] tracking-tight text-white mb-8">
               Build the future of your brand with <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/30 italic">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#dbb34e] via-[#019e18] to-white/70 italic">
                 SEEREON
               </span>
             </h1>
-            <p className="text-lg text-white/50 leading-relaxed max-w-lg font-light">
+            <p className="text-lg text-white/50 leading-relaxed max-w-lg font-['Arimo',sans-serif] font-light">
               We don't just build software; we architect growth. Join 50+ clients 
               who have scaled their visions into high-performing digital realities.
             </p>
