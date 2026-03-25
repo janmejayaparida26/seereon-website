@@ -1,3 +1,5 @@
+import { ScrollFillText } from "../../components/ScrollFillText";
+
 const steps = [
   {
     title: "Foundation & Learning (Month 01-02)",
@@ -22,7 +24,7 @@ const CareerSecondSection = () => {
       {/* Header */}
       <div className="text-center mb-14">
         <h2 className="text-5xl md:text-6xl font-['Arimo',sans-serif] font-semibold text-gray-900 tracking-tight mb-4">
-          What will you learn?
+         <ScrollFillText>What will you learn?</ScrollFillText>
         </h2>
         <p className="text-base font-['Arimo',sans-serif] text-gray-500">
           Structured learning combined with hands-on execution, resulting in practical deliverables at every stage.
