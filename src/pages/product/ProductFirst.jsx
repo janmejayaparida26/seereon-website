@@ -1,9 +1,10 @@
 import React from 'react'
 import { motion } from "framer-motion";
+import { ScrollFillText } from "../../components/ScrollFillText";
 
 function ProductFirst() {
   return (
-        <section className="py-24 px-6 bg-white overflow-hidden">
+        <section className="pt-45 px-6 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto">
             
             {/* Header Section */}
@@ -14,7 +15,7 @@ function ProductFirst() {
                 viewport={{ once: true }}
                 className="text-[48px] md:text-[85px] font-['Arimo',sans-serif] font-medium text-[#111111] leading-[1.1] tracking-tight md:w-2/3"
               >
-                Advanced Systems <br className="hidden md:block" /> We Build
+               <ScrollFillText>Advanced Systems We Build</ScrollFillText>
               </motion.h2>
               
               <motion.p 
