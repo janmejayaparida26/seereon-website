@@ -71,7 +71,7 @@ const MainFooter = () => {
   const exploreLinks = [
     { label: "About The Company", href: "/aboutus" },
     { label: "Our Work & Clients", href: "/work" },
-    { label: "People & Processes", href: "/product" },
+    { label: "Our Products", href: "/product" },
     { label: "Work With Us", href: "/contact" },
   ];
 
