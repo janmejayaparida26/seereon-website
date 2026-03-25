@@ -19,7 +19,7 @@ const CTASection = () => {
     <section 
       ref={sectionRef} 
       // Responsive padding: pt-12 for mobile, pt-20 for desktop
-      className="bg-[#ffffff] min-h-[50vh] md:min-h-[70vh] flex flex-col items-center justify-center overflow-hidden py-12 md:py-20 px-6"
+      className="bg-[#ffffff] min-h-[40vh] md:min-h-[70vh] flex flex-col items-center justify-center overflow-hidden py-12 md:py-20 px-6"
     >
       <motion.div 
         style={{ scale, opacity }}
@@ -30,7 +30,7 @@ const CTASection = () => {
           className="font-['Arimo',sans-serif] font-bold leading-[1] tracking-[-0.05em] text-[#0A0A0A]"
           style={{ 
             // clamp(min, preferred, max) - scales automatically between 48px and 110px
-            fontSize: "90px",
+            fontSize: "Clamp(42px, 8vw, 90px)",
             wordBreak: "keep-all"
           }}
         >
