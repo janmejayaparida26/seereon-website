@@ -67,7 +67,7 @@ const DesignFuture = () => {
         }
 
         .main-title {
-          font-size: clamp(38px, 7vw, 72px);
+          font-size: clamp(48px, 6vw, 85px);
           line-height: 1.05;
           font-weight: 500;
           color: #000;
