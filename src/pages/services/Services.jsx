@@ -219,7 +219,7 @@ function ServiceCard({ service, index }) {
 // ── Page ──────────────────────────────────────────────────────
 export default function ServicesPage() {
   return (
-    <div style={{ background: "#f0eeeb", fontFamily: "'Arimo',sans-serif", paddingBottom: "120px" }}>
+    <div style={{ background: "#ffffff", fontFamily: "'Arimo',sans-serif", paddingBottom: "120px" }}>
       {/* Hero */}
       <section
         style={{ padding: "120px 96px 80px" }}
