@@ -13,16 +13,16 @@ import {
 
 const NAV_LINKS = [
   { label: "About Us", href: "/aboutus" },
-  { 
+ { 
     label: "Services", 
     href: "/services",
     isMega: true,
     subLinks: [
-      { name: "Custom Software Development", desc: "Lean frameworks applied to your vision.", href: "/services/software", icon: <Code size={20} />, color: "#3b82f6" },
-      { name: "Mobile App Development", desc: "High-performance iOS and Android apps.", href: "/services/mobile", icon: <Smartphone size={20} />, color: "#a855f7" },
-      { name: "Website Development", desc: "Scalable and lightning-fast web experiences.", href: "/services/web", icon: <Globe size={20} />, color: "#06b6d4" },
-      { name: "MVP Builder", desc: "Go to market quickly with high quality.", href: "/services/mvp", icon: <Target size={20} />, color: "#eab308" },
-      { name: "AI Development", desc: "Leveraging ML to ensure you are future-ready.", href: "/services/ai", icon: <BarChart size={20} />, color: "#6366f1" },
+      { name: "Custom Software Development", desc: "Lean frameworks applied to your vision.", href: "/services/custom-software", icon: <Code size={20} />, color: "#3b82f6" },
+      { name: "Mobile App Development", desc: "High-performance iOS and Android apps.", href: "/services/mobile-app", icon: <Smartphone size={20} />, color: "#a855f7" },
+      { name: "Website Development", desc: "Scalable and lightning-fast web experiences.", href: "/services/website-development", icon: <Globe size={20} />, color: "#06b6d4" },
+      { name: "MVP Builder", desc: "Go to market quickly with high quality.", href: "/services/mvp-builder", icon: <Target size={20} />, color: "#eab308" },
+      { name: "AI Development", desc: "Leveraging ML to ensure you are future-ready.", href: "/services/ai-development", icon: <BarChart size={20} />, color: "#6366f1" },
       { name: "E-Commerce", desc: "End-to-end storefronts designed to convert.", href: "/services/ecommerce", icon: <Box size={20} />, color: "#f97316" },
     ]
   },
