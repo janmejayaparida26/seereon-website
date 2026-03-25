@@ -34,7 +34,7 @@ const ProductBanner = () => {
 
         {/* Center Text - Fix 3: Merged duplicate style attributes into one object */}
         <motion.h1
-          className="relative z-10 text-white text-[90px] font-medium text-center"
+          className="relative z-10 text-white text-[90px] font-['Arimo',sans-serif] font-medium text-center"
           style={{}}
         >
           Products
