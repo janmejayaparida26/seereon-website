@@ -16,11 +16,32 @@ const ContactForm = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  const { fullName, email, subject, message } = form;
+
+  const res = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      access_key: "9df7f6f3-cada-4c88-ae27-256f6bf94118", // 🔑 paste your key here
+      name: fullName,
+      email,
+      subject: subject || "New contact enquiry from Seereon website",
+      message,
+    }),
+  });
+
+  const data = await res.json();
+
+  if (data.success) {
     setSubmitted(true);
+    setForm({ fullName: "", email: "", subject: "", message: "" });
     setTimeout(() => setSubmitted(false), 3000);
-  };
+  } else {
+    alert("Something went wrong. Please try again.");
+  }
+};
 
   const fields = [
     { name: "fullName", label: "Full Name", type: "input" },
