@@ -59,7 +59,6 @@ function DesktopLink({ link, active, onHover, isMegaOpen }) {
           </motion.span>
         )}
         
-        {/* Animated Underline Hook */}
         <span
           className="absolute -bottom-1 left-0 h-[1px] w-full bg-[#e8ff00] origin-left transition-transform duration-[350ms] ease-out"
           style={{ transform: isActive ? "scaleX(1)" : "scaleX(0)" }}
@@ -97,17 +96,19 @@ export default function Navbar() {
         borderBottom: "1px solid rgba(255,255,255,0.1)" 
       }}
     >
-      <div className="w-[90%] max-w-[1400px] mx-auto h-[80px] flex items-center justify-between relative">
-        <Link to="/">
+      <div className="w-full max-w-[1440px] mx-auto h-[80px] md:h-[90px] flex items-center justify-between px-6 md:px-12 lg:px-12 relative">
+        
+        {/* LOGO - Responsive sizes to keep it prominent */}
+        <Link to="/" className="flex items-center h-full">
           <img 
             src="https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773926744/Updated_Logo_ppjmvp.png" 
             alt="Logo" 
-            className="h-[200px] w-auto object-contain" 
+            className="h-[170px] md:h-[140px] lg:h-[220px] w-auto object-contain transform -translate-x-4 md:-translate-x-6" 
           />
         </Link>
 
-        {/* DESKTOP NAV */}
-        <nav className="hidden md:flex items-center gap-8">
+        {/* DESKTOP NAV - Centered between Logo and CTA */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-10">
           {NAV_LINKS.map((link) => (
             <DesktopLink 
               key={link.label} 
@@ -119,20 +120,23 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <Link 
-          to="/contact" 
-          className="hidden md:block text-[#dbb34e] border border-[#dbb34e] px-5 py-2 text-[11px] font-bold uppercase no-underline hover:bg-[#dbb34e] hover:text-black transition-all"
-        >
-          Contact Us
-        </Link>
+        {/* RIGHT SECTION: Contact Button + Mobile Toggle */}
+        <div className="flex items-center gap-4">
+          <Link 
+            to="/contact" 
+            className="hidden md:block text-[#dbb34e] border border-[#dbb34e] px-6 py-2.5 text-[11px] font-bold uppercase no-underline hover:bg-[#dbb34e] hover:text-black transition-all"
+          >
+            Contact Us
+          </Link>
 
-        {/* MOBILE HAMBURGER ICON */}
-        <button 
-          className="md:hidden text-white p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+          {/* MOBILE HAMBURGER ICON */}
+          <button 
+            className="md:hidden text-white p-2 z-[110]"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
+          </button>
+        </div>
 
         {/* DESKTOP MEGA MENU */}
         <AnimatePresence>
@@ -143,9 +147,9 @@ export default function Navbar() {
               exit={{ opacity: 0, y: 10 }}
               onMouseEnter={() => setMegaMenuOpen(true)} 
               onMouseLeave={() => setMegaMenuOpen(false)}
-              className="absolute top-[80px] right-0 left-0 mx-auto w-full max-w-[900px] bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-100 z-50 hidden md:block"
+              className="absolute top-[80px] md:top-[90px] right-0 left-0 mx-auto w-[calc(100%-48px)] max-w-[1000px] bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-100 z-50 hidden md:block"
             >
-              <div className="grid grid-cols-2 p-10 gap-x-8 gap-y-2">
+              <div className="grid grid-cols-2 p-8 gap-x-6 gap-y-2">
                 {services.map((item, i) => (
                   <Link 
                     key={i} 
@@ -153,16 +157,16 @@ export default function Navbar() {
                     className="group flex items-center gap-4 p-4 rounded-xl no-underline transition-all hover:bg-gray-50"
                   >
                     <div 
-                      className="p-3 rounded-lg transition-colors" 
+                      className="p-3 rounded-lg transition-colors shrink-0" 
                       style={{ backgroundColor: `${item.color}10`, color: item.color }}
                     >
                       {item.icon}
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-[20px] font-bold text-black group-hover:text-lime-500 transition-colors leading-tight">
+                      <span className="text-[18px] font-bold text-black group-hover:text-lime-500 transition-colors leading-tight">
                         {item.name}
                       </span>
-                      <span className="text-[14px] text-gray-400 mt-1">
+                      <span className="text-[13px] text-gray-400 mt-1 line-clamp-1">
                         {item.desc}
                       </span>
                     </div>
@@ -181,20 +185,20 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.3 }}
-              className="fixed top-[80px] left-0 w-full h-[calc(100vh-80px)] bg-black z-[100] md:hidden overflow-y-auto"
+              className="fixed top-0 left-0 w-full h-screen bg-black z-[100] md:hidden flex flex-col pt-[100px]"
             >
-              <div className="flex flex-col p-6 gap-2">
+              <div className="flex flex-col p-8 gap-1 overflow-y-auto">
                 {NAV_LINKS.map((link) => (
                   <div key={link.label}>
                     {link.isMega ? (
-                      <div>
+                      <div className="border-b border-white/10">
                         <button 
                           onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                          className="w-full flex items-center justify-between py-4 text-[18px] font-bold text-white uppercase tracking-wider border-b border-white/10"
+                          className="w-full flex items-center justify-between py-5 text-[20px] font-bold text-white uppercase tracking-wider"
                         >
                           {link.label}
                           <motion.span animate={{ rotate: mobileServicesOpen ? 180 : 0 }}>
-                            <ChevronDown size={20} />
+                            <ChevronDown size={24} />
                           </motion.span>
                         </button>
                         <AnimatePresence>
@@ -203,7 +207,7 @@ export default function Navbar() {
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: "auto", opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
-                              className="overflow-hidden bg-white/5 rounded-xl mt-2"
+                              className="overflow-hidden bg-white/5 rounded-xl mb-4"
                             >
                               {services.map((s) => (
                                 <Link
@@ -213,7 +217,7 @@ export default function Navbar() {
                                 >
                                    <div style={{ color: s.color }}>{s.icon}</div>
                                    <div className="flex flex-col">
-                                      <span className="text-white font-semibold text-[15px]">{s.name}</span>
+                                      <span className="text-white font-semibold text-[16px]">{s.name}</span>
                                       <span className="text-gray-500 text-[12px]">{s.desc}</span>
                                    </div>
                                 </Link>
@@ -225,7 +229,7 @@ export default function Navbar() {
                     ) : (
                       <Link 
                         to={link.href}
-                        className="block py-4 text-[18px] font-bold text-white uppercase tracking-wider border-b border-white/10"
+                        className="block py-5 text-[20px] font-bold text-white uppercase tracking-wider border-b border-white/10"
                       >
                         {link.label}
                       </Link>
@@ -235,7 +239,7 @@ export default function Navbar() {
                 
                 <Link 
                   to="/contact" 
-                  className="mt-6 w-full text-center bg-[#dbb34e] text-black py-4 font-bold uppercase tracking-widest rounded-lg"
+                  className="mt-8 w-full text-center bg-[#dbb34e] text-black py-5 font-bold uppercase tracking-widest rounded-lg"
                 >
                   Contact Us
                 </Link>
