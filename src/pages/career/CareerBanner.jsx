@@ -36,7 +36,7 @@ export default function CareerBanner() {
         {/* Fix: Merged textY and fontSize into a single style object to avoid Vite errors */}
         <motion.h1
           style={{ fontSize: "clamp(40px, 8vw, 90px)" }}
-          className="relative z-10 text-white font-medium text-center"
+          className="relative z-10 text-white font-['Arimo',sans-serif] font-medium text-center"
         >
           Career
         </motion.h1>
