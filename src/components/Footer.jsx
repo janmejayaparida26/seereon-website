@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 /**
  * COMPONENT: BottomReveal
@@ -50,6 +51,30 @@ const BottomReveal = () => {
  * Aligned Logo with Heading and structured layout.
  */
 const MainFooter = () => {
+  const serviceLinks = [
+    { label: "Custom Software Development", href: "/services/custom-software" },
+    { label: "Mobile Application Development", href: "/services/mobile-app" },
+    { label: "MVP Builder", href: "/services/mvp-builder" },
+    { label: "E-Commerce", href: "/services/ecommerce" },
+    { label: "AI Development", href: "/services/ai-development" },
+    { label: "Website Development", href: "/services/website-development" },
+  ];
+
+  // Update these `href` values with your real social profile URLs.
+  const socialLinks = [
+    { key: "in", label: "LinkedIn", href: "https://www.linkedin.com/" },
+    { key: "f", label: "Facebook", href: "https://www.facebook.com/" },
+    { key: "x", label: "X", href: "https://x.com/" },
+    { key: "p", label: "Pinterest", href: "https://www.pinterest.com/" },
+  ];
+
+  const exploreLinks = [
+    { label: "About The Company", href: "/aboutus" },
+    { label: "Our Work & Clients", href: "/work" },
+    { label: "People & Processes", href: "/product" },
+    { label: "Work With Us", href: "/contact" },
+  ];
+
   return (
     <footer className="relative w-full z-20 bg-black border-t border-white/5 overflow-hidden">
       {/* Wave Texture Overlay */}
@@ -90,8 +115,12 @@ const MainFooter = () => {
               Expertise
             </h4>
             <ul className="space-y-4 text-[15px] font-['Arimo',sans-serif] text-gray-400 mt-4 md:mt-4">
-              {['Custom Software Development', 'Mobile Application Development', 'MVP Builder', 'E-Commerce', 'AI Development', 'Website Development'].map((item) => (
-                <li key={item}><a href="#" className="hover:text-[#019e18] transition-colors">{item}</a></li>
+              {serviceLinks.map((item) => (
+                <li key={item.href}>
+                  <Link to={item.href} className="hover:text-[#019e18] transition-colors no-underline">
+                    {item.label}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
@@ -102,8 +131,12 @@ const MainFooter = () => {
               Explore
             </h4>
             <ul className="space-y-4 text-[15px] font-['Arimo',sans-serif] text-gray-400 mt-4 md:mt-4">
-              {['About The Company', 'Our Work & Clients', 'People & Processes', 'Work With Us'].map((item) => (
-                <li key={item}><a href="#" className="hover:text-[#019e18] transition-colors">{item}</a></li>
+              {exploreLinks.map((item) => (
+                <li key={item.href}>
+                  <Link to={item.href} className="hover:text-[#019e18] transition-colors no-underline">
+                    {item.label}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
@@ -121,10 +154,17 @@ const MainFooter = () => {
               </div>
               
               <div className="flex gap-4">
-                {['in', 'f', 'x', 'p'].map((social) => (
-                  <button key={social} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
-                    <span className="text-[12px] font-bold uppercase">{social}</span>
-                  </button>
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.key}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={social.label}
+                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all no-underline"
+                  >
+                    <span className="text-[12px] font-bold uppercase">{social.key}</span>
+                  </a>
                 ))}
               </div>
             </div>
