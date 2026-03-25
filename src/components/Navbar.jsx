@@ -8,12 +8,14 @@ import {
   Code,
   ChevronDown,
   Box,
-  Target
+  Target,
+  Menu,
+  X
 } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "About Us", href: "/aboutus" },
- { 
+  { 
     label: "Services", 
     href: "/services",
     isMega: true,
@@ -70,9 +72,14 @@ function DesktopLink({ link, active, onHover, isMegaOpen }) {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation();
 
-  useEffect(() => { setMegaMenuOpen(false); }, [location.pathname]);
+  useEffect(() => { 
+    setMegaMenuOpen(false); 
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
   
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -86,7 +93,7 @@ export default function Navbar() {
     <header 
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{ 
-        background: scrolled || megaMenuOpen ? "black" : "transparent", 
+        background: scrolled || megaMenuOpen || mobileMenuOpen ? "black" : "transparent", 
         borderBottom: "1px solid rgba(255,255,255,0.1)" 
       }}
     >
@@ -99,6 +106,7 @@ export default function Navbar() {
           />
         </Link>
 
+        {/* DESKTOP NAV */}
         <nav className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <DesktopLink 
@@ -113,12 +121,20 @@ export default function Navbar() {
 
         <Link 
           to="/contact" 
-          className="hidden md:block text-[#e8ff00] border border-[#e8ff00] px-5 py-2 text-[11px] font-bold uppercase no-underline hover:bg-[#e8ff00] hover:text-black transition-all"
+          className="hidden md:block text-[#dbb34e] border border-[#dbb34e] px-5 py-2 text-[11px] font-bold uppercase no-underline hover:bg-[#dbb34e] hover:text-black transition-all"
         >
           Contact Us
         </Link>
 
-        {/* CONTAINED MEGA MENU */}
+        {/* MOBILE HAMBURGER ICON */}
+        <button 
+          className="md:hidden text-white p-2"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* DESKTOP MEGA MENU */}
         <AnimatePresence>
           {megaMenuOpen && (
             <motion.div
@@ -127,7 +143,7 @@ export default function Navbar() {
               exit={{ opacity: 0, y: 10 }}
               onMouseEnter={() => setMegaMenuOpen(true)} 
               onMouseLeave={() => setMegaMenuOpen(false)}
-              className="absolute top-[80px] right-0 left-0 mx-auto w-full max-w-[900px] bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-100 z-50"
+              className="absolute top-[80px] right-0 left-0 mx-auto w-full max-w-[900px] bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-100 z-50 hidden md:block"
             >
               <div className="grid grid-cols-2 p-10 gap-x-8 gap-y-2">
                 {services.map((item, i) => (
@@ -152,6 +168,77 @@ export default function Navbar() {
                     </div>
                   </Link>
                 ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* MOBILE MENU OVERLAY */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.3 }}
+              className="fixed top-[80px] left-0 w-full h-[calc(100vh-80px)] bg-black z-[100] md:hidden overflow-y-auto"
+            >
+              <div className="flex flex-col p-6 gap-2">
+                {NAV_LINKS.map((link) => (
+                  <div key={link.label}>
+                    {link.isMega ? (
+                      <div>
+                        <button 
+                          onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                          className="w-full flex items-center justify-between py-4 text-[18px] font-bold text-white uppercase tracking-wider border-b border-white/10"
+                        >
+                          {link.label}
+                          <motion.span animate={{ rotate: mobileServicesOpen ? 180 : 0 }}>
+                            <ChevronDown size={20} />
+                          </motion.span>
+                        </button>
+                        <AnimatePresence>
+                          {mobileServicesOpen && (
+                            <motion.div 
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              className="overflow-hidden bg-white/5 rounded-xl mt-2"
+                            >
+                              {services.map((s) => (
+                                <Link
+                                  key={s.name}
+                                  to={s.href}
+                                  className="flex items-center gap-4 p-4 border-b border-white/5 last:border-0"
+                                >
+                                   <div style={{ color: s.color }}>{s.icon}</div>
+                                   <div className="flex flex-col">
+                                      <span className="text-white font-semibold text-[15px]">{s.name}</span>
+                                      <span className="text-gray-500 text-[12px]">{s.desc}</span>
+                                   </div>
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ) : (
+                      <Link 
+                        to={link.href}
+                        className="block py-4 text-[18px] font-bold text-white uppercase tracking-wider border-b border-white/10"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </div>
+                ))}
+                
+                <Link 
+                  to="/contact" 
+                  className="mt-6 w-full text-center bg-[#dbb34e] text-black py-4 font-bold uppercase tracking-widest rounded-lg"
+                >
+                  Contact Us
+                </Link>
               </div>
             </motion.div>
           )}
