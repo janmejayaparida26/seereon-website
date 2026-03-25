@@ -1,3 +1,5 @@
+import { ScrollFillText } from "../../components/ScrollFillText";
+
 const steps = [
   {
     title: "Foundation & Learning (Month 01-02)",
@@ -22,7 +24,7 @@ const CareerThirdSection = () => {
       {/* Header */}
       <div className="text-center mb-14">
         <h2 className="text-5xl md:text-6xl font-['Arimo',sans-serif] font-semibold text-gray-900 tracking-tight mb-4">
-          Who is it for?
+         <ScrollFillText>Who is it for?</ScrollFillText>
         </h2>
         <p className="text-base font-['Arimo',sans-serif] text-gray-500">
           For individuals passionate about building scalable systems and working on impactful technology.
