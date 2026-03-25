@@ -35,7 +35,7 @@ const WorkBanner = () => {
         {/* Center Text */}
         <motion.h1
           style={{}}
-          className="absolute inset-0 flex items-center justify-center text-white text-[90px] font-medium"
+          className="absolute inset-0 flex items-center justify-center text-white text-[90px] font-['Arimo',sans-serif] font-medium"
         >
           Works
         </motion.h1>
