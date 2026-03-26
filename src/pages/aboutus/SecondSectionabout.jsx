@@ -1,6 +1,5 @@
 import React from "react";
 import { ScrollFillText } from "../../components/ScrollFillText";
-import { useNavigate } from "react-router-dom";
 
 const SecondSectionabout = () => {
   return (
@@ -12,7 +11,7 @@ const SecondSectionabout = () => {
             <div className="sp-img-inner">
               <div className="sp-img-bg"></div>
 
-              <div className="sp-img-text">
+              <div className="sp-img-text font-bold uppercase tracking-tighter">
                 seer
                 <br />
                 eon
@@ -46,7 +45,7 @@ const SecondSectionabout = () => {
 
             <p className="sp-body font-['Arimo',sans-serif]">
               At Seereon, we don’t just deliver software — we take ownership. We align ourselves with your business objectives, understand your systems, and build solutions that support your long-term growth. Whether it's an ERP transformation, a custom CRM, or a scalable application, we simplify complexity, make informed decisions, and stay accountable at every stage.
-              </p>
+            </p>
           </div>
         </div>
       </section>
@@ -54,23 +53,25 @@ const SecondSectionabout = () => {
       <style>{`
         .sp-wrap {
           background: #ffffff;
-          padding: 80px 10px;
+          padding: 60px 20px;
           font-family: 'Arimo', sans-serif;
+          overflow: hidden;
         }
 
         .sp-container {
-          max-width: 1300px;
+          max-width: 1200px;
           margin: auto;
           display: grid;
           grid-template-columns: 1fr 1fr;
           align-items: center;
-          gap: 60px;
+          gap: 40px;
         }
 
         .sp-img {
-          height: 460px;
-          border-radius: 24px;
+          height: 400px;
+          border-radius: 20px;
           overflow: hidden;
+          width: 100%;
         }
 
         .sp-img-inner {
@@ -83,79 +84,124 @@ const SecondSectionabout = () => {
           position: relative;
         }
 
-       .sp-img-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8TG9uZ3Rlcm0lMjBncm93dGglMjBzb2Z0d2FyZXxlbnwwfHwwfHx8Mg%3D%3D");
-  background-size: cover;
-  background-position: center;
-}
+        .sp-img-bg {
+          position: absolute;
+          inset: 0;
+          background-image: url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80");
+          background-size: cover;
+          background-position: center;
+          opacity: 0.9;
+        }
 
         .sp-img-text {
           position: relative;
           font-family: 'Arimo', sans-serif;
-          font-size: clamp(52px, 6vw, 90px);
-          color: rgba(255,255,255,0.12);
-          line-height: 0.9;
+          /* Scale text down more aggressively on mobile */
+          font-size: clamp(60px, 12vw, 110px);
+          color: rgba(255,255,255,0.15);
+          line-height: 0.85;
+          text-align: center;
+          pointer-events: none;
         }
 
         .sp-img-badge {
           position: absolute;
-          bottom: 24px;
-          left: 24px;
-          background: rgba(255,255,255,0.1);
+          bottom: 20px;
+          left: 20px;
+          background: rgba(0,0,0,0.3);
+          backdrop-filter: blur(10px);
           border: 1px solid rgba(255,255,255,0.2);
           border-radius: 999px;
-          padding: 8px 18px;
+          padding: 6px 14px;
           color: #fff;
-          font-size: 13px;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.05em;
         }
 
         .sp-img-icon {
           position: absolute;
-          top: 24px;
-          right: 24px;
-          width: 50px;
-          height: 50px;
+          top: 20px;
+          right: 20px;
+          width: 44px;
+          height: 44px;
           border-radius: 50%;
-          background: rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.1);
+          backdrop-filter: blur(5px);
           border: 1px solid rgba(255,255,255,0.15);
           display: flex;
           align-items: center;
           justify-content: center;
         }
 
-        .sp-content {}
-
         .sp-eyebrow {
-          font-size: 11px;
-          letter-spacing: 0.14em;
+          font-size: 10px;
+          letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: #888;
-          margin-bottom: 20px;
+          color: #999;
+          margin-bottom: 16px;
+          font-weight: 700;
         }
 
         .sp-heading {
-          font-size: 56px;
+          /* Fluid heading: 32px on small screens, 56px on large */
+          font-size: clamp(32px, 5vw, 56px);
           line-height: 1.1;
-          margin-bottom: 24px;
+          margin-bottom: 20px;
           color: #111;
+          letter-spacing: -0.02em;
         }
 
         .sp-body {
           font-size: 16px;
-          line-height: 1.8;
-          color: #444;
-          max-width: 480px;
+          line-height: 1.7;
+          color: #555;
+          max-width: 100%;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+          .sp-container {
+            gap: 40px;
+            padding: 0 10px;
+          }
+          .sp-wrap {
+            padding: 80px 20px;
+          }
         }
 
         @media (max-width: 900px) {
           .sp-container {
             grid-template-columns: 1fr;
+            text-align: left;
           }
 
           .sp-img {
-            height: 320px;
+            height: 350px; /* Shorter image for mobile devices */
+            order: 2; /* Content first, image second on mobile if preferred */
+          }
+          
+          .sp-content {
+            order: 1;
+          }
+
+          .sp-body {
+            max-width: 100%;
+          }
+          
+          .sp-heading {
+            margin-bottom: 30px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .sp-img {
+            height: 280px;
+          }
+          .sp-img-badge {
+            font-size: 10px;
+            bottom: 15px;
+            left: 15px;
           }
         }
       `}</style>
