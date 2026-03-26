@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 
 const WorkBanner = () => {
   const ref = useRef(null);
@@ -10,35 +9,44 @@ const WorkBanner = () => {
     offset: ["start end", "end start"],
   });
 
-  // Parallax effects
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  // Parallax effects optimized for smooth transitions
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const opacity = useTransform(scrollYProgress, [0.4, 0.7], [1, 0.4]);
 
   return (
-    /* Changed bg to black to prevent any gray lines from bleeding through */
-    <section className="px-0 py-0 mt-0 bg-black overflow-hidden">
+    <section className="relative w-full overflow-hidden bg-black mt-0">
       <div
         ref={ref}
-        className="relative w-full h-[420px] overflow-hidden"
+        /* Responsive Heights: Consistent with Service and About banners */
+        className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden flex items-center justify-center"
       >
-        {/* Background Image - Increased height and adjusted top to prevent gap */}
+        {/* Background Image - Scale and height adjusted for maximum parallax coverage */}
         <motion.img
-          style={{ y: imageY }}
-          src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8V29ya3xlbnwwfHwwfHx8MA%3D%3D"
+          style={{ y: imageY, scale: 1.15 }}
+          src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop"
           alt="Our Works"
-          className="absolute top-[-15%] inset-0 w-full h-[130%] object-cover"
+          className="absolute inset-0 w-full h-[140%] object-cover pointer-events-none"
         />
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        {/* Dark Overlay for consistent text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80"></div>
 
-        {/* Center Text */}
-        <motion.h1
-          style={{}}
-          className="absolute inset-0 flex items-center justify-center text-white text-[90px] font-['Arimo',sans-serif] font-medium"
+        {/* Fluid Typography and Content Container */}
+        <motion.div 
+          className="relative z-10 flex flex-col items-center px-4"
+          style={{ opacity }}
         >
-          Works
-        </motion.h1>
+          <h1 className="text-white text-5xl sm:text-7xl lg:text-8xl xl:text-8xl font-['Arimo',sans-serif] font-bold text-center tracking-tighter select-none">
+            Works
+          </h1>
+          
+          {/* Breadcrumb indicator with brand gold dot */}
+          {/* <div className="mt-4 flex items-center gap-3 text-white/50 text-[10px] sm:text-xs uppercase tracking-[0.3em] font-bold">
+            <span className="hover:text-white transition-colors cursor-pointer">Home</span>
+            <span className="w-1 h-1 rounded-full bg-[#dbb34e]"></span>
+            <span className="text-white">Works</span>
+          </div> */}
+        </motion.div>
       </div>
     </section>
   );
