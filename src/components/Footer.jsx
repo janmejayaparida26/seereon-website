@@ -111,7 +111,7 @@ const MainFooter = () => {
                   Every project is designed to attract the right audience, engage them effectively, and convert them into loyal customers.
                 </p>
                 <p className="text-gray-500 text-[12px] md:text-[13px] font-['Arimo',sans-serif] tracking-wide">
-                  © 2026 Seereon People Center Inc.
+                  © 2026 Seereon consulting & IT Services
                 </p>
             </div>
           </div>
