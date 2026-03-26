@@ -9,36 +9,52 @@ const ServiceBanner = () => {
     offset: ["start end", "end start"],
   });
 
-  // Parallax effects - Kept exactly as your original logic
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  // Parallax effects - Optimized for smoother mobile scrolling
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const opacity = useTransform(scrollYProgress, [0.4, 0.7], [1, 0.4]);
 
   return (
-    /* Fix 1: mt-0 and bg-black ensures no gap exists between the navbar and this section */
-    <section className="px-0 py-0 mt-0 bg-black overflow-hidden block">
+    <section className="relative w-full overflow-hidden bg-black mt-0">
       <div
         ref={ref}
-        className="relative w-full h-[420px] overflow-hidden flex items-center justify-center"
+        /* Responsive Heights:
+          - h-[300px] for Mobile
+          - h-[400px] for Tablet
+          - h-[500px] for Desktop
+        */
+        className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden flex items-center justify-center"
       >
-        {/* Fix 2: h-[130%] and scale-110 provides the extra coverage needed to hide the grey line 
-            during the parallax transition */}
+        {/* Background Image - h-[140%] ensures no gaps during parallax move */}
         <motion.img
-          style={{ y: imageY, scale: 1.1 }}
-          src="https://images.unsplash.com/photo-1763568258535-fa1066506571?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTYyfHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50fGVufDB8fDB8fHww"
+          style={{ y: imageY, scale: 1.15 }}
+          src="https://images.unsplash.com/photo-1763568258535-fa1066506571?w=1200&auto=format&fit=crop&q=80"
           alt="Services"
-          className="absolute inset-0 w-full h-[130%] object-cover pointer-events-none"
+          className="absolute inset-0 w-full h-[140%] object-cover pointer-events-none"
         />
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        {/* Improved Dark Overlay for better text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80"></div>
 
-        {/* Center Text - Fix 3: Merged duplicate style attributes into one object */}
-        <motion.h1
-          className="relative z-10 text-white text-[90px] font-['Arimo',sans-serif] font-medium text-center"
-          style={{}}
+        {/* Fluid Typography:
+          - text-5xl on Mobile
+          - text-7xl on Tablet
+          - text-9xl on Desktop
+        */}
+        <motion.div 
+          className="relative z-10 flex flex-col items-center px-4"
+          style={{ opacity }}
         >
-          Services
-        </motion.h1>
+          <h1 className="text-white text-5xl sm:text-7xl lg:text-8xl xl:text-7xl font-['Arimo',sans-serif] font-bold text-center tracking-tighter select-none">
+            Services
+          </h1>
+          
+          {/* Optional: Responsive Breadcrumb to match your About page style */}
+          {/* <div className="mt-4 flex items-center gap-3 text-white/50 text-[10px] sm:text-xs uppercase tracking-[0.3em] font-bold">
+            <span className="hover:text-white transition-colors cursor-pointer">Home</span>
+            <span className="w-1 h-1 rounded-full bg-[#dbb34e]"></span>
+            <span className="text-white">Services</span>
+          </div> */}
+        </motion.div>
       </div>
     </section>
   );
