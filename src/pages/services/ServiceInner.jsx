@@ -1,9 +1,9 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import { services } from "../../data/services";
-// import { ServiceIcon } from "../components/services/ServicesIcons";
 import { ServiceIcon } from "./ServicesIcons";
+import FullFooter from "../../components/Footer";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -12,7 +12,6 @@ const fadeUp = (delay = 0) => ({
   viewport: { once: true, margin: "-60px" },
 });
 
-// ── Process steps shown on every inner page ───────────────────
 const PROCESS = [
   {
     num: "01",
@@ -36,11 +35,30 @@ const PROCESS = [
   },
 ];
 
+/* ── tiny hook to track viewport width ── */
+function useWindowWidth() {
+  const [width, setWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1200
+  );
+  useEffect(() => {
+    const handler = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
+  return width;
+}
+
 export default function ServiceInner() {
   const { id } = useParams();
   const navigate = useNavigate();
   const service = services.find((s) => s.id === id);
   const heroRef = useRef(null);
+  const w = useWindowWidth();
+
+  /* breakpoints */
+  const isMobile = w < 640;
+  const isTablet = w >= 640 && w < 1024;
+  const isDesktop = w >= 1024;
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -56,17 +74,44 @@ export default function ServiceInner() {
       </div>
     );
 
-  // Other services (exclude current)
   const others = services.filter((s) => s.id !== id).slice(0, 3);
+
+  /* ── responsive values ── */
+  const sidePad = isMobile ? "16px" : isTablet ? "40px" : "clamp(40px,6vw,96px)";
+  const heroHeight = isMobile ? "60vh" : "70vh";
+  const h1Size = isMobile
+    ? "clamp(40px,11vw,64px)"
+    : isTablet
+    ? "clamp(52px,8vw,80px)"
+    : "clamp(56px,8vw,110px)";
+  const taglineSize = isMobile ? "clamp(36px,9vw,52px)" : isTablet ? "clamp(44px,7vw,64px)" : "70px";
+
+  /* Process grid layout */
+  const processColumns = isMobile ? "1fr" : isTablet ? "repeat(2,1fr)" : "repeat(4,1fr)";
+  const processItemBorderRight = (i) => {
+    if (isMobile) return "none";
+    if (isTablet) return i % 2 !== 1 ? "1px solid #ddd9d3" : "none";
+    return i < 3 ? "1px solid #ddd9d3" : "none";
+  };
+  const processItemBorderBottom = (i) => {
+    if (isMobile) return i < 3 ? "1px solid #ddd9d3" : "none";
+    if (isTablet) return i < 2 ? "1px solid #ddd9d3" : "none";
+    return "none";
+  };
+
+  /* Other services grid */
+  const othersColumns = isMobile ? "1fr" : isTablet ? "repeat(2,1fr)" : "repeat(3,1fr)";
 
   return (
     <div style={{ background: "#f0eeeb", fontFamily: "'Arimo',sans-serif" }}>
-      {/* ── HERO ── */}
+
+      {/* ══ HERO ══ */}
       <section
         ref={heroRef}
         style={{
           position: "relative",
-          height: "70vh",
+          height: heroHeight,
+          minHeight: isMobile ? 420 : 480,
           overflow: "hidden",
           display: "flex",
           alignItems: "flex-end",
@@ -79,12 +124,7 @@ export default function ServiceInner() {
           <img
             src={service.image}
             alt={service.title}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              display: "block",
-            }}
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
         </motion.div>
 
@@ -98,14 +138,17 @@ export default function ServiceInner() {
           }}
         />
 
-        {/* Content */}
+        {/* Hero content */}
         <div
           style={{
             position: "relative",
             zIndex: 2,
-            padding: "0 96px 72px",
-            maxWidth: 1400,
+            paddingBottom: isMobile ? 40 : 72,
+            paddingLeft: sidePad,
+            paddingRight: sidePad,
             width: "100%",
+            boxSizing: "border-box",
+            maxWidth: 1400,
           }}
         >
           {/* Breadcrumb */}
@@ -113,12 +156,7 @@ export default function ServiceInner() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 12,
-              marginBottom: 28,
-            }}
+            style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: isMobile ? 20 : 28 }}
           >
             <button
               onClick={() => navigate("/services")}
@@ -130,13 +168,12 @@ export default function ServiceInner() {
                 cursor: "pointer",
                 fontFamily: "'Arimo',sans-serif",
                 letterSpacing: "0.08em",
+                padding: 0,
               }}
             >
               Services
             </button>
-            <span style={{ color: "rgba(255,255,255,0.2)", fontSize: 12 }}>
-              →
-            </span>
+            <span style={{ color: "rgba(255,255,255,0.2)", fontSize: 12 }}>→</span>
             <span
               style={{
                 fontSize: 12,
@@ -149,67 +186,44 @@ export default function ServiceInner() {
             </span>
           </motion.div>
 
+          {/* Title + description row — stacks on mobile */}
           <div
             style={{
               display: "flex",
-              alignItems: "flex-end",
+              flexDirection: isMobile ? "column" : "row",
+              alignItems: isMobile ? "flex-start" : "flex-end",
               justifyContent: "space-between",
-              gap: 48,
+              gap: isMobile ? 20 : 48,
             }}
           >
-            <div>
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7, delay: 0.15 }}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12,
-                  marginBottom: 20,
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: 11,
-                    fontWeight: 600,
-                    letterSpacing: "0.16em",
-                    textTransform: "uppercase",
-                    color: "rgba(255,255,255,0.45)",
-                    fontFamily: "'Arimo',sans-serif",
-                  }}
-                >
-                  {/* {service.num} · Seereon */}
-                </span>
-              </motion.div>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                style={{
-                  fontFamily: "'Arimo',sans-serif",
-                  fontSize: "clamp(56px,8vw,110px)",
-                  lineHeight: 0.9,
-                  color: "#fff",
-                  letterSpacing: "0.01em",
-                  margin: 0,
-                }}
-              >
-                {service.title}
-              </motion.h1>
-            </div>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              style={{
+                fontFamily: "'Arimo',sans-serif",
+                fontSize: h1Size,
+                lineHeight: 0.9,
+                color: "#fff",
+                letterSpacing: "0.01em",
+                margin: 0,
+                flexShrink: 0,
+              }}
+            >
+              {service.title}
+            </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35 }}
               style={{
-                fontSize: 18,
+                fontSize: isMobile ? 14 : 16,
                 lineHeight: 1.8,
                 color: "rgba(255,255,255,0.55)",
-                maxWidth: 380,
-                paddingBottom: 8,
+                maxWidth: isMobile ? "100%" : 380,
+                paddingBottom: isMobile ? 0 : 8,
+                margin: 0,
                 fontFamily: "'Arimo',sans-serif",
               }}
             >
@@ -219,21 +233,27 @@ export default function ServiceInner() {
         </div>
       </section>
 
-      {/* ── TAGLINE + BULLETS ── */}
+      {/* ══ TAGLINE + BULLETS ══ */}
       <section
-        style={{ padding: "100px 96px" }}
-        className="px-6 md:px-16 lg:px-24"
+        style={{
+          paddingTop: isMobile ? 60 : 100,
+          paddingBottom: isMobile ? 60 : 100,
+          paddingLeft: sidePad,
+          paddingRight: sidePad,
+          boxSizing: "border-box",
+        }}
       >
         <div
           style={{
             maxWidth: 1400,
             margin: "0 auto",
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 90,
+            gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+            gap: isMobile ? 48 : 90,
             alignItems: "start",
           }}
         >
+          {/* Left — tagline */}
           <motion.div {...fadeUp(0)}>
             <p
               style={{
@@ -243,6 +263,7 @@ export default function ServiceInner() {
                 textTransform: "uppercase",
                 color: "#888",
                 marginBottom: 20,
+                margin: "0 0 20px",
               }}
             >
               What's included
@@ -250,7 +271,7 @@ export default function ServiceInner() {
             <h2
               style={{
                 fontFamily: "'Arimo',sans-serif",
-                fontSize: "70px",
+                fontSize: taglineSize,
                 fontWeight: 600,
                 lineHeight: 1,
                 color: "#111",
@@ -262,17 +283,14 @@ export default function ServiceInner() {
             </h2>
           </motion.div>
 
-          <motion.div {...fadeUp(0.15)} style={{ paddingTop: 8 }}>
+          {/* Right — bullets */}
+          <motion.div {...fadeUp(0.15)} style={{ paddingTop: isMobile ? 0 : 8 }}>
             {service.bullets.map((b, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: i * 0.1,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
+                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 viewport={{ once: true }}
                 style={{
                   display: "flex",
@@ -293,7 +311,7 @@ export default function ServiceInner() {
                 />
                 <span
                   style={{
-                    fontSize: 18,
+                    fontSize: isMobile ? 15 : 18,
                     color: "#333",
                     fontFamily: "'Arimo',sans-serif",
                     lineHeight: 1.5,
@@ -308,6 +326,7 @@ export default function ServiceInner() {
                     color: "#bbb",
                     fontWeight: 600,
                     letterSpacing: "0.1em",
+                    flexShrink: 0,
                   }}
                 >
                   {String(i + 1).padStart(2, "0")}
@@ -318,20 +337,17 @@ export default function ServiceInner() {
         </div>
       </section>
 
-      {/* ── PROCESS STRIP ── */}
-      <section
-        style={{
-          borderTop: "1px solid #ddd9d3",
-          borderBottom: "1px solid #ddd9d3",
-        }}
-      >
+      {/* ══ PROCESS STRIP ══ */}
+      <section style={{ borderTop: "1px solid #ddd9d3", borderBottom: "1px solid #ddd9d3" }}>
         <div
           style={{
             maxWidth: 1400,
             margin: "0 auto",
-            padding: "0 96px",
+            paddingLeft: sidePad,
+            paddingRight: sidePad,
+            boxSizing: "border-box",
             display: "grid",
-            gridTemplateColumns: "repeat(4,1fr)",
+            gridTemplateColumns: processColumns,
           }}
         >
           {PROCESS.map((step, i) => (
@@ -339,8 +355,10 @@ export default function ServiceInner() {
               key={i}
               {...fadeUp(i * 0.1)}
               style={{
-                padding: "75px 32px",
-                borderRight: i < 3 ? "1px solid #ddd9d3" : "none",
+                padding: isMobile ? "48px 0" : isTablet ? "56px 24px" : "75px 32px",
+                borderRight: processItemBorderRight(i),
+                borderBottom: processItemBorderBottom(i),
+                boxSizing: "border-box",
               }}
             >
               <span
@@ -359,11 +377,12 @@ export default function ServiceInner() {
               <h3
                 style={{
                   fontFamily: "'Arimo',sans-serif",
-                  fontSize: 36,
+                  fontSize: isMobile ? 28 : isTablet ? 30 : 36,
                   fontWeight: 500,
                   color: "#111",
                   letterSpacing: "0.02em",
                   marginBottom: 12,
+                  margin: "0 0 12px",
                 }}
               >
                 {step.title}
@@ -374,6 +393,7 @@ export default function ServiceInner() {
                   lineHeight: 1.75,
                   color: "#777",
                   fontFamily: "'Arimo',sans-serif",
+                  margin: 0,
                 }}
               >
                 {step.desc}
@@ -383,10 +403,15 @@ export default function ServiceInner() {
         </div>
       </section>
 
-      {/* ── DARK CTA ── */}
+      {/* ══ DARK CTA ══ */}
       <section
-        style={{ padding: "80px 96px" }}
-        className="px-6 md:px-16 lg:px-24"
+        style={{
+          paddingTop: isMobile ? 48 : 80,
+          paddingBottom: isMobile ? 48 : 80,
+          paddingLeft: sidePad,
+          paddingRight: sidePad,
+          boxSizing: "border-box",
+        }}
       >
         <motion.div
           {...fadeUp(0)}
@@ -394,12 +419,17 @@ export default function ServiceInner() {
             maxWidth: 1400,
             margin: "0 auto",
             background: "#111",
-            borderRadius: 24,
-            padding: "72px 80px",
+            borderRadius: isMobile ? 16 : 24,
+            paddingTop: isMobile ? 48 : 72,
+            paddingBottom: isMobile ? 48 : 72,
+            paddingLeft: isMobile ? 24 : sidePad,
+            paddingRight: isMobile ? 24 : sidePad,
             display: "flex",
-            alignItems: "center",
+            flexDirection: isMobile ? "column" : "row",
+            alignItems: isMobile ? "flex-start" : "center",
             justifyContent: "space-between",
-            gap: 48,
+            gap: isMobile ? 36 : 48,
+            boxSizing: "border-box",
           }}
         >
           <div>
@@ -411,6 +441,7 @@ export default function ServiceInner() {
                 textTransform: "uppercase",
                 color: "rgba(255,255,255,0.35)",
                 marginBottom: 16,
+                margin: "0 0 16px",
               }}
             >
               Let's talk
@@ -418,7 +449,11 @@ export default function ServiceInner() {
             <h2
               style={{
                 fontFamily: "'Arimo',sans-serif",
-                fontSize: "clamp(36px,4.5vw,56px)",
+                fontSize: isMobile
+                  ? "clamp(28px,7vw,40px)"
+                  : isTablet
+                  ? "clamp(32px,5vw,48px)"
+                  : "clamp(36px,4.5vw,56px)",
                 color: "#fff",
                 lineHeight: 0.95,
                 margin: 0,
@@ -429,17 +464,20 @@ export default function ServiceInner() {
               {service.title.toLowerCase()} solution?
             </h2>
           </div>
+
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
+              flexDirection: isMobile ? "row" : "column",
+              flexWrap: isMobile ? "wrap" : "nowrap",
               gap: 12,
               flexShrink: 0,
+              width: isMobile ? "100%" : "auto",
             }}
           >
             <button
               style={{
-                padding: "14px 32px",
+                padding: isMobile ? "12px 24px" : "14px 32px",
                 borderRadius: 999,
                 background: "#f0eeeb",
                 color: "#111",
@@ -449,13 +487,14 @@ export default function ServiceInner() {
                 cursor: "pointer",
                 fontFamily: "'Arimo',sans-serif",
                 whiteSpace: "nowrap",
+                flex: isMobile ? "1 1 auto" : "none",
               }}
             >
               Start a Project ↗
             </button>
             <button
               style={{
-                padding: "14px 32px",
+                padding: isMobile ? "12px 24px" : "14px 32px",
                 borderRadius: 999,
                 background: "transparent",
                 color: "rgba(255,255,255,0.6)",
@@ -465,6 +504,7 @@ export default function ServiceInner() {
                 cursor: "pointer",
                 fontFamily: "'Arimo',sans-serif",
                 whiteSpace: "nowrap",
+                flex: isMobile ? "1 1 auto" : "none",
               }}
             >
               View Case Studies
@@ -473,10 +513,14 @@ export default function ServiceInner() {
         </motion.div>
       </section>
 
-      {/* ── OTHER SERVICES ── */}
+      {/* ══ OTHER SERVICES ══ */}
       <section
-        style={{ padding: "0 96px 120px" }}
-        className="px-6 md:px-16 lg:px-24"
+        style={{
+          paddingBottom: isMobile ? 80 : 120,
+          paddingLeft: sidePad,
+          paddingRight: sidePad,
+          boxSizing: "border-box",
+        }}
       >
         <div style={{ maxWidth: 1400, margin: "0 auto" }}>
           <motion.p
@@ -492,10 +536,11 @@ export default function ServiceInner() {
           >
             Other Services
           </motion.p>
+
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(3,1fr)",
+              gridTemplateColumns: othersColumns,
               gap: 1,
               background: "#ddd9d3",
               border: "1px solid #ddd9d3",
@@ -511,13 +556,13 @@ export default function ServiceInner() {
                 whileHover={{ background: "#111" }}
                 style={{
                   background: "#f0eeeb",
-                  padding: "32px 28px",
+                  padding: isMobile ? "28px 20px" : "32px 28px",
                   cursor: "pointer",
                   transition: "background 0.2s",
                 }}
               >
                 <motion.p
-                  whileHover={{ color: "rgba(255,255,255,0.3)" }}
+                  whileHover={{ color: "rgba(255,255,255,0.95)" }}
                   style={{
                     fontSize: 10,
                     fontWeight: 700,
@@ -525,36 +570,45 @@ export default function ServiceInner() {
                     color: "#bbb",
                     marginBottom: 16,
                     fontFamily: "'Arimo',sans-serif",
+                    margin: "0 0 16px",
                   }}
                 >
                   {s.num}
                 </motion.p>
-                <p
+                <motion.p
+                  whileHover={{ color: "#fff" }}
+                  transition={{ duration: 0.15 }}
                   style={{
                     fontFamily: "'Arimo',sans-serif",
-                    fontSize: 32,
+                    fontSize: isMobile ? 24 : 32,
                     color: "#111",
                     letterSpacing: "0.01em",
                     marginBottom: 8,
+                    margin: "0 0 8px",
                   }}
                 >
                   {s.title}
-                </p>
-                <p
+                </motion.p>
+                <motion.p
+                  whileHover={{ color: "rgba(255,255,255,0.75)" }}
+                  transition={{ duration: 0.15 }}
                   style={{
                     fontSize: 12,
                     color: "#888",
                     fontFamily: "'Arimo',sans-serif",
                     lineHeight: 1.6,
+                    margin: 0,
                   }}
                 >
                   {s.tagline}
-                </p>
+                </motion.p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+
+      <FullFooter />
     </div>
   );
 }
