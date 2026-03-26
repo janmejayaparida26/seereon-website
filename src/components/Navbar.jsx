@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Globe, 
@@ -74,6 +74,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => { 
     setMegaMenuOpen(false); 
@@ -98,7 +99,6 @@ export default function Navbar() {
     >
       <div className="w-full max-w-[1440px] mx-auto h-[80px] md:h-[90px] flex items-center justify-between px-6 md:px-12 lg:px-12 relative">
         
-        {/* LOGO - Responsive sizes to keep it prominent */}
         <Link to="/" className="flex items-center h-full">
           <img 
             src="https://res.cloudinary.com/dcc7qgxmb/image/upload/v1773926744/Updated_Logo_ppjmvp.png" 
@@ -107,7 +107,6 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* DESKTOP NAV - Centered between Logo and CTA */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-10">
           {NAV_LINKS.map((link) => (
             <DesktopLink 
@@ -120,7 +119,6 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* RIGHT SECTION: Contact Button + Mobile Toggle */}
         <div className="flex items-center gap-4">
           <Link 
             to="/contact" 
@@ -129,7 +127,6 @@ export default function Navbar() {
             Contact Us
           </Link>
 
-          {/* MOBILE HAMBURGER ICON */}
           <button 
             className="md:hidden text-white p-2 z-[110]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -138,7 +135,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* DESKTOP MEGA MENU */}
         <AnimatePresence>
           {megaMenuOpen && (
             <motion.div
@@ -177,7 +173,6 @@ export default function Navbar() {
           )}
         </AnimatePresence>
 
-        {/* MOBILE MENU OVERLAY */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
@@ -192,15 +187,25 @@ export default function Navbar() {
                   <div key={link.label}>
                     {link.isMega ? (
                       <div className="border-b border-white/10">
-                        <button 
-                          onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                          className="w-full flex items-center justify-between py-5 text-[20px] font-bold text-white uppercase tracking-wider"
-                        >
-                          {link.label}
-                          <motion.span animate={{ rotate: mobileServicesOpen ? 180 : 0 }}>
+                        {/* Wrapper to allow both clicking the text and the arrow */}
+                        <div className="w-full flex items-center justify-between py-5">
+                          <span 
+                            onClick={() => {
+                              navigate(link.href);
+                              setMobileMenuOpen(false);
+                            }}
+                            className="text-[20px] font-bold text-white uppercase tracking-wider cursor-pointer"
+                          >
+                            {link.label}
+                          </span>
+                          <motion.span 
+                            onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                            animate={{ rotate: mobileServicesOpen ? 180 : 0 }}
+                            className="p-2 text-white cursor-pointer"
+                          >
                             <ChevronDown size={24} />
                           </motion.span>
-                        </button>
+                        </div>
                         <AnimatePresence>
                           {mobileServicesOpen && (
                             <motion.div 
