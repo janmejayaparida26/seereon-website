@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ServiceIcon } from "./ServicesIcons";
@@ -18,257 +19,137 @@ function ServiceCard({ service, index }) {
 
   return (
     <motion.div
-      {...fadeUp(index * 0.08)}
+      {...fadeUp(index * 0.1)}
       onClick={() => navigate(`/services/${service.id}`)}
-      style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: 0,
-        border: "1px solid #ddd9d3",
-        borderBottom: "none", // Prevent double borders between cards
-        cursor: "pointer",
-        overflow: "hidden",
-      }}
-      whileHover="hovered"
+      className="grid grid-cols-1 md:grid-cols-2 border-x border-t border-[#ddd9d3] cursor-pointer overflow-hidden relative group"
+      whileHover="active"
+      whileTap="active" // Triggers the "hover" effect on mobile tap
       initial="rest"
       animate="rest"
     >
       {/* Text side */}
       <div
-        style={{
-          padding: "56px 52px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          order: isEven ? 0 : 1,
-          borderRight: isEven ? "1px solid #ddd9d3" : "none",
-          borderLeft: isEven ? "none" : "1px solid #ddd9d3",
-          position: "relative",
-          overflow: "hidden",
-        }}
+        className={`p-10 md:p-14 lg:p-20 flex flex-col justify-between relative overflow-hidden min-h-[400px] md:min-h-0 ${
+          isEven ? "md:order-1 border-b md:border-b-0 md:border-r border-[#ddd9d3]" : "md:order-2 border-b md:border-b-0"
+        }`}
       >
-        {/* Hover fill */}
+        {/* Background Curtain Slide Effect */}
         <motion.div
-          variants={{ rest: { scaleX: 0 }, hovered: { scaleX: 1 } }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "#111",
-            transformOrigin: isEven ? "left" : "right",
-            zIndex: 0,
+          variants={{
+            rest: { x: isEven ? "-101%" : "101%" },
+            active: { x: 0 },
           }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute inset-0 bg-[#111] z-0"
         />
 
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 14,
-              marginBottom: 28,
-            }}
-          >
+        {/* Content Container (Layered above the curtain) */}
+        <div className="relative z-10 pointer-events-none">
+          <div className="flex items-center gap-4 mb-8">
             <motion.div
               variants={{
-                rest: { background: "#e8e4df" },
-                hovered: { background: "rgba(255,255,255,0.08)" },
+                rest: { background: "#f2f0ed" },
+                active: { background: "rgba(255,255,255,0.12)" },
               }}
-              style={{
-                width: 44,
-                height: 44,
-                borderRadius: 10,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
+              className="w-12 h-12 rounded-xl flex items-center justify-center relative"
             >
-              <motion.div
-                variants={{ rest: { opacity: 1 }, hovered: { opacity: 0 } }}
-                style={{ position: "absolute" }}
-              >
-                <ServiceIcon type={service.icon} size={20} color="#555" />
+              <motion.div variants={{ rest: { opacity: 1 }, active: { opacity: 0 } }} className="absolute">
+                <ServiceIcon type={service.icon} size={22} color="#444" />
               </motion.div>
-              <motion.div
-                variants={{ rest: { opacity: 0 }, hovered: { opacity: 1 } }}
-                style={{ position: "absolute" }}
-              >
-                <ServiceIcon
-                  type={service.icon}
-                  size={20}
-                  color="rgba(255,255,255,0.7)"
-                />
+              <motion.div variants={{ rest: { opacity: 0 }, active: { opacity: 1 } }} className="absolute">
+                <ServiceIcon type={service.icon} size={22} color="#ffffff" />
               </motion.div>
             </motion.div>
+            
             <motion.span
-              variants={{
-                rest: { color: "#bbb" },
-                hovered: { color: "rgba(255,255,255,0.3)" },
-              }}
-              style={{
-                fontSize: 11,
-                fontWeight: 700,
-                letterSpacing: "0.14em",
-                fontFamily: "'Arimo',sans-serif",
-              }}
+              variants={{ rest: { color: "#999" }, active: { color: "rgba(255,255,255,0.4)" } }}
+              className="text-[11px] font-bold tracking-[0.2em] font-['Arimo',sans-serif]"
             >
               {service.num}
             </motion.span>
           </div>
 
           <motion.h2
-            variants={{ rest: { color: "#111" }, hovered: { color: "#fff" } }}
-            style={{
-              fontFamily: "'Arimo',sans-serif",
-              fontSize: "clamp(36px,3.5vw,52px)",
-              lineHeight: 0.95,
-              letterSpacing: "0.01em",
-              marginBottom: 16,
-            }}
+            variants={{ rest: { color: "#111" }, active: { color: "#ffffff" } }}
+            className="font-['Arimo',sans-serif] text-4xl md:text-5xl lg:text-6xl font-bold leading-[1] tracking-tight mb-4"
           >
             {service.title}
           </motion.h2>
 
           <motion.p
-            variants={{
-              rest: { color: "#888" },
-              hovered: { color: "rgba(255,255,255,0.45)" },
-            }}
-            style={{
-              fontSize: 13,
-              fontStyle: "italic",
-              marginBottom: 20,
-              fontFamily: "'Arimo',sans-serif",
-            }}
+            variants={{ rest: { color: "#888" }, active: { color: "rgba(255,255,255,0.5)" } }}
+            className="text-[14px] md:text-[15px] font-medium italic mb-6 font-['Arimo',sans-serif]"
           >
             {service.tagline}
           </motion.p>
 
           <motion.p
-            variants={{
-              rest: { color: "#555" },
-              hovered: { color: "rgba(255,255,255,0.55)" },
-            }}
-            style={{
-              fontSize: 14,
-              lineHeight: 1.8,
-              maxWidth: 360,
-              fontFamily: "'Arimo',sans-serif",
-            }}
+            variants={{ rest: { color: "#555" }, active: { color: "rgba(255,255,255,0.7)" } }}
+            className="text-base leading-relaxed max-w-sm font-['Arimo',sans-serif]"
           >
             {service.description}
           </motion.p>
         </div>
 
+        {/* Explore Service Link */}
         <motion.div
-          variants={{ rest: { x: 0 }, hovered: { x: 4 } }}
-          style={{
-            position: "relative",
-            zIndex: 1,
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-            marginTop: 32,
-          }}
+          variants={{ rest: { x: 0 }, active: { x: 12 } }}
+          className="relative z-10 flex items-center gap-3 mt-12"
         >
           <motion.span
             variants={{
               rest: { color: "#111", borderColor: "#111" },
-              hovered: { color: "#fff", borderColor: "rgba(255,255,255,0.4)" },
+              active: { color: "#ffffff", borderColor: "#ffffff" },
             }}
-            style={{
-              fontSize: 12,
-              fontWeight: 600,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              fontFamily: "'Arimo',sans-serif",
-              paddingBottom: 2,
-              borderBottom: "1px solid",
-            }}
+            className="text-[13px] font-bold uppercase tracking-[0.15em] border-b-2 pb-1 font-['Arimo',sans-serif]"
           >
             Explore Service
           </motion.span>
-          <motion.span
-            variants={{ rest: { color: "#111" }, hovered: { color: "#fff" } }}
-            style={{ fontSize: 16 }}
-          >
+          <motion.span variants={{ rest: { color: "#111" }, active: { color: "#ffffff" } }} className="text-xl">
             ↗
           </motion.span>
         </motion.div>
       </div>
 
-      {/* Image side */}
-      <motion.div style={{ overflow: "hidden", order: isEven ? 1 : 0 }}>
+      {/* Image Block */}
+      <div className={`overflow-hidden h-[300px] md:h-auto ${isEven ? "md:order-2" : "md:order-1"}`}>
         <motion.img
           src={service.image}
           alt={service.title}
-          variants={{ rest: { scale: 1 }, hovered: { scale: 1.06 } }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            display: "block",
-          }}
+          variants={{ rest: { scale: 1 }, active: { scale: 1.1 } }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full h-full object-cover block"
         />
-      </motion.div>
+      </div>
     </motion.div>
   );
 }
 
-// ── Page ──────────────────────────────────────────────────────
+// ── Services Page ──────────────────────────────────────────────
 export default function ServicesPage() {
   return (
-    <div style={{ background: "#ffffff", fontFamily: "'Arimo',sans-serif", paddingBottom: "120px" }}>
-      {/* Hero */}
-      <section
-        style={{ padding: "120px 96px 80px" }}
-        className="px-6 md:px-16 lg:px-24"
-      >
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+    <div className="bg-white font-['Arimo',sans-serif]">
+      {/* Hero Section */}
+      <section className="pt-32 md:pt-48 pb-16 md:pb-28 px-6 md:px-12 lg:px-24">
+        <div className="max-w-[1400px] mx-auto">
           <motion.p
             {...fadeUp(0)}
-            style={{
-              fontSize: 11,
-              fontWeight: 600,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: "#888",
-              marginBottom: 20,
-            }}
+            className="text-[11px] font-bold tracking-[0.25em] uppercase text-gray-400 mb-6"
           >
-            Our ERP Solutions
+            Capabilities
           </motion.p>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: 48,
-              alignItems: "start",
-            }}
-          >
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-start">
             <ScrollFillText
               as="h1"
-              style={{
-                fontFamily: "'Arimo',sans-serif",
-                fontSize: "80px",
-                fontWeight: "500",
-                lineHeight: 0.9,
-                letterSpacing: "0.01em",
-                color: "#111",
-                margin: 0,
-              }}
+              className="text-5xl md:text-7xl lg:text-7xl font-medium leading-[0.9] tracking-tighter text-[#111]"
             >
               Advanced Systems we Build
             </ScrollFillText>
+            
             <motion.p
               {...fadeUp(0.2)}
-              style={{
-                fontSize: 16,
-                lineHeight: 1.85,
-                color: "#555",
-                paddingBottom: 8,
-              }}
+              className="text-lg md:text-xl leading-relaxed text-[#555] lg:pt-6"
             >
               End-to-end software solutions engineered for scale — from initial concept to long-term evolution. We don’t just develop software, we build systems designed to perform, adapt, and last.
             </motion.p>
@@ -276,17 +157,15 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Service cards — alternating layout */}
-      <div
-        style={{ maxWidth: 1400, margin: "0 auto", padding: "0 80px" }}
-        className="px-6 md:px-16 lg:px-24"
-      >
-        {services.map((s, i) => (
-          <ServiceCard key={s.id} service={s} index={i} />
-        ))}
-        {/* Bottom border to close the grid */}
-        <div style={{ borderTop: "1px solid #ddd9d3" }} />
-      </div>
+      {/* Service Grid Section */}
+      <section className="px-6 md:px-12 lg:px-24 pb-24 md:pb-40">
+        <div className="max-w-[1400px] mx-auto">
+          {services.map((s, i) => (
+            <ServiceCard key={s.id} service={s} index={i} />
+          ))}
+          <div className="border-t border-[#ddd9d3]" />
+        </div>
+      </section>
     </div>
   );
 }
