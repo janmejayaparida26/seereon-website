@@ -62,8 +62,8 @@ const MainFooter = () => {
   ];
 
   const socialLinks = [
-    { key: "f", icon: <Facebook size={20} />, href: "#", label: "Facebook" },
-    { key: "in", icon: <Linkedin size={20} />, href: "#", label: "LinkedIn" },
+    { key: "f", icon: <Facebook size={20} />, href: "https://www.facebook.com/seereonconsultingservices", label: "Facebook" },
+    { key: "in", icon: <Linkedin size={20} />, href: "https://www.linkedin.com/company/seereon-consulting-it-services/?viewAsMember=true", label: "LinkedIn" },
     { 
       key: "x", 
       icon: (
@@ -71,10 +71,10 @@ const MainFooter = () => {
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       ), 
-      href: "#", 
+      href: "https://x.com/Seereon2025", 
       label: "X" 
     },
-    { key: "ig", icon: <Instagram size={20} />, href: "#", label: "Instagram" },
+    { key: "ig", icon: <Instagram size={20} />, href: "https://www.instagram.com/seereon/", label: "Instagram" },
   ];
 
   const exploreLinks = [
