@@ -36,7 +36,7 @@ const CultureAbout = () => {
           className="relative z-10 flex flex-col items-center px-4"
           style={{ opacity }}
         >
-          <h1 className="text-white text-5xl sm:text-7xl lg:text-8xl xl:text-7xl font-['Arimo',sans-serif] font-bold text-center tracking-tighter select-none">
+          <h1 className="text-white text-5xl sm:text-7xl lg:text-8xl xl:text-8xl font-['Arimo',sans-serif] font-bold text-center tracking-tighter select-none">
             About Us
           </h1>
           
