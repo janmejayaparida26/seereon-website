@@ -1,5 +1,5 @@
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 
 export default function CareerBanner() {
   const ref = useRef(null);
@@ -9,40 +9,45 @@ export default function CareerBanner() {
     offset: ["start end", "end start"],
   });
 
-  // Parallax effects
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  // Parallax effects optimized for smooth transitions
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const opacity = useTransform(scrollYProgress, [0.4, 0.7], [1, 0.4]);
 
   return (
-    /* Fix: Changed bg to black and ensured mt-0 to eliminate the top gap */
-    <section className="px-0 py-0 mt-0 bg-black overflow-hidden">
-
+    <section className="relative w-full overflow-hidden bg-black mt-0">
       <div
         ref={ref}
-        className="relative w-full h-[420px] overflow-hidden flex items-center justify-center"
+        /* Responsive Heights: Consistent with Service, About, and Work banners */
+        className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden flex items-center justify-center"
       >
-
-        {/* Fix: Increased height and scale to provide coverage during parallax motion */}
+        {/* Background Image - Career-related office/collaboration scene */}
         <motion.img
-          style={{ y: imageY, scale: 1.1 }}
-          src="https://plus.unsplash.com/premium_photo-1769788976249-9f0b048db31a?q=80&w=1482&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Contact"
-          className="absolute inset-0 w-full h-[130%] object-cover pointer-events-none"
+          style={{ y: imageY, scale: 1.15 }}
+          src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fENhcmVlcnxlbnwwfHwwfHx8Mg%3D%3D"
+          alt="Careers at Seereon"
+          className="absolute inset-0 w-full h-[140%] object-cover pointer-events-none"
         />
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        {/* Dark Overlay for consistent text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80"></div>
 
-        {/* Fix: Merged textY and fontSize into a single style object to avoid Vite errors */}
-        <motion.h1
-          style={{ fontSize: "clamp(40px, 8vw, 90px)" }}
-          className="relative z-10 text-white font-['Arimo',sans-serif] font-medium text-center"
+        {/* Fluid Typography and Content Container */}
+        <motion.div 
+          className="relative z-10 flex flex-col items-center px-4"
+          style={{ opacity }}
         >
-          Career
-        </motion.h1>
-
+          <h1 className="text-white text-5xl sm:text-7xl lg:text-8xl xl:text-8xl font-['Arimo',sans-serif] font-bold text-center tracking-tighter select-none">
+            Career
+          </h1>
+          
+          {/* Breadcrumb indicator with brand gold dot */}
+          {/* <div className="mt-4 flex items-center gap-3 text-white/50 text-[10px] sm:text-xs uppercase tracking-[0.3em] font-bold">
+            <span className="hover:text-white transition-colors cursor-pointer">Home</span>
+            <span className="w-1 h-1 rounded-full bg-[#dbb34e]"></span>
+            <span className="text-white">Career</span>
+          </div> */}
+        </motion.div>
       </div>
-
     </section>
   );
 }
