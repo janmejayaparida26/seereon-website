@@ -9,47 +9,44 @@ const CultureAbout = () => {
     offset: ["start end", "end start"],
   });
 
-  // Parallax effects: Subtle movement for a premium feel
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  // Parallax effects optimized for smooth transitions
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const opacity = useTransform(scrollYProgress, [0.4, 0.7], [1, 0.4]);
 
   return (
-    <section className="relative w-full overflow-hidden bg-black">
+    <section className="relative w-full overflow-hidden bg-black mt-0">
       <div
         ref={ref}
-        /* Mobile height is slightly shorter (350px) to keep the heading in view */
-        className="relative w-full h-[350px] md:h-[420px] overflow-hidden flex items-center justify-center"
+        /* Responsive Heights based on the ServiceBanner layout */
+        className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden flex items-center justify-center"
       >
-        {/* Background Image */}
+        {/* Background Image - Scale and height adjusted for parallax coverage */}
         <motion.img
-          style={{ y: imageY, scale: 1.1 }}
+          style={{ y: imageY, scale: 1.15 }}
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
           alt="Our Office Culture"
-          className="absolute inset-0 w-full h-[130%] object-cover pointer-events-none"
+          className="absolute inset-0 w-full h-[140%] object-cover pointer-events-none"
         />
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70"></div>
+        {/* Dark Overlay for consistent text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/80"></div>
 
-        {/* Center Text Container */}
-        <div className="relative z-10 flex flex-col items-center px-6">
-          <motion.h1
-            className="text-white text-[90px] font-['Arimo',sans-serif] font-medium text-center select-none"
-            style={{}}
-          >
+        {/* Fluid Typography and Content Container */}
+        <motion.div 
+          className="relative z-10 flex flex-col items-center px-4"
+          style={{ opacity }}
+        >
+          <h1 className="text-white text-5xl sm:text-7xl lg:text-8xl xl:text-7xl font-['Arimo',sans-serif] font-bold text-center tracking-tighter select-none">
             About Us
-          </motion.h1>
+          </h1>
           
-          {/* Breadcrumb indicator - Optional but looks great on mobile when centered */}
-          {/* <motion.div 
-            style={{ y: textY }}
-            className="mt-4 flex items-center gap-2 text-white/60 text-[10px] md:text-sm uppercase tracking-[0.2em] font-medium"
-          >
-            <span>Home</span>
-            <span className="w-1 h-1 rounded-full bg-white/40"></span>
+          {/* Breadcrumb indicator matching the brand style */}
+          {/* <div className="mt-4 flex items-center gap-3 text-white/50 text-[10px] sm:text-xs uppercase tracking-[0.3em] font-bold">
+            <span className="hover:text-white transition-colors cursor-pointer">Home</span>
+            <span className="w-1 h-1 rounded-full bg-[#dbb34e]"></span>
             <span className="text-white">About Us</span>
-          </motion.div> */}
-        </div>
+          </div> */}
+        </motion.div>
       </div>
     </section>
   );
