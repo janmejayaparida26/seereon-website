@@ -1,7 +1,7 @@
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 
-export default function CultureSection() {
+export default function ContactBanner() {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -9,39 +9,45 @@ export default function CultureSection() {
     offset: ["start end", "end start"],
   });
 
-  // Parallax effects
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  // Parallax effects optimized for smooth transitions
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const opacity = useTransform(scrollYProgress, [0.4, 0.7], [1, 0.4]);
 
   return (
-    <section className="px-0 py-0 mt-0 bg-[#f0f0f0]">
-
+    <section className="relative w-full overflow-hidden bg-black mt-0">
       <div
         ref={ref}
-        className="relative w-full h-[420px] overflow-hidden"
+        /* Responsive Heights: Consistent with Service, About, and Work banners */
+        className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden flex items-center justify-center"
       >
-
-        {/* Background Image */}
+        {/* Background Image - Clean, professional contact/communication scene */}
         <motion.img
-          style={{ y: imageY }}
-          src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Contact"
-          className="absolute top-[-15%] inset-0 w-full h-[120%] object-cover"
+          style={{ y: imageY, scale: 1.15 }}
+          src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=2074&auto=format&fit=crop"
+          alt="Contact Seereon"
+          className="absolute inset-0 w-full h-[140%] object-cover pointer-events-none"
         />
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        {/* Dark Overlay for consistent text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80"></div>
 
-        {/* Center Text */}
-        <motion.h1
-          style={{}}
-          className="absolute inset-0 flex items-center justify-center text-white text-[90px] font-medium"
+        {/* Fluid Typography and Content Container */}
+        <motion.div 
+          className="relative z-10 flex flex-col items-center px-4"
+          style={{ opacity }}
         >
-          Contact
-        </motion.h1>
-
+          <h1 className="text-white text-5xl sm:text-7xl lg:text-8xl xl:text-8xl font-['Arimo',sans-serif] font-bold text-center tracking-tighter select-none">
+            Contact
+          </h1>
+          
+          {/* Breadcrumb indicator with brand gold dot */}
+          {/* <div className="mt-4 flex items-center gap-3 text-white/50 text-[10px] sm:text-xs uppercase tracking-[0.3em] font-bold">
+            <span className="hover:text-white transition-colors cursor-pointer">Home</span>
+            <span className="w-1 h-1 rounded-full bg-[#dbb34e]"></span>
+            <span className="text-white">Contact</span>
+          </div> */}
+        </motion.div>
       </div>
-
     </section>
   );
 }
