@@ -12,6 +12,8 @@ import {
 import LatestWorkSection from "../../components/PortfolioSection";
 import OurTechstack from "../../pages/work/OurTechstack";
 import ScheduleCall from "../../components/ScheduleCall";
+import ContactCTA from "../../components/ContactCTA";
+import Footer from "../../components/Footer";
 // ─── How It Works Data ────────────────────────────────────────────────────────
 const steps = [
   {
@@ -339,6 +341,12 @@ const CustomSoftwareDevelopment = () => {
 
       {/* ---ScheduleCall--- */}
       <ScheduleCall />
+
+      {/* ---ContactCTA--- */}
+      <ContactCTA />
+
+      {/* ---Footer--- */}
+      <Footer />
     </div>
   );
 };
