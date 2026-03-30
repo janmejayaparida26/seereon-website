@@ -176,7 +176,7 @@ const WhyChooseUsSection = () => {
   return (
     <section className="py-14 sm:pt-40 px-6 lg:px-0 max-w-7xl mx-auto">
       {/* Heading */}
-      <h2 className="text-[#0f172a] text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-['Arimo',sans-serif] font-semibold text-center mb-12 sm:mb-16 leading-tight">
+      <h2 className="text-[#0f172a] text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-['Arimo',sans-serif] font-semibold text-center mb-12 sm:mb-30 leading-tight">
         <ScrollFillText>Why Choose Seereon?</ScrollFillText>
       </h2>
 
