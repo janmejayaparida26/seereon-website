@@ -12,7 +12,7 @@ import Career from "./pages/career/Career";
 import AboutUs from "./pages/aboutus/AboutUs";
 import TeamPage from "./pages/teams/TeamPage";
 import Services from "./pages/services/ServicesPage";
-import ServiceInner from "./pages/services/ServiceInner";
+// import ServiceInner from "./pages/services/ServiceInner";
 import Work from "./pages/work/Work";
 import Product from "./pages/product/Product";
 function App() {
