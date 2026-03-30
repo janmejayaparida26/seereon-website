@@ -72,16 +72,94 @@ const steps = [
   },
 ];
 
+// ─── FAQ Data ─────────────────────────────────────────────────────────────────
+const faqs = [
+  {
+    question: "Q1. What is the hiring process at Seereon?",
+    answer:
+      "Our hiring process typically includes an initial screening, a technical assessment, and a final discussion to evaluate your problem-solving approach, technical skills, and cultural fit.",
+  },
+  {
+    question: "Q2. Do you offer internships or trainee programs?",
+    answer:
+      "Yes, we offer internship and trainee opportunities for freshers who are eager to learn, build, and grow in a real engineering environment.",
+  },
+  {
+    question: "Q3. What technologies do you work with?",
+    answer:
+      "We work with modern tech stacks including web development frameworks, backend systems, cloud technologies, and enterprise solutions like SAP.",
+  },
+  {
+    question: "Q4. Is prior experience mandatory to apply?",
+    answer:
+      "Not always. While some roles require experience, we also hire freshers and trainees who demonstrate strong fundamentals and a willingness to learn.",
+  },
+  {
+    question: "Q5. What kind of projects will I work on?",
+    answer:
+      "You'll work on scalable software systems, business applications, and performance-driven platforms designed to solve real-world challenges.",
+  },
+  {
+    question: "Q6. Do you provide training or mentorship?",
+    answer:
+      "Yes, we provide hands-on training, guidance from experienced developers, and continuous learning opportunities to help you grow.",
+  },
+];
+
+// ─── FAQ Item ─────────────────────────────────────────────────────────────────
+const FAQItem = ({ faq }) => {
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white p-6 lg:p-8 flex flex-col gap-3">
+      <h3 className="text-[#0f172a] text-sm sm:text-base lg:text-base font-['Arimo',sans-serif] font-bold leading-snug">
+        {faq.question}
+      </h3>
+      <p className="text-slate-500 leading-relaxed font-['Arimo',sans-serif] text-sm lg:text-sm">
+        {faq.answer}
+      </p>
+    </div>
+  );
+};
+
+// ─── FAQ Section ──────────────────────────────────────────────────────────────
+const FAQSection = () => {
+  const leftFaqs = faqs.filter((_, i) => i % 2 === 0);
+  const rightFaqs = faqs.filter((_, i) => i % 2 !== 0);
+
+  return (
+    <section className="py-16 sm:py-5 px-6 lg:px-0 max-w-6xl mx-auto">
+      {/* Heading */}
+      <h2 className="text-[#0f172a] text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-['Arimo',sans-serif] font-semibold text-center mb-12 sm:mb-16 leading-tight">
+        Frequently asked questions?
+      </h2>
+
+      {/* Two-column grid on md+, single column on mobile */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 items-start">
+        {/* Left column */}
+        <div className="flex flex-col gap-4 lg:gap-6">
+          {leftFaqs.map((faq, i) => (
+            <FAQItem key={i * 2} faq={faq} />
+          ))}
+        </div>
+
+        {/* Right column */}
+        <div className="flex flex-col gap-4 lg:gap-6">
+          {rightFaqs.map((faq, i) => (
+            <FAQItem key={i * 2 + 1} faq={faq} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ─── How It Works Section ─────────────────────────────────────────────────────
 const HowItWorksSection = () => {
   return (
     <section className="py-0 sm:pt-30 px-6 lg:px-0 max-w-7xl mx-auto">
-      {/* Heading */}
       <h2 className="text-black text-3xl sm:text-4xl lg:text-7xl font-['Arimo',sans-serif] font-semibold mb-16 text-left">
         How it works
       </h2>
 
-      {/* Steps */}
       <div className="flex flex-col gap-6">
         {steps.map((step, index) => (
           <StepCard key={index} step={step} index={index} />
@@ -95,23 +173,17 @@ const HowItWorksSection = () => {
 const StepCard = ({ step, index }) => {
   return (
     <div className="relative flex flex-col sm:flex-row gap-0 rounded-2xl overflow-hidden border border-slate-100 shadow-sm bg-white">
-      {/* Left accent line + arrow */}
       <div className="flex flex-row sm:flex-col items-center sm:items-start gap-3 sm:gap-0 px-6 pt-8 sm:pt-10 pb-4 sm:pb-10 sm:w-20 lg:w-24 shrink-0">
-        {/* Pink circle with arrow */}
         <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#017712] flex items-center justify-center">
           <ArrowRight className="w-4 h-4 text-white" />
         </div>
-        {/* Vertical connector line — only visible on sm+ screens, not for last item */}
         {index < steps.length - 1 && (
           <div className="hidden sm:block w-px flex-1 bg-slate-200 mt-3 ml-[17px]" />
         )}
       </div>
 
-      {/* Card Body */}
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 px-6 sm:pl-0 sm:pr-10 pb-10 pt-0 sm:pt-10 flex-1">
-        {/* Left: title + description */}
         <div className="flex-1 min-w-0">
-          {/* Step number badge */}
           <span className="inline-block text-xs font-semibold tracking-widest text-[#017712] uppercase mb-3 font-['Arimo',sans-serif]">
             Step {step.number}
           </span>
@@ -123,7 +195,6 @@ const StepCard = ({ step, index }) => {
           </p>
         </div>
 
-        {/* Right: deliverables */}
         <div className="lg:w-80 shrink-0">
           <p className="text-[#0f172a] font-['Arimo',sans-serif] font-semibold text-sm mb-4">
             Phase deliverables:
@@ -260,8 +331,11 @@ const CustomSoftwareDevelopment = () => {
       {/* ── How It Works ── */}
       <HowItWorksSection />
 
-      {/* ---Tech stack--- */ }
+      {/* ── Tech Stack ── */}
       <OurTechstack />
+
+      {/* ── FAQ ── */}
+      <FAQSection />
     </div>
   );
 };
