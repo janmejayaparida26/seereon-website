@@ -6,6 +6,7 @@ export const services = [
     tagline: "Built for your exact business logic",
     description:
       "Tailor-made systems engineered around how your business actually works — not how an off-the-shelf product thinks it should.",
+    slug: "/services/custom-software-development",
     color: "#1a1a2e",
     accent: "#4f8ef7",
     icon: "code",
