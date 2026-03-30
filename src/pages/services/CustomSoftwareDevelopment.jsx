@@ -75,7 +75,7 @@ const steps = [
 // ─── How It Works Section ─────────────────────────────────────────────────────
 const HowItWorksSection = () => {
   return (
-    <section className="py-16 sm:py-24 px-6 lg:px-0 max-w-7xl mx-auto">
+    <section className="py-0 sm:pt-30 px-6 lg:px-0 max-w-7xl mx-auto">
       {/* Heading */}
       <h2 className="text-black text-3xl sm:text-4xl lg:text-7xl font-['Arimo',sans-serif] font-semibold mb-16 text-left">
         How it works
