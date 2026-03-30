@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import LatestWorkSection from "../../components/PortfolioSection";
 import OurTechstack from "../../pages/work/OurTechstack";
-
+import ScheduleCall from "../../components/ScheduleCall";
 // ─── How It Works Data ────────────────────────────────────────────────────────
 const steps = [
   {
@@ -336,6 +336,9 @@ const CustomSoftwareDevelopment = () => {
 
       {/* ── FAQ ── */}
       <FAQSection />
+
+      {/* ---ScheduleCall--- */}
+      <ScheduleCall />
     </div>
   );
 };
