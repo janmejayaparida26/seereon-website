@@ -414,7 +414,7 @@ const MobileAppDevelopment = () => {
             style={{ opacity }}
           >
             <h1 className="text-white text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-['Arimo',sans-serif] font-bold text-center tracking-tighter select-none max-w-4xl leading-tight">
-              Custom Software
+              Mobile App
             </h1>
           </motion.div>
         </div>
