@@ -9,12 +9,17 @@ import {
   Wallet,
   Crown,
   ArrowRight,
+  Users,
+  Handshake,
+  Lightbulb,
+  TrendingUp,
 } from "lucide-react";
 import LatestWorkSection from "../../components/PortfolioSection";
 import OurTechstack from "../../pages/work/OurTechstack";
 import ScheduleCall from "../../components/ScheduleCall";
 import ContactCTA from "../../components/ContactCTA";
 import Footer from "../../components/Footer";
+
 // ─── How It Works Data ────────────────────────────────────────────────────────
 const steps = [
   {
@@ -109,6 +114,124 @@ const faqs = [
   },
 ];
 
+// ─── Why Choose Us Data ───────────────────────────────────────────────────────
+const whyChooseReasons = [
+  {
+    icon: <Users className="w-5 h-5 text-[#6366f1]" />,
+    iconBg: "bg-[#eef2ff]",
+    title: "A Co-Founder Mindset, Rooted in Startup Experience",
+    description: (
+      <>
+        Our <strong>team of ex-startup founders</strong> brings a co-founder
+        mentality, having faced and overcome the same challenges you face. With
+        hands-on experience building software products across various verticals,
+        we approach every project with agility, problem-solving, and a focus on
+        real-world impact.
+      </>
+    ),
+  },
+  {
+    icon: <Handshake className="w-5 h-5 text-[#6366f1]" />,
+    iconBg: "bg-[#eef2ff]",
+    title: "An Extension of Your Team",
+    description: (
+      <>
+        We're not just a service provider — we're your extended team of
+        co-founders. Our blend of tech expertise and entrepreneurial insight
+        brings a unique perspective. We're here to do more than build your
+        product; we're committed to challenging your vision, pushing boundaries
+        and driving your success —{" "}
+        <strong>because when you succeed, we succeed.</strong>
+      </>
+    ),
+  },
+  {
+    icon: <Lightbulb className="w-5 h-5 text-[#6366f1]" />,
+    iconBg: "bg-[#eef2ff]",
+    title: "End-to-End Ownership & Transparency",
+    description: (
+      <>
+        From ideation to deployment, we own every phase of your project with
+        full transparency. You'll always know where your product stands, what's
+        being built, and why — no surprises, no black boxes.
+      </>
+    ),
+  },
+  {
+    icon: <TrendingUp className="w-5 h-5 text-[#6366f1]" />,
+    iconBg: "bg-[#eef2ff]",
+    title: "Built to Scale With Your Business",
+    description: (
+      <>
+        We architect solutions with growth in mind. Whether you're a startup
+        launching an MVP or a scaling enterprise, our custom software is
+        engineered to evolve alongside your business without costly rewrites.
+      </>
+    ),
+  },
+];
+
+// ─── Why Choose Us Section ────────────────────────────────────────────────────
+const WhyChooseUsSection = () => {
+  return (
+    <section className="py-14 sm:pt-40 px-6 lg:px-0 max-w-7xl mx-auto">
+      {/* Heading */}
+      <h2 className="text-[#0f172a] text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-['Arimo',sans-serif] font-semibold text-center mb-12 sm:mb-16 leading-tight">
+        <ScrollFillText>Why Choose Seereon?</ScrollFillText>
+      </h2>
+
+      {/* Two-column layout: cards left, image right */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        {/* Left: reason cards */}
+        <div className="flex flex-col gap-5">
+          {whyChooseReasons.map((reason, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 lg:p-8 flex flex-col gap-3"
+            >
+              <div className="flex items-center gap-3">
+                <div
+                  className={`${reason.iconBg} w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0`}
+                >
+                  {reason.icon}
+                </div>
+                <h3 className="text-[#0f172a] text-base lg:text-lg font-['Arimo',sans-serif] font-bold leading-snug">
+                  {reason.title}
+                </h3>
+              </div>
+              <p className="text-slate-600 leading-relaxed font-['Arimo',sans-serif] text-sm lg:text-base">
+                {reason.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Right: sticky infographic image */}
+        <div className="hidden lg:block">
+          <div className="sticky top-24">
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&auto=format&fit=crop&q=80"
+                alt="Software development team collaboration"
+                className="w-full h-[620px] object-cover object-center"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile-only image (shows below cards) */}
+        <div className="block lg:hidden rounded-3xl overflow-hidden shadow-xl">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&auto=format&fit=crop&q=80"
+            alt="Software development team collaboration"
+            className="w-full h-64 sm:h-80 object-cover object-center"
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ─── FAQ Item ─────────────────────────────────────────────────────────────────
 const FAQItem = ({ faq }) => {
   return (
@@ -129,22 +252,17 @@ const FAQSection = () => {
   const rightFaqs = faqs.filter((_, i) => i % 2 !== 0);
 
   return (
-    <section className="py-16 sm:py-5 px-6 lg:px-0 max-w-6xl mx-auto">
-      {/* Heading */}
+    <section className="py-0 sm:py-5 px-6 lg:px-0 max-w-6xl mx-auto">
       <h2 className="text-[#0f172a] text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-['Arimo',sans-serif] font-semibold text-center mb-12 sm:mb-16 leading-tight">
         <ScrollFillText>Frequently asked questions?</ScrollFillText>
       </h2>
 
-      {/* Two-column grid on md+, single column on mobile */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 items-start">
-        {/* Left column */}
         <div className="flex flex-col gap-4 lg:gap-6">
           {leftFaqs.map((faq, i) => (
             <FAQItem key={i * 2} faq={faq} />
           ))}
         </div>
-
-        {/* Right column */}
         <div className="flex flex-col gap-4 lg:gap-6">
           {rightFaqs.map((faq, i) => (
             <FAQItem key={i * 2 + 1} faq={faq} />
@@ -158,9 +276,9 @@ const FAQSection = () => {
 // ─── How It Works Section ─────────────────────────────────────────────────────
 const HowItWorksSection = () => {
   return (
-    <section className="py-0 sm:pt-30 px-6 lg:px-0 max-w-7xl mx-auto">
+    <section className="py-20 sm:pt-30 px-6 lg:px-0 max-w-7xl mx-auto">
       <h2 className="text-black text-3xl sm:text-4xl lg:text-7xl font-['Arimo',sans-serif] font-semibold mb-16 text-left">
-       <ScrollFillText>How it woks</ScrollFillText>
+        <ScrollFillText>How it works</ScrollFillText>
       </h2>
 
       <div className="flex flex-col gap-6">
@@ -334,19 +452,22 @@ const CustomSoftwareDevelopment = () => {
       {/* ── How It Works ── */}
       <HowItWorksSection />
 
+      {/* ── Why Choose Us ── */}
+      <WhyChooseUsSection />
+
       {/* ── Tech Stack ── */}
       <OurTechstack />
 
       {/* ── FAQ ── */}
       <FAQSection />
 
-      {/* ---ScheduleCall--- */}
+      {/* ── Schedule Call ── */}
       <ScheduleCall />
 
-      {/* ---ContactCTA--- */}
+      {/* ── Contact CTA ── */}
       <ContactCTA />
 
-      {/* ---Footer--- */}
+      {/* ── Footer ── */}
       <Footer />
     </div>
   );
