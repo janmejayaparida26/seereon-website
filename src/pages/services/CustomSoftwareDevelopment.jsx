@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { ScrollFillText } from "../../components/ScrollFillText";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ShieldCheck,
@@ -131,7 +132,7 @@ const FAQSection = () => {
     <section className="py-16 sm:py-5 px-6 lg:px-0 max-w-6xl mx-auto">
       {/* Heading */}
       <h2 className="text-[#0f172a] text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-['Arimo',sans-serif] font-semibold text-center mb-12 sm:mb-16 leading-tight">
-        Frequently asked questions?
+        <ScrollFillText>Frequently asked questions?</ScrollFillText>
       </h2>
 
       {/* Two-column grid on md+, single column on mobile */}
@@ -159,7 +160,7 @@ const HowItWorksSection = () => {
   return (
     <section className="py-0 sm:pt-30 px-6 lg:px-0 max-w-7xl mx-auto">
       <h2 className="text-black text-3xl sm:text-4xl lg:text-7xl font-['Arimo',sans-serif] font-semibold mb-16 text-left">
-        How it works
+       <ScrollFillText>How it woks</ScrollFillText>
       </h2>
 
       <div className="flex flex-col gap-6">
@@ -304,7 +305,7 @@ const CustomSoftwareDevelopment = () => {
       {/* ── Key Benefits ── */}
       <section className="py-16 px-6 sm:py-24 lg:px-0 max-w-7xl mx-auto">
         <h2 className="text-black text-3xl sm:text-4xl lg:text-7xl font-['Arimo',sans-serif] font-semibold mb-16 text-left">
-          Key Benefits
+          <ScrollFillText>Key Benefits</ScrollFillText>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
