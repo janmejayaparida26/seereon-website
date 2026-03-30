@@ -13,6 +13,7 @@ import AboutUs from "./pages/aboutus/AboutUs";
 import TeamPage from "./pages/teams/TeamPage";
 import Services from "./pages/services/ServicesPage";
 import ServiceInner from "./pages/services/ServiceInner";
+import CustomSoftwareDevelopment from "./pages/services/CustomSoftwareDevelopment";
 import Work from "./pages/work/Work";
 import Product from "./pages/product/Product";
 function App() {
@@ -54,6 +55,10 @@ function App() {
         {/* <Route path="/teams" element={<TeamPage />} /> */}
         <Route path="/services" element={<Services />} />
         <Route path="/services/:id" element={<ServiceInner />} />
+        <Route
+        path="/services/custom-software-development"
+        element={<CustomSoftwareDevelopment />}
+/>
         <Route path="/work" element={<Work />} />
         <Route path="/product" element={<Product />} />
       </Routes>
