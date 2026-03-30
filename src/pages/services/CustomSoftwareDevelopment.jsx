@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ShieldCheck, Zap, BarChart3, Layers, Wallet, Crown } from "lucide-react"; // Using Lucide for the icons
-
+import LatestWorkSection from "../../components/PortfolioSection";
 const CustomSoftwareDevelopment = () => {
   const bannerRef = useRef(null);
 
@@ -105,6 +105,7 @@ const CustomSoftwareDevelopment = () => {
           ))}
         </div>
       </section>
+      <LatestWorkSection />
     </div>
   );
 };
