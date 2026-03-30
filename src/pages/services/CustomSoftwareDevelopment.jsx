@@ -95,10 +95,10 @@ const CustomSoftwareDevelopment = () => {
               <div className={`${benefit.bgColor} p-3 rounded-lg mb-6`}>
                 {benefit.icon}
               </div>
-              <h3 className="text-[#0f172a] text-xl lg:text-2xl font-bold mb-4">
+              <h3 className="text-[#0f172a] text-xl lg:text-2xl font-['Arimo',sans-serif] font-bold mb-4">
                 {benefit.title}
               </h3>
-              <p className="text-slate-600 leading-relaxed text-sm lg:text-base">
+              <p className="text-slate-600 leading-relaxed font-['Arimo',sans-serif] text-sm lg:text-base">
                 {benefit.description}
               </p>
             </div>
