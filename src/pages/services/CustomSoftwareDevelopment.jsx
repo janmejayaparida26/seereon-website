@@ -10,6 +10,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import LatestWorkSection from "../../components/PortfolioSection";
+import OurTechstack from "../../pages/work/OurTechstack";
 
 // ─── How It Works Data ────────────────────────────────────────────────────────
 const steps = [
@@ -258,6 +259,9 @@ const CustomSoftwareDevelopment = () => {
 
       {/* ── How It Works ── */}
       <HowItWorksSection />
+
+      {/* ---Tech stack--- */ }
+      <OurTechstack />
     </div>
   );
 };
