@@ -20,7 +20,7 @@ const NAV_LINKS = [
     href: "/services",
     isMega: true,
     subLinks: [
-      { name: "Custom Software Development", desc: "Lean frameworks applied to your vision.", href: "/services/custom-software", icon: <Code size={20} />, color: "#3b82f6" },
+      { name: "Custom Software Development", desc: "Lean frameworks applied to your vision.", href: "/services/custom-software-development", icon: <Code size={20} />, color: "#3b82f6" },
       { name: "Mobile App Development", desc: "High-performance iOS and Android apps.", href: "/services/mobile-app", icon: <Smartphone size={20} />, color: "#a855f7" },
       { name: "Website Development", desc: "Scalable and lightning-fast web experiences.", href: "/services/website-development", icon: <Globe size={20} />, color: "#06b6d4" },
       { name: "MVP Builder", desc: "Go to market quickly with high quality.", href: "/services/mvp-builder", icon: <Target size={20} />, color: "#eab308" },
