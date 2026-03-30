@@ -68,7 +68,7 @@ const TechCard = ({ item }) => (
 
 export default function TechToolkit() {
   return (
-    <section className="py-45 px-6 bg-white overflow-hidden">
+    <section className="py-25 px-6 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* Header Section */}
