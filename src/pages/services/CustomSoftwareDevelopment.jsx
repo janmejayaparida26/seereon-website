@@ -82,7 +82,7 @@ const CustomSoftwareDevelopment = () => {
 
       {/* Key Benefits Section */}
       <section className="py-16 px-6 sm:py-34 lg:px-0 max-w-7xl mx-auto">
-        <h2 className="text-black text-3xl sm:text-4xl lg:text-7xl font-['Arimo',sans-serif] font-semibold mb-24 text-left">
+        <h2 className="text-black text-3xl sm:text-4xl lg:text-6xl font-['Arimo',sans-serif] font-semibold mb-24 text-left">
           Key Benefits
         </h2>
 
