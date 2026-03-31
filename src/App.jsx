@@ -17,6 +17,7 @@ import CustomSoftwareDevelopment from "./pages/services/CustomSoftwareDevelopmen
 import MobileAppDevelopment from "./pages/services/MobileAppDevelopment";
 import WebsiteDevelopment from "./pages/services/WebsiteDevelopment";
 import MVPBuilder from "./pages/services/MvpBuilder";
+import AIDevelopment from "./pages/services/AiDevelopment";
 import Work from "./pages/work/Work";
 import Product from "./pages/product/Product";
 function App() {
@@ -62,6 +63,7 @@ function App() {
         <Route path="/services/mobile-app-development" element={<MobileAppDevelopment />} />
         <Route path="/services/website-development" element={<WebsiteDevelopment />} />
         <Route path="/services/mvp-builder" element={<MVPBuilder />} />
+        <Route path="/services/ai-development" element={<AIDevelopment />} />
         <Route path="/work" element={<Work />} />
         <Route path="/product" element={<Product />} />
       </Routes>
