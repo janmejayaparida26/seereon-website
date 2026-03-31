@@ -24,6 +24,7 @@ export const services = [
     num: "02",
     title: "Mobile App Development",
     tagline: "iOS & Android apps users love",
+    slug: "/services/mobile-app-development",
     description:
       "From concept to App Store — we design and build performant, beautiful mobile experiences that your users keep coming back to.",
     color: "#0f2027",
@@ -43,6 +44,7 @@ export const services = [
     num: "03",
     title: "MVP Builder",
     tagline: "Ship fast. Validate faster.",
+      slug: "/services/mvp-builder",
     description:
       "We take your idea from whiteboard to working product in weeks — investor-ready, user-tested, and built to scale when you need it.",
     color: "#1a0a00",
@@ -62,6 +64,7 @@ export const services = [
     num: "04",
     title: "E-Commerce",
     tagline: "Storefronts built for growth",
+      slug: "/services/ecommerce",
     description:
       "High-converting, scalable e-commerce platforms — from custom builds to Shopify, we make buying feel effortless for your customers.",
     color: "#001a00",
@@ -80,6 +83,7 @@ export const services = [
     id: "ai-development",
     num: "05",
     title: "AI Development",
+      slug: "/services/ai-development",
     tagline: "Intelligent features, real-world impact",
     description:
       "We embed AI where it matters — LLM integrations, custom models, intelligent automation — turning data into decisions.",
@@ -100,6 +104,7 @@ export const services = [
     num: "06",
     title: "Website Development",
     tagline: "Fast, beautiful, built to convert",
+        slug: "/services/website-development",
     description:
       "Marketing sites, product landing pages, and corporate portals — engineered for speed, SEO, and the impression you want to make.",
     color: "#001020",

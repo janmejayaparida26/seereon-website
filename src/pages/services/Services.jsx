@@ -20,7 +20,7 @@ function ServiceCard({ service, index }) {
   return (
     <motion.div
       {...fadeUp(index * 0.1)}
-      onClick={() => navigate(s.slug)}
+     onClick={() => navigate(service.slug)}
       className="grid grid-cols-1 md:grid-cols-2 border-x border-t border-[#ddd9d3] cursor-pointer overflow-hidden relative group"
       whileHover="active"
       whileTap="active" // Triggers the "hover" effect on mobile tap

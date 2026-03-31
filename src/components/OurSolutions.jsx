@@ -5,7 +5,7 @@ import { ScrollFillText } from "./ScrollFillText";
 const sections = [
   {
     id: "01",
-    serviceId: "custom-software",
+     serviceId: "custom-software-development",
     title: "Custom Software Development",
     desc: "Design and development of tailored systems that align with your business workflows and operational needs. Scalable backend systems, API-driven architecture, Business process automation.",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&auto=format&fit=crop",
@@ -13,7 +13,7 @@ const sections = [
   },
   {
     id: "02",
-    serviceId: "mobile-app",
+     serviceId: "mobile-app-development",
     title: "Mobile App Development",
     desc: "High-performance mobile applications engineered for seamless user experience and scalability. Android & iOS applications, Optimized for large user bases, Secure and performance-driven.",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&auto=format&fit=crop",
@@ -21,7 +21,7 @@ const sections = [
   },
   {
     id: "03",
-    serviceId: "mvp-builder",
+       serviceId: "mvp-builder",
     title: "MVP Builder",
     desc: "We take your idea from whiteboard to working product in weeks — investor-ready, user-tested, and built to scale when you need it.",
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&auto=format&fit=crop",
@@ -29,7 +29,7 @@ const sections = [
   },
   {
     id: "04",
-    serviceId: "ecommerce",
+      serviceId: "ecommerce",
     title: "E-Commerce",
     desc: "High-converting, scalable e-commerce platforms — from custom builds to Shopify, we make buying feel effortless for your customers.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&auto=format&fit=crop",
