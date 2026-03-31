@@ -215,7 +215,7 @@ const WhyChooseUsSection = () => {
         {/* Desktop */}
         <div className="hidden lg:block">
           <ImagePanel
-            src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&auto=format&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njh8fEFpJTIwZGV2ZWxvcG1lbnR8ZW58MHx8MHx8fDI%3D"
             alt="AI engineers working on machine learning models and neural networks"
             badge="Data to Deployment"
             fromLeft={false}
@@ -226,7 +226,7 @@ const WhyChooseUsSection = () => {
         {/* Mobile row 1 */}
         <div className="block lg:hidden relative rounded-3xl overflow-hidden shadow-xl">
           <img
-            src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&auto=format&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njh8fEFpJTIwZGV2ZWxvcG1lbnR8ZW58MHx8MHx8fDI%3D"
             alt="AI engineers working on machine learning models"
             className="w-full h-64 object-cover object-center"
           />
@@ -247,7 +247,7 @@ const WhyChooseUsSection = () => {
         {/* Desktop */}
         <div className="hidden lg:block">
           <ImagePanel
-            src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=900&auto=format&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1734597949889-f8e2ec87c8ea?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM4fHxBaSUyMGRldmVsb3BtZW50fGVufDB8fDB8fHwy"
             alt="AI model training and data visualisation on large monitors"
             badge="Responsible AI"
             fromLeft={true}
@@ -264,7 +264,7 @@ const WhyChooseUsSection = () => {
         {/* Mobile row 2 */}
         <div className="block lg:hidden relative rounded-3xl overflow-hidden shadow-xl">
           <img
-            src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=900&auto=format&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1734597949889-f8e2ec87c8ea?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM4fHxBaSUyMGRldmVsb3BtZW50fGVufDB8fDB8fHwy"
             alt="AI model training and data visualisation"
             className="w-full h-64 object-cover object-center"
           />
@@ -372,7 +372,7 @@ const AIDevelopment = () => {
         <div ref={bannerRef} className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden flex items-center justify-center">
           <motion.img
             style={{ y: imageY, scale: 1.15 }}
-            src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1756908992154-c8a89f5e517f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzF8fEFpJTIwZGV2ZWxvcG1lbnR8ZW58MHx8MHx8fDI%3D"
             alt="AI Development"
             className="absolute inset-0 w-full h-[140%] object-cover pointer-events-none"
           />
