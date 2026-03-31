@@ -16,6 +16,7 @@ import ServiceInner from "./pages/services/ServiceInner";
 import CustomSoftwareDevelopment from "./pages/services/CustomSoftwareDevelopment";
 import MobileAppDevelopment from "./pages/services/MobileAppDevelopment";
 import WebsiteDevelopment from "./pages/services/WebsiteDevelopment";
+import MVPBuilder from "./pages/services/MvpBuilder";
 import Work from "./pages/work/Work";
 import Product from "./pages/product/Product";
 function App() {
@@ -60,6 +61,7 @@ function App() {
         <Route path="/services/custom-software-development" element={<CustomSoftwareDevelopment />} />
         <Route path="/services/mobile-app-development" element={<MobileAppDevelopment />} />
         <Route path="/services/website-development" element={<WebsiteDevelopment />} />
+        <Route path="/services/mvp-builder" element={<MVPBuilder />} />
         <Route path="/work" element={<Work />} />
         <Route path="/product" element={<Product />} />
       </Routes>
