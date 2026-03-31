@@ -53,8 +53,8 @@ const BottomReveal = () => {
  */
 const MainFooter = () => {
   const serviceLinks = [
-    { label: "Custom Software Development", href: "/services/custom-software" },
-    { label: "Mobile Application Development", href: "/services/mobile-app" },
+    { label: "Custom Software Development", href: "/services/custom-software-development" },
+    { label: "Mobile Application Development", href: "/services/mobile-app-development" },
     { label: "MVP Builder", href: "/services/mvp-builder" },
     { label: "E-Commerce", href: "/services/ecommerce" },
     { label: "AI Development", href: "/services/ai-development" },
