@@ -15,6 +15,7 @@ import Services from "./pages/services/ServicesPage";
 import ServiceInner from "./pages/services/ServiceInner";
 import CustomSoftwareDevelopment from "./pages/services/CustomSoftwareDevelopment";
 import MobileAppDevelopment from "./pages/services/MobileAppDevelopment";
+import WebsiteDevelopment from "./pages/services/WebsiteDevelopment";
 import Work from "./pages/work/Work";
 import Product from "./pages/product/Product";
 function App() {
@@ -58,6 +59,7 @@ function App() {
         <Route path="/services/:id" element={<ServiceInner />} />
         <Route path="/services/custom-software-development" element={<CustomSoftwareDevelopment />} />
         <Route path="/services/mobile-app-development" element={<MobileAppDevelopment />} />
+        <Route path="/services/website-development" element={<WebsiteDevelopment />} />
         <Route path="/work" element={<Work />} />
         <Route path="/product" element={<Product />} />
       </Routes>
