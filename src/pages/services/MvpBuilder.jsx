@@ -372,7 +372,7 @@ const MVPBuilder = () => {
         <div ref={bannerRef} className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden flex items-center justify-center">
           <motion.img
             style={{ y: imageY, scale: 1.15 }}
-            src="https://images.unsplash.com/photo-1531498860502-7c67cf519b9e?w=1600&auto=format&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&auto=format&fit=crop"
             alt="MVP Builder"
             className="absolute inset-0 w-full h-[140%] object-cover pointer-events-none"
           />
