@@ -403,8 +403,8 @@ const MobileAppDevelopment = () => {
         >
           <motion.img
             style={{ y: imageY, scale: 1.15 }}
-            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1600&auto=format&fit=crop&q=80"
-            alt="Custom Software Development"
+            src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bW9iaWxlJTIwYXBwJTIwZGV2ZWxvcG1lbnR8ZW58MHx8MHx8fDI%3D"
+            alt="Mobile App Development"
             className="absolute inset-0 w-full h-[140%] object-cover pointer-events-none"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80" />
