@@ -11,9 +11,16 @@ import CoFounder from "./CoFounder";
 import ScheduleCall from "../../components/ScheduleCall";
 import ContactCTA from "../../components/ContactCTA";
 
+
 const AboutUs = () => {
   return (
     <>
+    <Helmet>  {/* ← Helmet goes HERE, inside return */}
+        <title>About Us – Seereon</title>
+        <meta name="description" content="Learn about Seereon's team and mission." />
+        <link rel="canonical" href="https://seereon.co.in/aboutus" />
+      </Helmet>
+
       <CultureAbout />
       <FirstSectionabout />
       <SecondSectionabout />
