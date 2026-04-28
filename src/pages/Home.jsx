@@ -15,6 +15,25 @@ import Footer from '../components/Footer';
 import SolutionsHeading from '../components/SolutionsHeading';
 import ContactCTA from '../components/ContactCTA';
 
+import { Helmet } from 'react-helmet-async';
+
+export default function Home() {
+  return (
+    <>
+      <Helmet>
+        <title>SAP Consulting | Software Development | Mobile App Solutions – Seereon</title>
+        <meta name="description" content="Expert SAP consulting, custom software development, and mobile app solutions by Seereon." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://seereon.co.in/" />
+        <meta property="og:title" content="SAP Consulting | Software Development – Seereon" />
+        <meta property="og:description" content="Expert SAP consulting, custom software development and mobile app solutions by Seereon." />
+        <meta property="og:url" content="https://seereon.co.in/" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+    </>
+  );
+}
+
 function Home() {
   return (
     <div>
